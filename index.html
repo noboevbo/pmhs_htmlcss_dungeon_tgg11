@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMHS - HTML/CSS Dungeon</title>
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="css/nes.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Leiste oben -->
+  <div class="wrapper">
+    <header class="main-header">
+      <a class="left" href="#">PMHS - HTML/CSS Dungeon</a>
+      <span id="playerName" class="center">
+        Spielername nicht verfügbar.
+      </span>
+      <div class="right">
+        <i class="nes-icon coin is-small"></i>
+        <span id="playerGold">
+          0
+        </span>
+      </div>
+
+    </header>
+
+    <nav class="main-nav">
+      <ul id="exerciseList" class="nav flex-column">
+      </ul>
+    </nav>
+    <!-- Inhalt der Seite -->
+    <main class="content">
+      <section>
+        <h1 class="title" id="selectedExerciseName">Wähle ein Level aus der Navigation auf der linken Seite. Starte am besten mit dem Tutorial und gehe dann der Reihe nach vor!</h1>
+        <div class="nes-container is-rounded with-title">
+          <div class="title">Auftrag</div>
+          <div id="selectedExerciseInstructions"></div>
+        </div>
+      </section>
+      <section class="exercise-section">
+        <div class="nes-container is-rounded with-title">
+          <p class="title">Ergebnis</p>
+          <div class="exercise-container ">
+            <iframe id="selectedExercise" class="exercise-frame"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+    <aside class="side">
+      <h4>Status</h4>
+      <div id="exerciseResult">
+        <h4 id="exerciseResultHeader"></h4>
+        <ul id="exerciseResultMessageList" class="list-group">
+        </ul>
+      <div id="exerciseResultFooter"></div>
+      </div>
+    </aside>
+    </main>
+  </div>
+  <footer id="mainFooter" class="main-footer">
+    <div class="nes-container is-rounded is-dark main-footer-content">
+      <div id="exerciseTips" class="exercise-tips"></div>
+  </footer>
+  <div id="dialogWrapper"></div>
+
+
+  <script type="module" src="js/app/jsdungeon.js"></script>
+  <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+  <script src="js/esprima.js"></script>
+  <script src="js/estraverse.browser.js"></script>
+</body>
+
+</html>
