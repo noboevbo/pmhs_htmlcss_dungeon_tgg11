@@ -1,11 +1,12 @@
 import { dialogWrapperEl, exerciseTipListEl } from "./dom_selectors.js";
-import { getExerciseState, updatePlayerGold, writeExerciseState } from './model.js';
+import { createOrUpdate, getDB, updatePlayerGold } from './model.js';
 import { updatePageVariables } from "./view.js";
 
 var currentTips = []
 var currentTipNodes = []
+var db = getDB();
 
-function setTips(initTipMsg) {
+async function setTips(initTipMsg) {
   let exerciseID = initTipMsg.exerciseID;
 
     let tips = initTipMsg.content;
@@ -13,10 +14,10 @@ function setTips(initTipMsg) {
     currentTipNodes = [];
     dialogWrapperEl.innerHTML = ""; // Reset dialogs
     exerciseTipListEl.innerHTML = "";
-    let exerciseState = getExerciseState(exerciseID);
+    let exerciseState = await db.get(exerciseID);
     for (let i = 0; i < tips.length; i++) {
         let tip = tips[i]
-        let isPurchased = tipIsPurchased(exerciseID, exerciseState, i);
+        let isPurchased = await tipIsPurchased(exerciseID, exerciseState, i);
         let aNode = getTipButtonElement(exerciseID, i, getTipPrice(tip.level), tip.title)
         let dialog = getTipDialogElement(exerciseID, i, tip);
         dialogWrapperEl.appendChild(dialog);
@@ -102,20 +103,20 @@ function setTipPurchasedState(button, tipID) {
 }
 
 function buyTipDelegate(exerciseID, tipNum) {
-  return function() {
-    buyTip(exerciseID, tipNum);
+  return async function() {
+    await buyTip(exerciseID, tipNum);
   };
 }
 
-function buyTip(exerciseID, tipNum) {
+async function buyTip(exerciseID, tipNum) {
     let tip = currentTips[tipNum];
-    let exerciseState = getExerciseState(exerciseID);
+    let exerciseState = await db.get(exerciseID);
     if (exerciseState.tipsPurchased[tipNum]) {
         return
     }
     exerciseState.tipsPurchased[tipNum] = true;
-    writeExerciseState(exerciseID, exerciseState);
-    updatePlayerGold(-getTipPrice(tip.level));
+    await createOrUpdate(exerciseState);
+    await updatePlayerGold(-getTipPrice(tip.level));
     revealTip(tipNum, tip);
     updatePageVariables();
 }
@@ -125,12 +126,12 @@ function revealTip(tipNum, tip) {
     setTipPurchasedState(currentTipNode, tipNum);
 }
 
-function tipIsPurchased(exerciseID, exerciseState, tipNum) {
+async function tipIsPurchased(exerciseID, exerciseState, tipNum) {
     if (exerciseState.tipsPurchased.length > tipNum) {
         return exerciseState.tipsPurchased[tipNum];
     }
     exerciseState.tipsPurchased = Array(currentTips.length).fill(false);
-    writeExerciseState(exerciseID, exerciseState);
+    await createOrUpdate(exerciseState);
     return false;
 }
 

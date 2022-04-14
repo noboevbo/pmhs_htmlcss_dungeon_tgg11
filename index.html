@@ -63,12 +63,17 @@
   <footer id="mainFooter" class="main-footer">
     <div class="nes-container is-rounded is-dark main-footer-content">
       <div id="exerciseTips" class="exercise-tips"></div>
+      <div id="pageActions">
+        <button type="button" id="0" class="nes-btn is-success tooltip" onclick="generateReport()"><span>Bericht generieren</span><span class="tooltiptext"><p class="nes-balloon from-left nes-pointer tooltip-content">Generiert einen anonymen Bericht über den Spielfortschritt</p></span></button>
+      </div>
+    </div>
   </footer>
   <div id="dialogWrapper"></div>
 
 
   <script type="module" src="js/app/jsdungeon.js"></script>
-  <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+  <script scr="js/underscore-esm-min.js"></script>
+  <script src="js/pouchdb.min.js"></script>
   <script src="js/esprima.js"></script>
   <script src="js/estraverse.browser.js"></script>
 </body>

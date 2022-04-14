@@ -1,30 +1,22 @@
 import { playerGoldEl, playerNameEl } from "./dom_selectors.js";
-import { getPlayerGold } from "./model.js";
+import { getAppData, getPlayerGold } from "./model.js";
 
-function updatePageVariables() {
+async function updatePageVariables() {
   /* 
   Some results from individual experiments may influence elements on the main page
   For example the first two experiments provide playerNames, which should be shown in the Header bar.
   Such influences on the main page should be handled here.
   */
-  showPlayerName();
-  showPlayerGold();
+  await showPlayerName();
+  await showPlayerGold();
 }
 
-function showPlayerName() {
-  let playerName = localStorage.getItem("02_playerName"); // Exercise 02 solved
-  if (playerName === null) {
-      playerName = localStorage.getItem("01_playerName");
-  }
-  if (playerName !== null) {
-      playerNameEl.innerText = playerName;
-  } else {
-      playerNameEl.innerText = "Playername undefined.";
-  }
+async function showPlayerName() {
+  playerNameEl.innerText = await getAppData().playerName; // Exercise 02 solved
 }
 
-function showPlayerGold() {
-  let playerGold = getPlayerGold();
+async function showPlayerGold() {
+  let playerGold = await getPlayerGold();
   playerGoldEl.innerText = `${playerGold}`;
 }
 

@@ -86,16 +86,23 @@ header, nav, h1, h2, h3, h4, h5, h6 {
 .main-footer-content {
   min-height: 101px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 10fr 2fr;
 }
 
 .exercise-tips {
+  grid-column: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, 225px);
 }
 
 .content, .side, .main-nav {
   margin-bottom: 111px;
+}
+
+#pageActions {
+  display: grid;
+  grid-column: 2;
+  justify-content: right;
 }
 
 @media (min-width: 500px) {

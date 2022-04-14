@@ -3,19 +3,20 @@ import {exerciseResultEl,
   exerciseResultFooterEl,
   exerciseResultMessageListEl,
   } from './dom_selectors.js';
-import { exercises } from './exercise_setup.js';
-import { getExerciseState, updatePlayerGold, writeExerciseState } from './model.js';
+import { createOrUpdate, getDB, updatePlayerGold } from './model.js';
 import { updatePageVariables } from './view.js';
 
-function updateExerciseState(exerciseID, solved, errorMessages = []) {
+var db = getDB();
+
+async function updateExerciseState(exerciseID, solved, errorMessages = []) {
   let linkNode = document.getElementById(exerciseID + "_link");
   console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${solved}`)
   let iconNode = linkNode.getElementsByTagName("i")[0];
   let stateSymbol = solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
   iconNode.className = stateSymbol;
-  let exerciseState = getExerciseState(exerciseID);
+  let exerciseState = await db.get(exerciseID);
   exerciseState.solved = solved;
-  writeExerciseState(exerciseID, exerciseState);
+  await createOrUpdate(exerciseState);
   setExperimentState(exerciseID, exerciseState, errorMessages);
 }
 
@@ -26,7 +27,7 @@ function setExperimentState(exerciseID, exerciseState, messages = []) {
       exerciseResultEl.className = "alert alert-success";
       exerciseResultHeaderEl.innerHTML = `<span class="nes-text is-success">Aufgabe korrekt gelöst!</span>`;
       if (!exerciseState.rewardCollected) {
-          let reward = getGoldAmountFromLevel(exercises[exerciseState.exerciseNum].level);
+          let reward = getGoldAmountFromLevel(exerciseState.level);
           const h3El = document.createElement("h3");
           h3El.innerText = "Belohnung abholen";
           exerciseResultFooterEl.appendChild(h3El);

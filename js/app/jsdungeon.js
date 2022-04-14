@@ -4,57 +4,52 @@ import {
     exerciseTipListEl} from './dom_selectors.js';
 import { exerciseMessageHandler } from './event_handler.js';
 import { exercises } from './exercise_setup.js';
-import { getExerciseState, writeExerciseState } from './model.js';
 import { updateExerciseState } from './experiment_state_handler.js';
+import { getAppData, getDB, initializeAppData, createOrUpdate, updateAppData } from './model.js';
 import { updatePageVariables } from './view.js';
 
 const emptyExerciseState = { solved: false, tipsPurchased: [], lastUpdate: Date.now(), exerciseNum: -1 };
 
-function init() {
+var db = getDB();
+
+async function init() {
     console.log("Initialize Dungeon");
-    initializeDatabase(exercises);
-    initializePlayerGold();
-    updatePageVariables();
-    initializeExercises();
-    initializeActiveExercise();
+    await initializeDatabase(exercises);
+    await initializeAppData();
+    await updatePageVariables();
+    await initializeExercises();
+    await initializeActiveExercise();
     window.addEventListener("message", exerciseMessageHandler, false);
 }
 init();
 
-function initializePlayerGold() {
-    let playerGold = localStorage.getItem("playerGold");
-    if (playerGold !== null) {
-        return
-    }
-    // playerGold = 50;
-    playerGold = 0;
-    localStorage.setItem("playerGold", playerGold);
-}
-
-function initializeDatabase(exercises) {
+async function initializeDatabase(exercises) {
     for (let i = 0; i < exercises.length; i++) {
         let exercise = exercises[i];
-        let item = localStorage.getItem(exercise.id);
-        if (item !== null) {
-            continue
+        try {
+            exercise.state = await db.get(exercise.id);
+        } catch {
+            console.log(`Initialize DB entry for exercise ${exercise.id}`)
+            let state = Object.assign({}, emptyExerciseState);
+            state.exerciseNum = i;
+            state.level = exercise.level;
+            state._id = exercise.id
+            exercise.state = await createOrUpdate(state);
         }
-        let state = Object.assign({}, emptyExerciseState);
-        state.exerciseNum = i;
-        writeExerciseState(exercise.id, state);
     }
 }
 
 function exerciseSelectedDelegate(exerciseID) {
-    return function() {
+    return async function() {
         exerciseSelected(exerciseID);
     }
 }
 
-function initializeExercises() {
+async function initializeExercises() {
     let exerciseListEl = document.getElementById("exerciseList");
     for (var i = 0; i < exercises.length; i++) {
         let exercise = exercises[i];
-        let exerciseState = getExerciseState(exercise.id);
+        let exerciseState = await db.get(exercise.id);
         const liNode = document.createElement("li");
         liNode.className = "nav-item";
         const linkNode = document.createElement("a");
@@ -73,24 +68,28 @@ function initializeExercises() {
     }
 }
 
-function initializeActiveExercise() {
-    let activeExerciseNumber = localStorage.getItem("selectedExercise");
+async function initializeActiveExercise() {
+    let activeExerciseNumber = await getAppData().activeExerciseNumber;
     if (activeExerciseNumber !== null && exercises.length >= activeExerciseNumber) {
-        setActiveExercise(exercises[activeExerciseNumber]);
+        await setActiveExercise(exercises[activeExerciseNumber]);
     }
 }
 
-function exerciseSelected(exerciseNumber) {
-    localStorage.setItem("selectedExercise", exerciseNumber);
-    setActiveExercise(exercises[exerciseNumber]);
+async function exerciseSelected(exerciseNumber) {
+    await updateAppData({selectedExercise: exerciseNumber})
+    await setActiveExercise(exercises[exerciseNumber]);
 }
 
 
-function setActiveExercise(exercise) {
+async function setActiveExercise(exercise) {
     exerciseTipListEl.innerHTML = "";
     selectedExerciseNameEl.innerText = "Aufgabe: " + exercise.name;
     selectedExerciseEl.src = "aufgaben/" + exercise.id + ".html";
 
-    let exerciseState = getExerciseState(exercise.id);
-    updateExerciseState(exercise.id, exerciseState.solved);
+    let exerciseState = await db.get(exercise.id);
+    await updateExerciseState(exercise.id, exerciseState.solved);
+}
+
+function generateReport() {
+    localStorage
 }
