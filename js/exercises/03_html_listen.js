@@ -1,4 +1,5 @@
 import { elementIsChildOf, elementIsCorrectTag, getFailResultObj, getSuccessResultObj, innerTextEquals, innerTextStartsWith, isBlockElement, isInlineElement, listHasMinElements } from '../exercise/validation_helper.js';
+import { Exercise } from '../exercise/exercise_base.js';
 
 let exerciseID = "03_html_listen";
 let instructions = `
@@ -60,5 +61,5 @@ let validationFuncs = [
   // function() { return isBlockElement("blockelement"); },
 ]
 
-let exercise = new ExerciseA(exerciseID, instructions, tips, validationFuncs);
+let exercise = new Exercise(exerciseID, instructions, tips, validationFuncs);
 window.onload = exercise.init();

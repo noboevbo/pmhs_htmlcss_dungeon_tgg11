@@ -1,4 +1,6 @@
-import { extend } from '../underscore-esm-min.js';
+import {
+  extend
+} from '../underscore-esm-min.js';
 
 var appData;
 var db = new PouchDB('dungeon_db');
@@ -8,17 +10,15 @@ function getDB() {
 }
 
 async function initializeAppData() {
-  let defaultAppData =  {
-      playerGold: 0,
-      selectedExercise: 0,
+  let defaultAppData = {
+    playerGold: 0,
+    selectedExercise: 0,
   };
   appData = await getOrCreate("appData", defaultAppData);
   return appData;
 }
 
 async function getAppData() {
-  console.log("Appdata:")
-  console.log(appData);
   return appData;
 }
 
@@ -33,30 +33,40 @@ async function getPlayerGold() {
 }
 
 async function updatePlayerGold(amount) {
+  console.log("Update appdata");
+  console.log(appData);
   appData.playerGold += amount;
-  await createOrUpdate(appData);
+  appData = await createOrUpdate(appData);
 }
 
 async function createOrUpdate(dbObject) {
   try {
-      let response = await db.put(dbObject);
-      console.log(response)
-      dbObject._rev = response.rev;
-      return dbObject;
+    let response = await db.put(dbObject);
+    dbObject._rev = response.rev;
+    return dbObject;
   } catch (err) {
-      console.log(`Error during updating object: ${dbObject} (${err})`);
-      return false;
+    return false;
   }
 }
 
 async function getOrCreate(id, defaultObject) {
   try {
-      return await db.get(id);
+    return await db.get(id);
   } catch {
-      defaultObject._id = id;
-      return await createOrUpdate(defaultObject)
+    console.log(`GetCreate: Create ${id}`);
+    defaultObject._id = id;
+    return await createOrUpdate(defaultObject)
   }
 }
 
 
-export { getDB, createOrUpdate, getOrCreate, getAppData, updateAppData, initializeAppData, getPlayerGold, updatePlayerGold };
+export {
+  getDB,
+  createOrUpdate,
+  getOrCreate,
+  getAppData,
+  updateAppData,
+  initializeAppData,
+  getPlayerGold,
+  updatePlayerGold
+};

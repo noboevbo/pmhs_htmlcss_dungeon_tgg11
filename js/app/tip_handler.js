@@ -1,5 +1,5 @@
 import { dialogWrapperEl, exerciseTipListEl } from "./dom_selectors.js";
-import { createOrUpdate, getDB, updatePlayerGold } from './model.js';
+import { createOrUpdate, getDB, getOrCreate, updatePlayerGold } from './model.js';
 import { updatePageVariables } from "./view.js";
 
 var currentTips = []
@@ -130,6 +130,7 @@ async function tipIsPurchased(exerciseID, exerciseState, tipNum) {
     if (exerciseState.tipsPurchased.length > tipNum) {
         return exerciseState.tipsPurchased[tipNum];
     }
+    exerciseState = await db.get(exerciseState._id);
     exerciseState.tipsPurchased = Array(currentTips.length).fill(false);
     await createOrUpdate(exerciseState);
     return false;

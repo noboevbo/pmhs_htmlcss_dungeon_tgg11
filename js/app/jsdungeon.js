@@ -82,12 +82,11 @@ async function exerciseSelected(exerciseNumber) {
 
 
 async function setActiveExercise(exercise) {
+    let exerciseState = await db.get(exercise.id);
+    await updateExerciseState(exercise.id, exerciseState.solved);
     exerciseTipListEl.innerHTML = "";
     selectedExerciseNameEl.innerText = "Aufgabe: " + exercise.name;
     selectedExerciseEl.src = "aufgaben/" + exercise.id + ".html";
-
-    let exerciseState = await db.get(exercise.id);
-    await updateExerciseState(exercise.id, exerciseState.solved);
 }
 
 function generateReport() {

@@ -56,15 +56,16 @@ function getRewardDelegate(exerciseID) {
 }
 
 async function getReward(exerciseID) {
+  console.log("Get Reward");
   let exerciseState = await db.get(exerciseID);
   if (!exerciseState.solved || exerciseState.rewardCollected) {
       return;
   }
   exerciseState.rewardCollected = true;
-  createOrUpdate(exerciseState);
+  await createOrUpdate(exerciseState);
   await updatePlayerGold(getGoldAmountFromLevel(exerciseState.level));
   exerciseResultFooterEl.innerHTML = ``;
-  updatePageVariables();
+  await updatePageVariables();
 }
 
 function getGoldAmountFromLevel(level) {
