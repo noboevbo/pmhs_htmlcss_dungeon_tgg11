@@ -50,19 +50,19 @@ function setExperimentState(exerciseID, exerciseState, messages = []) {
 }
 
 function getRewardDelegate(exerciseID) {
-  return function() {
-    getReward(exerciseID);
+  return async function() {
+    await getReward(exerciseID);
   };
 }
 
-function getReward(exerciseID) {
-  let exerciseState = getExerciseState(exerciseID);
+async function getReward(exerciseID) {
+  let exerciseState = await db.get(exerciseID);
   if (!exerciseState.solved || exerciseState.rewardCollected) {
       return;
   }
   exerciseState.rewardCollected = true;
-  writeExerciseState(exerciseID, exerciseState);
-  updatePlayerGold(getGoldAmountFromLevel(exercises[exerciseState.exerciseNum].level));
+  createOrUpdate(exerciseState);
+  await updatePlayerGold(getGoldAmountFromLevel(exerciseState.level));
   exerciseResultFooterEl.innerHTML = ``;
   updatePageVariables();
 }

@@ -6,8 +6,9 @@ import {
 } from "./tip_handler.js";
 import { updateExerciseState } from "./experiment_state_handler.js";
 import { updatePageVariables } from "./view.js";
+import { updateAppData } from "./model.js";
 
-function exerciseMessageHandler(event) {
+async function exerciseMessageHandler(event) {
   if (event.origin !== window.origin) {
     console.log(`Message from origin: ${event.origin} but window is ${window.origin} - abort!`);
     return;
@@ -15,16 +16,17 @@ function exerciseMessageHandler(event) {
   let msg = event.data;
   switch (msg.subject) {
     case "initInstructions":
-      setInstructions(msg);
+      await setInstructions(msg);
       break;
     case "initTips":
-      setTips(msg);
+      await setTips(msg);
       break;
     case "updatedExerciseState":
-      updateExerciseState(msg.exerciseID, msg.content.solved, msg.content.errorMessages);
+      await updateExerciseState(msg.exerciseID, msg.content.solved, msg.content.errorMessages);
       break;
-    case "updatePageVariables":
-      updatePageVariables();
+    case "updatePlayerName":
+      await updateAppData({playerName: msg.playerName})
+      await updatePageVariables();
       break;
     default:
       console.log(`Received msg with unknown subject: ${msg.subject}`);

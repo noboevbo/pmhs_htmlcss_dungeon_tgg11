@@ -1,6 +1,4 @@
 import { elementIsChildOf, elementIsCorrectTag, getFailResultObj, getSuccessResultObj, innerTextEquals, innerTextStartsWith, isBlockElement, isInlineElement, listHasMinElements } from '../exercise/validation_helper.js';
-import { Exercise } from '../exercise/exercise_base.js';
-import { getEmptyUpdatePageVariablesMessage } from '../core/event_message_factory.js';
 
 let exerciseID = "03_html_listen";
 let instructions = `
@@ -35,20 +33,20 @@ let tips = [
   </xmp>`, contentIsHTML: true}
 ]
 
-var spielername = "";
+// var spielername = "";
 
-function checkPlayerName() {
-  let playerEl = document.getElementById("spielertext");
-  let fats = playerEl.querySelectorAll("b,strong");
-  if (fats.length === 0) {
-    return getFailResultObj(`Es wurde kein fett gedruckter Spielername gefunden.`)
-  } else if (fats.length > 1) {
-    return getFailResultObj(`Spielername unklar. Mehr als ein fettgedrucktes Wort gefunden.`)
-  } else {
-    spielername = fats[0].innerText;
-  }
-  return getSuccessResultObj();
-}
+// function checkPlayerName() {
+//   let playerEl = document.getElementById("spielertext");
+//   let fats = playerEl.querySelectorAll("b,strong");
+//   if (fats.length === 0) {
+//     return getFailResultObj(`Es wurde kein fett gedruckter Spielername gefunden.`)
+//   } else if (fats.length > 1) {
+//     return getFailResultObj(`Spielername unklar. Mehr als ein fettgedrucktes Wort gefunden.`)
+//   } else {
+//     spielername = fats[0].innerText;
+//   }
+//   return getSuccessResultObj();
+// }
 
 let validationFuncs = [
   function() { return elementIsCorrectTag("ungeordneteliste", "ul"); },
@@ -61,24 +59,6 @@ let validationFuncs = [
   // function() { return isInlineElement("inlinelement"); },
   // function() { return isBlockElement("blockelement"); },
 ]
-
-class ExerciseA extends Exercise {
-  constructor(exerciseID, instructions, tips, validationFuncs) {
-    super(exerciseID, instructions, tips, validationFuncs);
-  }
-
-  beforeSuccess() {
-    localStorage.setItem("01_playerName", spielername);
-  }
-  
-  afterSuccess() {
-    window.parent.postMessage(getEmptyUpdatePageVariablesMessage(), window.origin);
-  }
-  
-  beforeFail() {
-    localStorage.removeItem("01_playerName");
-  }
-}
 
 let exercise = new ExerciseA(exerciseID, instructions, tips, validationFuncs);
 window.onload = exercise.init();

@@ -12,7 +12,8 @@ async function updatePageVariables() {
 }
 
 async function showPlayerName() {
-  playerNameEl.innerText = await getAppData().playerName; // Exercise 02 solved
+  let appData = await getAppData();
+  playerNameEl.innerText = `Spieler: ${appData.playerName}`; // Exercise 02 solved
 }
 
 async function showPlayerGold() {

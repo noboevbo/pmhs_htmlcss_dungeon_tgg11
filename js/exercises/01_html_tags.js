@@ -1,6 +1,6 @@
-import { elementIsCorrectTag, getFailResultObj, getSuccessResultObj, innerTextEquals, innerTextStartsWith, isBlockElement, isInlineElement, listHasMinElements } from '../exercise/validation_helper.js';
+import { elementIsCorrectTag, getFailResultObj, getSuccessResultObj, innerTextEquals, innerTextStartsWith} from '../exercise/validation_helper.js';
 import { Exercise } from '../exercise/exercise_base.js';
-import { getEmptyUpdatePageVariablesMessage } from '../core/event_message_factory.js';
+import { getUpdatePlayerNameMessage } from '../core/event_message_factory.js';
 
 let exerciseID = "01_html_tags";
 let instructions = `
@@ -49,16 +49,10 @@ class ExerciseA extends Exercise {
     super(exerciseID, instructions, tips, validationFuncs);
   }
 
-  beforeSuccess() {
-    localStorage.setItem("01_playerName", spielername);
-  }
-  
   afterSuccess() {
-    window.parent.postMessage(getEmptyUpdatePageVariablesMessage(), window.origin);
-  }
-  
-  beforeFail() {
-    localStorage.removeItem("01_playerName");
+    let msg = getUpdatePlayerNameMessage()
+    msg.playerName = spielername
+    window.parent.postMessage(msg, window.origin);
   }
 }
 

@@ -17,6 +17,8 @@ async function initializeAppData() {
 }
 
 async function getAppData() {
+  console.log("Appdata:")
+  console.log(appData);
   return appData;
 }
 

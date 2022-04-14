@@ -22,9 +22,10 @@ function getEmptyExerciseStateMessage() {
   }
 }
 
-function getEmptyUpdatePageVariablesMessage() {
+function getUpdatePlayerNameMessage() {
   return {
-    subject: "updatePageVariables"
+    subject: "updatePlayerName",
+    playerName: ""
   }
 }
 
@@ -32,4 +33,4 @@ export {
   getEmptyInitInstructionsMessage,
   getEmptyInitTipsMessage,
   getEmptyExerciseStateMessage,
-  getEmptyUpdatePageVariablesMessage};
+  getUpdatePlayerNameMessage};
