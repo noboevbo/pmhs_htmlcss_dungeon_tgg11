@@ -8,7 +8,7 @@ import { updateExerciseState } from './experiment_state_handler.js';
 import { getAppData, getDB, initializeAppData, createOrUpdate, updateAppData } from './model.js';
 import { updatePageVariables } from './view.js';
 
-const emptyExerciseState = { type: "exerciseState", solved: false, tipsPurchased: [], lastUpdate: Date.now(), exerciseNum: -1 };
+const emptyExerciseState = { type: "exerciseState", solved: false, rewardCollected: false, tipsPurchased: [], created: Date.now(), updated: Date.now(), exerciseNum: -1 };
 
 var db = getDB();
 
@@ -99,7 +99,36 @@ function generateReport() {
           type: 'exerciseState'
         }
       })
-      .then((result) => console.log(result))
+      .then((result) => {
+          console.log("Start result generation");
+          console.log(result);
+          saveReport(result.docs);
+      })
       .catch((err) => console.log(err))
 }
 window.generateReport = generateReport;
+
+async function saveReport(exerciseStates) {
+    let appData = await getAppData();
+    let rows = [["player_uuid", "playerGold", "exercise_id", "level", "solved", "rewardCollected", "created", "updated", "tip1_bought", "tip2_bought", "tip3_bought", "tip4_bought"]]
+    for (let exerciseNum=0; exerciseNum < exerciseStates.length; exerciseNum++) {
+        console.log(exerciseNum);
+        let exerciseState = exerciseStates[exerciseNum];
+        let data = [appData.uuid, appData.playerGold ,exerciseState._id, exerciseState.level, exerciseState.solved, exerciseState.rewardCollected, exerciseState.created, exerciseState.updated, false, false, false, false]
+        for (let i=0; i<exerciseState.tipsPurchased.length; i++) {
+            console.log(`Set column ${data.length-4+i} to ${exerciseState.tipsPurchased[i]}`);
+            data[data.length-4+i] = exerciseState.tipsPurchased[i]
+        }
+        rows.push(data);
+    }
+
+    let csvContent = "data:text/csv;charset=utf-8," 
+    + rows.map(e => e.join(",")).join("\n");
+    var encodedUri = encodeURI(csvContent);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `dungeon_report_${appData.uuid}.csv`);
+    document.body.appendChild(link); // Required for FF
+    
+    link.click(); // This will download the data file named "my_data.csv".
+}

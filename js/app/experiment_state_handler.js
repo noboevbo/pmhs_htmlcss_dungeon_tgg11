@@ -16,6 +16,7 @@ async function updateExerciseState(exerciseID, solved, errorMessages = []) {
   iconNode.className = stateSymbol;
   db.get(exerciseID)
   .then((exerciseState) => {
+    exerciseState.updated = Date.now();
     exerciseState.solved = solved;
     return createOrUpdate(exerciseState);
   }).then((exerciseState) => {

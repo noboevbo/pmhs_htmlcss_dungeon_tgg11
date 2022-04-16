@@ -1,6 +1,5 @@
-import {
-  extend
-} from '../underscore-esm-min.js';
+import { extend } from '../underscore-esm-min.js';
+import { v4 as uuidv4 } from '../uuid.min.js';
 
 var appData;
 var db = new PouchDB('dungeon_db');
@@ -11,6 +10,7 @@ function getDB() {
 
 async function initializeAppData() {
   let defaultAppData = {
+    uuid: uuidv4(),
     playerGold: 0,
     selectedExercise: 0,
   };
