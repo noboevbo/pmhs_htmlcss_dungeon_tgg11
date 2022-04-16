@@ -112,11 +112,9 @@ async function saveReport(exerciseStates) {
     let appData = await getAppData();
     let rows = [["player_uuid", "playerGold", "exercise_id", "level", "solved", "rewardCollected", "created", "updated", "tip1_bought", "tip2_bought", "tip3_bought", "tip4_bought"]]
     for (let exerciseNum=0; exerciseNum < exerciseStates.length; exerciseNum++) {
-        console.log(exerciseNum);
         let exerciseState = exerciseStates[exerciseNum];
         let data = [appData.uuid, appData.playerGold ,exerciseState._id, exerciseState.level, exerciseState.solved, exerciseState.rewardCollected, exerciseState.created, exerciseState.updated, false, false, false, false]
         for (let i=0; i<exerciseState.tipsPurchased.length; i++) {
-            console.log(`Set column ${data.length-4+i} to ${exerciseState.tipsPurchased[i]}`);
             data[data.length-4+i] = exerciseState.tipsPurchased[i]
         }
         rows.push(data);
@@ -130,5 +128,5 @@ async function saveReport(exerciseStates) {
     link.setAttribute("download", `dungeon_report_${appData.uuid}.csv`);
     document.body.appendChild(link); // Required for FF
     
-    link.click(); // This will download the data file named "my_data.csv".
+    link.click();
 }

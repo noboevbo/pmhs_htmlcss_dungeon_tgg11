@@ -55,7 +55,11 @@ class Exercise {
     // let exerciseState = window.parent.getExerciseState(exerciseID);
     let exerciseSolvedMsg = getEmptyExerciseStateMessage();
     exerciseSolvedMsg.exerciseID = this.exerciseID;
-    exerciseSolvedMsg.content = { solved: finalResult, errorMessages };
+    exerciseSolvedMsg.content = { 
+      solved: finalResult, 
+      solution: getSolutionHTMLCode(),
+      errorMessages 
+    };
     if (exerciseSolvedMsg.content.solved) {
       this.beforeSuccess();
       window.parent.postMessage(exerciseSolvedMsg, window.origin);
@@ -67,5 +71,43 @@ class Exercise {
     }
   }
 }
+
+function getSolutionHTMLCode() {
+  let doc = document.cloneNode(true);
+  removeScriptTags(doc);
+  let htmlCode = "<html>\n" + doc.documentElement.innerHTML;
+  htmlCode = htmlCode.replace("<!-- ************ Den Code hier drunter nicht bearbeiten! ***************** -->", "");
+  htmlCode = htmlCode.replace("<!-- Code injected by live-server -->", "");
+  htmlCode = htmlCode.replace(/^\s*$(?:\r\n?|\n)/gm, "");
+  htmlCode = htmlCode + "\n</html>";
+  return htmlCode;
+}
+
+function removeScriptTags(doc) {
+  var r = doc.getElementsByTagName('script');
+  for (var i = (r.length-1); i >= 0; i--) {
+
+      if(r[i].getAttribute('id') != 'a'){
+          r[i].parentNode.removeChild(r[i]);
+      }
+  }
+  return r;
+}
+
+// function removeScripts() {
+//   var r = document.getElementsByTagName('script');
+//   let scripts = [];
+//   for (var i = (r.length-1); i >= 0; i--) {
+//       if(r[i].getAttribute('id') != 'a'){
+//           r[i].parentNode.removeChild(r[i]);
+//           scripts.push(r[i]);
+//       }
+//   }
+//   return scripts;
+// }
+
+// function addScripts() {
+  
+// }
 
 export { Exercise };

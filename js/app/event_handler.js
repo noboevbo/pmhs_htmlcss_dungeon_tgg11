@@ -23,7 +23,7 @@ async function exerciseMessageHandler(event) {
       await setTips(msg);
       break;
     case "updatedExerciseState":
-      await updateExerciseState(msg.exerciseID, msg.content.solved, msg.content.errorMessages);
+      await updateExerciseState(msg.exerciseID, msg.content);
       break;
     case "updatePlayerName":
       await updateAppData({playerName: msg.playerName})
