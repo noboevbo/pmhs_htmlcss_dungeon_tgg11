@@ -18,6 +18,11 @@
       <span id="playerName" class="center">
         Spielername nicht verfügbar.
       </span>
+      <span id="pageActions">
+        <button type="button" id="0" class="nes-btn" onclick="saveToFile()"><span>Speichern</span></button>
+        <button type="button" id="0" class="nes-btn" onclick="load()"><span>Laden</span></button>
+        <button type="button" id="0" class="nes-btn tooltip" onclick="generateReport()"><span>Bericht generieren</span></button>
+      </span>
       <div class="right">
         <i class="nes-icon coin is-small"></i>
         <span id="playerGold">
@@ -63,9 +68,6 @@
   <footer id="mainFooter" class="main-footer">
     <div class="nes-container is-rounded is-dark main-footer-content">
       <div id="exerciseTips" class="exercise-tips"></div>
-      <div id="pageActions">
-        <button type="button" id="0" class="nes-btn is-success tooltip" onclick="generateReport()"><span>Bericht generieren</span><span class="tooltiptext"><p class="nes-balloon from-left nes-pointer tooltip-content">Generiert einen anonymen Bericht über den Spielfortschritt</p></span></button>
-      </div>
     </div>
   </footer>
   <div id="dialogWrapper"></div>

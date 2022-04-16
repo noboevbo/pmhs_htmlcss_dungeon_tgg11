@@ -53,7 +53,7 @@ header, nav, h1, h2, h3, h4, h5, h6 {
 
 .main-header {
   display: grid;
-  grid-template-columns: 2fr 8fr 2fr;
+  grid-template-columns: 2fr 2fr 6fr 2fr;
 }
 
 .main-header > .left {
@@ -66,9 +66,16 @@ header, nav, h1, h2, h3, h4, h5, h6 {
   grid-column: 2;
 }
 
+#pageActions {
+  grid-column: 3;
+  /* display: grid;
+  justify-content: left;
+  grid-template-columns: repeat(auto-fill, 225px); */
+}
+
 .main-header > .right {
   justify-self: end;
-  grid-column: 3;
+  grid-column: 4;
 }
 
 .main-footer {
@@ -97,12 +104,6 @@ header, nav, h1, h2, h3, h4, h5, h6 {
 
 .content, .side, .main-nav {
   margin-bottom: 111px;
-}
-
-#pageActions {
-  display: grid;
-  grid-column: 2;
-  justify-content: right;
 }
 
 @media (min-width: 500px) {
