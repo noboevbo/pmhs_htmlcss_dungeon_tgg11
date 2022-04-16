@@ -14,10 +14,14 @@ async function updateExerciseState(exerciseID, solved, errorMessages = []) {
   let iconNode = linkNode.getElementsByTagName("i")[0];
   let stateSymbol = solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
   iconNode.className = stateSymbol;
-  let exerciseState = await db.get(exerciseID);
-  exerciseState.solved = solved;
-  await createOrUpdate(exerciseState);
-  setExperimentState(exerciseID, exerciseState, errorMessages);
+  db.get(exerciseID)
+  .then((exerciseState) => {
+    exerciseState.solved = solved;
+    return createOrUpdate(exerciseState);
+  }).then((exerciseState) => {
+    setExperimentState(exerciseID, exerciseState, errorMessages);
+  })
+
 }
 
 function setExperimentState(exerciseID, exerciseState, messages = []) {
@@ -57,15 +61,28 @@ function getRewardDelegate(exerciseID) {
 
 async function getReward(exerciseID) {
   console.log("Get Reward");
-  let exerciseState = await db.get(exerciseID);
-  if (!exerciseState.solved || exerciseState.rewardCollected) {
-      return;
-  }
-  exerciseState.rewardCollected = true;
-  await createOrUpdate(exerciseState);
-  await updatePlayerGold(getGoldAmountFromLevel(exerciseState.level));
-  exerciseResultFooterEl.innerHTML = ``;
-  await updatePageVariables();
+  db.get(exerciseID).then((exerciseState) => {
+    if (!exerciseState.solved || exerciseState.rewardCollected) {
+      return Promise.reject("Exercise not finished")
+    }
+    exerciseState.rewardCollected = true;
+    return createOrUpdate(exerciseState);
+  })
+  .then((exerciseState) => {
+    return updatePlayerGold(getGoldAmountFromLevel(exerciseState.level));
+  })
+  .then(() => {
+    exerciseResultFooterEl.innerHTML = ``;
+    updatePageVariables();
+  })
+  .then(() => {
+    console.log("Reward collected");
+  })
+  .catch((err) => {
+    console.log(`Reward collection rejected: ${err}`)
+  });
+
+
 }
 
 function getGoldAmountFromLevel(level) {

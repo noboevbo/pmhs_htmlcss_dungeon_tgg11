@@ -8,7 +8,7 @@ import { updateExerciseState } from './experiment_state_handler.js';
 import { getAppData, getDB, initializeAppData, createOrUpdate, updateAppData } from './model.js';
 import { updatePageVariables } from './view.js';
 
-const emptyExerciseState = { solved: false, tipsPurchased: [], lastUpdate: Date.now(), exerciseNum: -1 };
+const emptyExerciseState = { type: "exerciseState", solved: false, tipsPurchased: [], lastUpdate: Date.now(), exerciseNum: -1 };
 
 var db = getDB();
 
@@ -24,6 +24,10 @@ async function init() {
 init();
 
 async function initializeDatabase(exercises) {
+    // TODO: Save information about the exercise in the database (e.g. instructions, tipps, ...)
+    db.createIndex({
+        index: {fields: ['type']}
+      });
     for (let i = 0; i < exercises.length; i++) {
         let exercise = exercises[i];
         try {
@@ -90,5 +94,12 @@ async function setActiveExercise(exercise) {
 }
 
 function generateReport() {
-    localStorage
+    db.find({
+        selector: {
+          type: 'exerciseState'
+        }
+      })
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err))
 }
+window.generateReport = generateReport;

@@ -130,9 +130,12 @@ async function tipIsPurchased(exerciseID, exerciseState, tipNum) {
     if (exerciseState.tipsPurchased.length > tipNum) {
         return exerciseState.tipsPurchased[tipNum];
     }
-    exerciseState = await db.get(exerciseState._id);
-    exerciseState.tipsPurchased = Array(currentTips.length).fill(false);
-    await createOrUpdate(exerciseState);
+    await db.get(exerciseState._id).then((exerciseState) => {
+        exerciseState.tipsPurchased = Array(currentTips.length).fill(false);
+        return createOrUpdate(exerciseState);
+        }
+    );
+
     return false;
 }
 
