@@ -1,13 +1,23 @@
-import { dialogWrapperEl, exerciseTipListEl } from "./dom_selectors.js";
-import { createOrUpdate, getDB, getOrCreate, updatePlayerGold } from './model.js';
-import { updatePageVariables } from "./view.js";
+import {
+    dialogWrapperEl,
+    exerciseTipListEl
+} from "./dom_selectors.js";
+import {
+    createOrUpdate,
+    getDB,
+    getOrCreate,
+    updatePlayerGold
+} from './model.js';
+import {
+    updatePageVariables
+} from "./view.js";
 
 var currentTips = []
 var currentTipNodes = []
-var db = getDB();
 
 async function setTips(initTipMsg) {
-  let exerciseID = initTipMsg.exerciseID;
+    let db = getDB();
+    let exerciseID = initTipMsg.exerciseID;
 
     let tips = initTipMsg.content;
     currentTips = tips;
@@ -46,7 +56,12 @@ function getTipButtonElement(exerciseID, tipID, tipCost, tipTitle) {
     tooltipSpanEl.appendChild(tooltipPEl);
     buttonEl.appendChild(buttonTextEl);
     buttonEl.appendChild(tooltipSpanEl);
-    return {buttonEl, buttonTextEl, tooltipSpanEl, tooltipPEl};
+    return {
+        buttonEl,
+        buttonTextEl,
+        tooltipSpanEl,
+        tooltipPEl
+    };
 }
 
 function getTipDialogElement(exerciseID, tipID, tip) {
@@ -73,7 +88,7 @@ function getTipDialogElement(exerciseID, tipID, tip) {
         const linkListEl = document.createElement("ul");
         formEl.appendChild(linkListEl);
 
-        for(let i=0; i<tip.weblinks.length; i++) {
+        for (let i = 0; i < tip.weblinks.length; i++) {
             let link = tip.weblinks[i];
             const listItemEl = document.createElement("li");
             linkListEl.appendChild(listItemEl);
@@ -87,7 +102,7 @@ function getTipDialogElement(exerciseID, tipID, tip) {
     const menuEl = document.createElement("menu");
     menuEl.className = "dialog-menu";
     const okButtonEl = document.createElement("button");
-    okButtonEl.className="nes-btn is-primary";
+    okButtonEl.className = "nes-btn is-primary";
     okButtonEl.innerText = "Ok";
     menuEl.appendChild(okButtonEl);
 
@@ -103,12 +118,13 @@ function setTipPurchasedState(button, tipID) {
 }
 
 function buyTipDelegate(exerciseID, tipNum) {
-  return async function() {
-    await buyTip(exerciseID, tipNum);
-  };
+    return async function () {
+        await buyTip(exerciseID, tipNum);
+    };
 }
 
 async function buyTip(exerciseID, tipNum) {
+    let db = getDB();
     let tip = currentTips[tipNum];
     let exerciseState = await db.get(exerciseID);
     if (exerciseState.tipsPurchased[tipNum]) {
@@ -130,11 +146,11 @@ async function tipIsPurchased(exerciseID, exerciseState, tipNum) {
     if (exerciseState.tipsPurchased.length > tipNum) {
         return exerciseState.tipsPurchased[tipNum];
     }
+    let db = getDB();
     await db.get(exerciseState._id).then((exerciseState) => {
         exerciseState.tipsPurchased = Array(currentTips.length).fill(false);
         return createOrUpdate(exerciseState);
-        }
-    );
+    });
 
     return false;
 }
@@ -156,4 +172,6 @@ function getTipPrice(tipLevel) {
     }
 }
 
-export { setTips };
+export {
+    setTips
+};

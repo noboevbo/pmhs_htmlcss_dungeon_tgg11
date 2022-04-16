@@ -6,9 +6,8 @@ import {exerciseResultEl,
 import { createOrUpdate, getDB, updatePlayerGold } from './model.js';
 import { updatePageVariables } from './view.js';
 
-var db = getDB();
-
 async function updateExerciseState(exerciseID, exerciseData) {
+  let db = getDB();
   db.get(exerciseID)
   .then((exerciseState) => {
     setLinkState(exerciseID, exerciseState);
@@ -120,6 +119,7 @@ function getRewardDelegate(exerciseID) {
 }
 
 async function getReward(exerciseID) {
+  let db = getDB();
   console.log("Get Reward");
   db.get(exerciseID).then((exerciseState) => {
     if (!exerciseState.solved || exerciseState.rewardCollected) {

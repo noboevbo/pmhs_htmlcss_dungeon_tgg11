@@ -8,6 +8,7 @@ let exerciseResultHeaderEl = document.getElementById("exerciseResultHeader");
 let exerciseResultFooterEl = document.getElementById("exerciseResultFooter");
 let exerciseResultMessageListEl = document.getElementById("exerciseResultMessageList");
 let exerciseTipListEl = document.getElementById("exerciseTips");
+let loadModalEl = document.getElementById('dialog-load');
 let loadZoneEl = document.getElementById("load_zone");
 let dialogWrapperEl = document.getElementById("dialogWrapper");
 
@@ -22,6 +23,7 @@ export {
   exerciseResultFooterEl,
   exerciseResultMessageListEl,
   exerciseTipListEl,
+  loadModalEl,
   loadZoneEl,
   dialogWrapperEl
 };

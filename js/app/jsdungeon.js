@@ -2,6 +2,7 @@ import {
     selectedExerciseEl,
     selectedExerciseNameEl,
     exerciseTipListEl,
+    loadModalEl,
     loadZoneEl} from './dom_selectors.js';
 import { exerciseMessageHandler } from './event_handler.js';
 import { exercises } from './exercise_setup.js';
@@ -72,6 +73,22 @@ async function initializeExercises() {
         exerciseListEl.appendChild(liNode);
     }
 }
+
+async function updateExerciseLinks() {
+    for (var i = 0; i < exercises.length; i++) {
+        let exercise = exercises[i];
+        let exerciseState = await db.get(exercise.id);
+        setLinkState(exercise.id, exerciseState)
+    }
+}
+
+function  setLinkState(exerciseID, exerciseState) {
+    let linkNode = document.getElementById(exerciseID + "_link");
+    console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${exerciseState.solved}`)
+    let iconNode = linkNode.getElementsByTagName("i")[0];
+    let stateSymbol = exerciseState.solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
+    iconNode.className = stateSymbol;
+  }
 
 async function initializeActiveExercise() {
     let activeExerciseNumber = await getAppData().activeExerciseNumber;
@@ -180,11 +197,12 @@ function loadHandler(e) {
       .then((content) => {
         return db.bulkDocs(JSON.parse(atob(content)), { new_edits: false });
       })
+      .then(() => initializeAppData())
       .then(() => updatePageVariables())
+      .then(() => updateExerciseLinks())
       .then(() => console.log("Successfully loaded"))
+      .then(() => loadModalEl.close())
       .catch((err) => console.log(err));
-    //   let text = reader.readAsText(files[0]);
-    //   console.log(text);
 }
 window.loadHandler = loadHandler
 
