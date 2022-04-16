@@ -8,6 +8,11 @@ function getDB() {
   return db;
 }
 
+async function resetDB() {
+  await db.destroy().then(() => db = new PouchDB('dungeon_db'));
+  return db;
+}
+
 async function initializeAppData() {
   let defaultAppData = {
     uuid: uuidv4(),
@@ -68,5 +73,6 @@ export {
   updateAppData,
   initializeAppData,
   getPlayerGold,
-  updatePlayerGold
+  updatePlayerGold,
+  resetDB
 };

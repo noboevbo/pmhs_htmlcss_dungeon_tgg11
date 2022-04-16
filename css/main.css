@@ -51,6 +51,29 @@ header, nav, h1, h2, h3, h4, h5, h6 {
   font-size: 6pt;
 } */
 
+.dropzone {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-width: 2;
+  border-radius: 2;
+  border-color: #209cee;;
+  border-style: dashed;
+  background-color: #209cee0c;;
+  color: #3b3b3b;
+  outline: none;
+  transition: border .24s ease-in-out;
+  width: 400px;
+  height: 200px;
+}
+
+.dropzone.highlight {
+  border-color: #003c64;
+  border-style: solid;
+  background-color: #209cee7e;
+}
+
 .main-header {
   display: grid;
   grid-template-columns: 2fr 2fr 6fr 2fr;

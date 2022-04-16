@@ -20,7 +20,7 @@
       </span>
       <span id="pageActions">
         <button type="button" id="0" class="nes-btn" onclick="saveToFile()"><span>Speichern</span></button>
-        <button type="button" id="0" class="nes-btn" onclick="load()"><span>Laden</span></button>
+        <button type="button" id="0" class="nes-btn" onclick="document.getElementById('dialog-load').showModal();"><span>Laden</span></button>
         <button type="button" id="0" class="nes-btn tooltip" onclick="generateReport()"><span>Bericht generieren</span></button>
       </span>
       <div class="right">
@@ -71,6 +71,17 @@
     </div>
   </footer>
   <div id="dialogWrapper"></div>
+  <dialog id="dialog-load" class="nes-dialog is-rounded">
+    <form method="dialog">
+      <h1>Spielstand laden</h1>
+      <div id="load_zone" class="dropzone" ondrop="loadHandler(event);" ondragover="dragOverHandler(event);" ondragenter="dragEnterHandler(event);" ondragleave="dragLeaveHandler(event);">
+        <p>Ziehe deinen Spielstand (pmhs_savegame-[...].txt) hier hinein!</p>
+      </div>      
+      <menu class="dialog-menu">
+        <button class="nes-btn is-primary">Ok</button>
+      </menu>
+    </form>
+  </dialog>
 
   <script type="module" src="js/uuid.min.js"></script>
   <script type="module" src="js/app/jsdungeon.js"></script>
