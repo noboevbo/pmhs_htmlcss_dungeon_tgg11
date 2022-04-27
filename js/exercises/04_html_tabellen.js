@@ -11,7 +11,7 @@ let instructions = `
 `
 
 let tips = [
-  {level: 1, title: "Video: Tabellen in HTML", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3_dMtz73tUk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tabellen"], contentIsHTML: true},
+  {level: 0, title: "Video: Tabellen in HTML", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3_dMtz73tUk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tabellen"], contentIsHTML: true},
   {level: 1, title: "HTML-Element: <table>.", content: "Eine Tabelle wird mit dem <table>-Tag begonnen. In diesem Tag nutzt man dann Zeilen (<tr>-Tag) und in den Zeilen Spaltenelemente (<th>-Tag für Überschriften und <td>-Tag für Datenzellen). Dabei steht tr für tablerow, th für tablehead und td für tabledata. Mehr Infos findest du unter dem Link unten.", weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tabellen"]},
   {level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
   <table id="tabelle1">

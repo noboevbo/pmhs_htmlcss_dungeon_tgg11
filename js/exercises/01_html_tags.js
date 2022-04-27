@@ -13,7 +13,7 @@ let instructions = `
 `
 
 let tips = [
-  {level: 1, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4IZYV5vVO2Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut"], contentIsHTML: true},
+  {level: 0, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4IZYV5vVO2Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut"], contentIsHTML: true},
   {level: 1, title: "Überschrift / Paragraphen erstellen", content: "Überschriften erster Ordnung können mit dem h1 Tag erstellt werden. Paragraphen können mit dem p Tag erstellt werden.", weblinks: ["https://www.w3schools.com/tags/tag_hn.asp", "https://www.w3schools.com/html/html_paragraphs.asp"]},
   {level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
   <h1 id="hauptueberschrift">Dungeon Run 1</h1> 

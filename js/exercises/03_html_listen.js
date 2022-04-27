@@ -11,7 +11,7 @@ let instructions = `
 `
 
 let tips = [
-  {level: 1, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mjYKVJBGz9s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten"], contentIsHTML: true},
+  {level: 0, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mjYKVJBGz9s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten"], contentIsHTML: true},
   {level: 2, title: "Listen erstellen", content: "Eine geordnete Liste wird mit dem ol-Tag (OrderedList) erstellt, eine ungeordnete mit dem ul-Tag (UnorderedList). In diesem Tag werden dann Listenelemente benötigt, diese werden mit dem li-Element (ListItem) erstellt.", weblinks: ["https://developer.mozilla.org/de/docs/Web/HTML/Element/ol", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten#li"]},
   {level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
   <ul id="ungeordneteliste">
