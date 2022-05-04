@@ -4,7 +4,7 @@ let exercises = [
   { id: "01_html_tags", name: "HTML Tags", level: 1 },
   { id: "02_html_typo", name: "HTML Typografie", level: 1 },
   { id: "03_html_listen", name: "HTML Listen", level: 2 },
-  // { id: "04_html_tabellen", name: "HTML Tabellen", level: 2 },
+  { id: "04_html_tabellen", name: "HTML Tabellen", level: 2 },
   { id: "05_html_formulare", name: "HTML Formulare", level: 2 },
   // { id: "05_html_pfade", name: "HTML Pfade", level: 3 },
   // { id: "06_html_strukturierung", name: "HTML Strukturierung", level: 2 },
