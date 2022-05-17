@@ -247,6 +247,16 @@ export const cssBorderStyleNames = ["border-top-style", "border-left-style", "bo
 export const cssMarginNames = ["margin-top", "margin-left", "margin-bottom", "margin-right"]
 export const cssPaddingNames = ["padding-top", "padding-left", "padding-bottom", "padding-right"]
 
+export function elCheckStyleSameValue(elName, styleNames, styleValue) {
+  let el = document.getElementById(elName);
+  for (let i=0; i<styleNames.length; i++) {
+    let result = elHasCorrectStyleValue(el, elName, styleNames[i], styleValue)
+    if (!result.result) {
+      return result
+    }
+  }
+  return getSuccessResultObj();
+}
 export function classCheckStyleSameValue(className, names, value) {
   return classCheckStyleValues(className, names, Array(names.length).fill(value))
 }
@@ -260,8 +270,6 @@ export function classCheckStyleValues(className, names, values) {
   }
   return getSuccessResultObj();
 }
-
-
 
 export function classHasCorrectStyleValue(className, styleName, styleValue) {
   let els = document.getElementsByClassName(className);
