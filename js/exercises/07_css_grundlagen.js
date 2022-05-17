@@ -1,21 +1,22 @@
-import { elementIsCorrectTag, elementsExist, checkTableContent, or, hasCorrectStyleValue, hasQuerySelectorCorrectStyleValue, cssContains, hasClassStyleValue} from '../exercise/validation_helper.js';
+import { elementIsCorrectTag, elHasCorrectStyleValue, elementsExist, checkTableContent, or, hasCorrectStyleValue, hasQuerySelectorCorrectStyleValue, cssContains, hasClassStyleValue} from '../exercise/validation_helper.js';
 import { Exercise } from '../exercise/exercise_base.js';
 
-let exerciseID = "12_css_selektoren";
+let exerciseID = "07_css_grundlagen";
 
 
 let instructions = `
 <ol>
-<li>Bearbeite die HTML Datei so, dass die Hintergrundfarbe der Überschrift 1 <em>DarkSlateGray</em> (Hex: #2F4F4F) und die Schriftfarbe <em>weiß</em> ist.</li>
-<li>Die Überschriften 2-4 sollen rot dargestellt werden. Verwende dazu eine CSS Klasse mit den Namen <em>wichtig</em>. Setze die Schriftfarbe dann mit dem Namen der Farbe, nicht mit einem Hexadezimal oder RGB Farbwert!</li>
-<li>Die Überschrift 1.1 soll grün dargestellt werden. Gib den Farbwert in Hexadezimal an.</li>
-<li>Ändere die Schriftfamilie für die Überschriften erster bis dritter Ordnung zu <em>"Times New Roman"</em>. Gib als ersten Fallback die Schriftfamilie <em>Times</em> und als letzten Fallback <em>serif</em> an!</li>
-<li>Überschrift 5 soll zentriert dargestellt werden</li>
+<li>Bearbeite die HTML Datei so, dass die Hintergrundfarbe der Überschrift (PMHS Blog) <em>DarkSlateGray</em> (Hex: #2F4F4F) und die Schriftfarbe <em>weiß</em> ist.</li>
+<li>Richte die Überschrift zentriert aus</li>
+<li>Setze die Schriftfarbe des Links auf <em>#00ff00</em></li>
+<li>Setze die Schriftfamilie des ersten Paragraphen auf <em>Arial</em>. Gib als ersten Fallback die Schriftfamilie <em>Helvetica</em> und als letzten Fallback <em>sans</em> an!</li>
+<li>Setze die Schriftgröße des Links auf die 24px</li>
+<li>Setze die Strichstärke (font-weight) des Links auf 700.</li>
+<li>Füge zum zweiten Paragraphen einen Aussenabstand nach oben von 15px ein.</li>.
 </ol>
 `
 
 let tips = [
-  {level: 1, title: "Video: Selektoren", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QWnvqFLf3ys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor", "https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor"], contentIsHTML: true},
   {level: 2, title: "Benötigte Elemente und Styles", content: `<ul>
   <li>Hintergrundfarbe: background-color</li>
   <li>Textfarbe: color</li>
@@ -23,54 +24,25 @@ let tips = [
   <li>Text zentrieren: text-align</li>
   <li>Schriftfamilie: font-family (Fallbacks werden durch Komma getrennt)</li>
   </ul>
-  `, weblinks: ["https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor", "https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor"]},
-  {level: 2, title: "Style auf mehrere Elemente anwenden", content: `Um einen Style auf mehrere Elemente anzuwenden gibt es verschiedene Möglichkeiten. Man könnte allen Elementen die selbe CSS Klasse zuweisen, oder man nutzt den selben Code für mehrere Selektoren. Ein Beispiel wäre die selbe Schriftart für alle Überschriften, dafür müssen die Selektoren mit Komma getrennt geschrieben werden, z.B. <em>h1, h2, h3 { ... }</em>, hier würden alle Styles auf h1-h3 angewendet.`, weblinks: ["https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor", "https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor"], contentIsHTML: true},
+  `, weblinks: []},
   {level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
-  <style id="meinStyle">
-    h1, h2, h3 { font-family: "Times New Roman", Times, serif; }
-    #u1 {
-      color: white;
-      background-color: #2F4F4F; 
-    }
-
-    .wichtig {
-      color: red;
-    }
-
-    #u5 {
-      text-align: center;
-    }
-
-    #u1_1 {
-      color: #00FF00;
-    }
-  </style>
-  [...]
-  <h1 id="u1">Überschrift 1</h1>
-  <h2 id="u1_1">Überschrift 1.1</h2>
-  <h3 id="u1_1_1">Überschrift 1.1.1</h3>
-  <h1 id="u2" class="wichtig">Überschrift 2</h1>
-  <h1 id="u3" class="wichtig">Überschrift 3</h1>
-  <h1 id="u4" class="wichtig">Überschrift 4</h1>
-  <h1 id="u5">Überschrift 5</h1>
-  <h1 id="u6">Überschrift 6</h1>
+  <h1 id="h11" style="background-color: #2F4F4F; color: white; text-align: center;">PMHS Blog</h1>
+  <p id="p1" style="font-family: Arial, Helvetica, sans-serif;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet ornare purus, vitae rhoncus purus. Donec quis nibh vulputate nisl maximus tempor. Donec eget pellentesque odio. Phasellus sed nulla et neque semper finibus. Nullam cursus libero quis vehicula ornare. Sed dictum eros eu magna fringilla, id dapibus mi condimentum. Donec euismod mauris ex, id vestibulum mi efficitur sed. Phasellus in lobortis velit, sed iaculis diam. Nunc eget sapien eget lorem aliquet elementum. Maecenas id magna et purus molestie lacinia. Aenean gravida leo ut metus pellentesque sagittis. Sed in nisi ut ex sodales pharetra in eget orci. Ut ex nisi, laoreet nec sodales eu, tincidunt sed risus.
+  </p>
+  <p id="p2">Hier geht es direkt <a id="a1" href="https://www.pmhs.de" style="color: #ff0000; font-size: 24px; font-weight: 700;">zur PMHS</a>!</p>
   </xmp>`, contentIsHTML: true}
 ]
 
 let validationFuncs = [
-  function() { return elementIsCorrectTag("u1", "h1"); },
-  function() { return hasCorrectStyleValue("u1", "background-color", "rgb(47, 79, 79)"); },
-  function() { return hasCorrectStyleValue("u1", "color", "rgb(255, 255, 255)"); },
-  function() { return hasClassStyleValue(".wichtig", "color", "red"); },
-  function() { return hasCorrectStyleValue("u2", "color", "rgb(255, 0, 0)"); },
-  function() { return hasCorrectStyleValue("u3", "color", "rgb(255, 0, 0)"); },
-  function() { return hasCorrectStyleValue("u4", "color", "rgb(255, 0, 0)"); },
-  function() { return hasCorrectStyleValue("u1_1", "color", "rgb(0, 255, 0)"); },
-  function() { return hasQuerySelectorCorrectStyleValue("h1", "font-family", `"Times New Roman", Times, serif`); },
-  function() { return hasQuerySelectorCorrectStyleValue("h2", "font-family", `"Times New Roman", Times, serif`); },
-  function() { return hasQuerySelectorCorrectStyleValue("h3", "font-family", `"Times New Roman", Times, serif`); },
-  function() { return hasCorrectStyleValue("u5", "text-align", `center`); },
-  function() { return cssContains("#00ff00")}
+  function() { return elementIsCorrectTag("h11", "h1"); },
+  function() { return hasCorrectStyleValue("h11", "text-align", `center`); },
+  function() { return hasCorrectStyleValue("h11", "background-color", "rgb(47, 79, 79)"); },
+  function() { return hasCorrectStyleValue("h11", "color", "rgb(255, 255, 255)"); },
+  function() { return hasCorrectStyleValue("a1", "color", "rgb(255, 0, 0)"); },
+  function() { return elHasCorrectStyleValue(document.getElementById("p1"), "p1", "font-family", `Arial, Helvetica, sans-serif`); },
+  function() { return hasCorrectStyleValue("a1", "font-weight", "700"); },
+  function() { return hasCorrectStyleValue("a1", "font-size", `24px`); },
 ]
 
 let exerciseBase = new Exercise(exerciseID, instructions, tips, validationFuncs);

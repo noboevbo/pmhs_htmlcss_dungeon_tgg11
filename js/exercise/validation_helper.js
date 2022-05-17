@@ -403,7 +403,7 @@ export function hasCorrectStyleValue(elName, styleName, styleValue) {
   return elHasCorrectStyleValue(el, elName, styleName, styleValue);
 }
 
-function elHasCorrectStyleValue(el, elName, styleName, styleValue) {
+export function elHasCorrectStyleValue(el, elName, styleName, styleValue) {
   if (!el) {
     return getFailResultObj(elDoesNotExistMsg(elName));
   } 

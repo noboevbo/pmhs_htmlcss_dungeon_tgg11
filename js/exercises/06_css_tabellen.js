@@ -14,7 +14,7 @@ Die Tabelle aus Aufgabe 4 hat noch keine Ränder, daher ist sie schwer als Tabel
 `
 
 let tips = [
-  {level: 1, title: "Video: Selektoren", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QWnvqFLf3ys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor", "https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor"], contentIsHTML: true},
+  // {level: 1, title: "Video: Selektoren", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QWnvqFLf3ys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor", "https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor"], contentIsHTML: true},
   {level: 2, title: "Benötigte Elemente und Styles", content: `Du benötigst die folgenden HTML Elemente: 
   <ul>
   <li>Kontur Farbe: border-color</li>
