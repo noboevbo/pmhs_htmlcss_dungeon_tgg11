@@ -10,7 +10,7 @@ async function updateExerciseState(exerciseID, exerciseData) {
   let db = getDB();
   db.get(exerciseID)
   .then((exerciseState) => {
-    setLinkState(exerciseID, exerciseState);
+    setLinkState(exerciseID, exerciseData.solved);
     if (exerciseState.solved) {
       showExperimentState(exerciseID, exerciseState, exerciseData.solved, exerciseData.errorMessages);
       return Promise.reject("State did not change, no need to update db");
@@ -27,11 +27,11 @@ async function updateExerciseState(exerciseID, exerciseData) {
   }).catch(() => {});
 }
 
-function  setLinkState(exerciseID, exerciseState) {
+function  setLinkState(exerciseID, solved) {
   let linkNode = document.getElementById(exerciseID + "_link");
-  console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${exerciseState.solved}`)
+  console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${solved}`)
   let iconNode = linkNode.getElementsByTagName("i")[0];
-  let stateSymbol = exerciseState.solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
+  let stateSymbol = solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
   iconNode.className = stateSymbol;
 }
 

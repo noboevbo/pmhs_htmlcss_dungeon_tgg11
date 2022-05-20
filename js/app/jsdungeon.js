@@ -91,9 +91,13 @@ function  setLinkState(exerciseID, exerciseState) {
   }
 
 async function initializeActiveExercise() {
-    let activeExerciseNumber = await getAppData().activeExerciseNumber;
-    if (activeExerciseNumber !== null && exercises.length >= activeExerciseNumber) {
-        await setActiveExercise(exercises[activeExerciseNumber]);
+    console.log("Search for active exerise.")
+    let appData = await getAppData();
+    let selectedExercise = appData.selectedExercise
+    console.log(appData);
+    if (selectedExercise !== null && exercises.length >= selectedExercise) {
+        console.log("Active exercise found.")
+        await setActiveExercise(exercises[selectedExercise]);
     }
 }
 

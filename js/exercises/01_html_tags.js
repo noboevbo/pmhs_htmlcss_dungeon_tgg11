@@ -54,6 +54,6 @@ class ExerciseA extends Exercise {
     window.parent.postMessage(msg, window.origin);
   }
 }
-
+console.log("Hello")
 let exercise = new ExerciseA(exerciseID, instructions, tips, validationFuncs);
 window.onload = exercise.init();
