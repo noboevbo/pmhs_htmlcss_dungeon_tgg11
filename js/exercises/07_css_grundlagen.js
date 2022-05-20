@@ -8,7 +8,7 @@ let instructions = `
 <ol>
 <li>Bearbeite die HTML Datei so, dass die Hintergrundfarbe der Überschrift (PMHS Blog) <em>DarkSlateGray</em> (Hex: #2F4F4F) und die Schriftfarbe <em>weiß</em> ist.</li>
 <li>Richte die Überschrift zentriert aus</li>
-<li>Setze die Schriftfarbe des Links auf <em>#00ff00</em></li>
+<li>Setze die Schriftfarbe des Links auf <em>#ff0000</em></li>
 <li>Setze die Schriftfamilie des ersten Paragraphen auf <em>Arial</em>. Gib als ersten Fallback die Schriftfamilie <em>Helvetica</em> und als letzten Fallback <em>sans</em> an!</li>
 <li>Setze die Schriftgröße des Links auf die 24px</li>
 <li>Setze die Strichstärke (font-weight) des Links auf 700.</li>
