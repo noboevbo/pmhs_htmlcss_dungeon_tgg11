@@ -26,7 +26,7 @@ let validationFuncs = [
   function() { return elementsExist("strong", 1, true); },
   function() { return or([elementsExist("em", 1, true), elementsExist("i", 1, true)]); },
   function() { return or([elementsExist("strong", 1, true), elementsExist("b", 1, true)]); },
-  function() { return elementsExist("u", 1, true) },
+  function() { return or([elementsExist("u", 1, true), elementsExist("ins", 1, true)]); },
   function() { return elementsExist("del", 1, true) },
   function() { return elementsExist("br", 1, true); },
   function() { return elementsExist("hr", 1, true); },
