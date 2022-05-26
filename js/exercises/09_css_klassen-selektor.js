@@ -16,10 +16,11 @@ let exerciseID = "09_css_klassen-selektor";
 
 let instructions = `
 <ol>
-<li>Füge einen CSS-Regelsatz für alle TableData (td) Elemente hinzu.</li>
-<li>Setze in diesem den Rand so, dass er 1px stark ist, die Farbe schwarz sowie den Style <em>solid</em> hat.</li>
-<li>Wende den Rand auch auf die TableHead (th) Zellen an.</li>
-<li>Zusätzlich soll in allen TableHead-Zellen die Schrift fett gedruckt werden.</li>
+<li>Erstelle eine Klasse mit dem Namen <em>meine-stadt</em>.</li>
+<li>Setze in dieser Klasse den Rand so, dass er 1px stark ist, die Farbe rot sowie den Style <em>dotted</em> hat.</li>
+<li>Wende diese Klasse auf alle Zellen in der Reihe für die Stadt Nürtingen an.</li>
+<li>Erstelle eine weitere Klasse mit dem Namen <em>highlight</em>.</li>
+<li>Wende die Klasse highlight auf den jeweils günstigsten Preis für die Spalte Super E10 und Diesel an.</li>
 </ol>
 `;
 
@@ -72,7 +73,7 @@ let tips = [
                 <tr>
                     <td id="td_2_1">Berlin</td>
                     <td id="td_2_2">2,087</td>
-                    <td id="td_3_3">1,972</td>
+                    <td id="td_2_3">1,972</td>
                 </tr>
                 <tr>
                     <td id="td_3_1">Esslingen</td>
