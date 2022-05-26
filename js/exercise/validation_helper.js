@@ -488,8 +488,8 @@ function checkMediaRule(
     return returnValues;
 }
 
-function checkCSSStyleRule(rule, selektor, values) {
-    if (rule.selectorText === selektor) {
+function checkCSSStyleRule(rule, selector, values) {
+    if (rule.selectorText === selector) {
         let correctStyles = true;
         for (let i = 0; i < values.length; i++) {
             let style = values[i];
@@ -504,6 +504,26 @@ function checkCSSStyleRule(rule, selektor, values) {
     return true;
 }
 
+export function elHasCSSClass(elName, className) {
+    console.log("hello");
+    console.log(elName)
+    let el = document.getElementById(elName);
+    console.log(el)
+    if (!el) {
+        return getFailResultObj(
+            `Der HTML-Element <em>${elName}</em> existiert nicht!`
+        );
+    }
+    if (el && el.classList.contains(className)) {
+        return getSuccessResultObj();
+    }
+    console.log(el);
+    console.log(el.classList);
+    return getFailResultObj(
+        `Das Element <em>${elName}</em> nutzt nicht die CSS Klasse <em>${className}</em>!`
+    );
+}
+
 export function hasSelectorStyleValue(selectorName, styleName, styleValue) {
     let styleSheets = document.styleSheets;
     console.log(styleSheets);
@@ -511,7 +531,7 @@ export function hasSelectorStyleValue(selectorName, styleName, styleValue) {
         let styleSheet = styleSheets[0];
         for (let ruleNum = 0; ruleNum < styleSheet.cssRules.length; ruleNum++) {
             let rule = styleSheet.cssRules[ruleNum];
-            if (rule.selectorText === selectorName) {
+            if (rule.selectorText.includes(selectorName)) {
                 console.log(rule);
                 if (rule.style[styleName] === styleValue) {
                     return getSuccessResultObj();
