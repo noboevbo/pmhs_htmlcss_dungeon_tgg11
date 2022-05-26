@@ -1,4 +1,4 @@
-import { checkMediaQueries, classCheckStyleSameValue, classCheckStyleValues, classHasCorrectStyleValue, cssBorderColorNames, cssBorderStyleNames, cssBorderWidthNames, cssMarginNames, cssPaddingNames, hasClassStyleValue as hasStyleValue, hasCorrectStyleValue, hasQuerySelectorCorrectStyleValue} from '../exercise/validation_helper.js';
+import { checkMediaQueries, classCheckStyleSameValue, classCheckStyleValues, classHasCorrectStyleValue, cssBorderColorNames, cssBorderStyleNames, cssBorderWidthNames, cssMarginNames, cssPaddingNames, hasSelectorStyleValue as hasStyleValue, hasCorrectStyleValue, hasQuerySelectorCorrectStyleValue} from '../exercise/validation_helper.js';
 import { Exercise } from '../exercise/exercise_base.js';
 
 let exerciseID = "15_css_responsive_img";

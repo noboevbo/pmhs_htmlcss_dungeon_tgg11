@@ -1,4 +1,4 @@
-import { elementIsCorrectTag, elementsExist, checkTableContent, or, hasCorrectStyleValue, hasQuerySelectorCorrectStyleValue, cssContains, hasClassStyleValue} from '../exercise/validation_helper.js';
+import { elementIsCorrectTag, elementsExist, checkTableContent, or, hasCorrectStyleValue, hasQuerySelectorCorrectStyleValue, cssContains, hasSelectorStyleValue} from '../exercise/validation_helper.js';
 import { Exercise } from '../exercise/exercise_base.js';
 
 let exerciseID = "12_css_selektoren";
@@ -61,7 +61,7 @@ let validationFuncs = [
   function() { return elementIsCorrectTag("u1", "h1"); },
   function() { return hasCorrectStyleValue("u1", "background-color", "rgb(47, 79, 79)"); },
   function() { return hasCorrectStyleValue("u1", "color", "rgb(255, 255, 255)"); },
-  function() { return hasClassStyleValue(".wichtig", "color", "red"); },
+  function() { return hasSelectorStyleValue(".wichtig", "color", "red"); },
   function() { return hasCorrectStyleValue("u2", "color", "rgb(255, 0, 0)"); },
   function() { return hasCorrectStyleValue("u3", "color", "rgb(255, 0, 0)"); },
   function() { return hasCorrectStyleValue("u4", "color", "rgb(255, 0, 0)"); },
