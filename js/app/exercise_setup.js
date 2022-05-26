@@ -10,6 +10,7 @@ let exercises = [
     { id: "07_css_grundlagen", name: "CSS Grundlagen", level: 2 },
     { id: "08_css_typ-selektor", name: "CSS Typ-Selektor", level: 2 },
     { id: "09_css_klassen-selektor", name: "CSS Klassen-Selektor", level: 2 },
+    { id: "10_css_id-selektor", name: "CSS ID-Selektor", level: 2 },
     // { id: "05_html_pfade", name: "HTML Pfade", level: 3 },
     // { id: "06_html_strukturierung", name: "HTML Strukturierung", level: 2 },
     // { id: "07_html_embedded", name: "HTML Embedded Content", level: 2 },

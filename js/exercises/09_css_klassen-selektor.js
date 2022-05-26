@@ -64,7 +64,7 @@ let tips = [
             </style>
         
         Im Body:
-            <table id="tabelle1">
+            <table id="benzinpreis-tabelle">
                 <tr>
                     <th id="th_1_1">Stadt</th>
                     <th id="th_1_2">Super E10</th>
