@@ -24,17 +24,34 @@ let instructions = `
 
 let tips = [
     {
+        level: 0,
+        title: "Video: CSS Typ-Selektoren",
+        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WRT84qsTTV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+        weblinks: [
+            "https://www.w3schools.com/cssref/sel_element.asp",
+            "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
+            "https://www.w3schools.com/css/css_selectors.asp",
+        ],
+        contentIsHTML: true,
+    },
+    {
         level: 2,
         title: "Benötigte Elemente und Styles",
-        content: `<ul>
-  <li>Hintergrundfarbe: background-color</li>
-  <li>Textfarbe: color</li>
-  <li>Farbwerte: z.B. #ff0000 (je zwei Stellen für r, g und b) = rot, alternativ: einfach <em>red</em></li>
-  <li>Text zentrieren: text-align</li>
-  <li>Schriftfamilie: font-family (Fallbacks werden durch Komma getrennt)</li>
-  </ul>
+        content: `
+        <ul>
+          <li>style-Element innerhalb von head.</li>
+          <li>Auswahl th und td: th, td { ... }</li>
+          <li>Auswahl th: th { ... }</li>
+          <li>Schwarzer Rand: border: 1px solid black</li>
+          <li>Fett drucken: font-weight: bold</li>
+        </ul>
   `,
-        weblinks: [],
+        weblinks: [
+            "https://www.w3schools.com/cssref/sel_element.asp",
+            "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
+            "https://www.w3schools.com/css/css_selectors.asp",
+        ],
+        contentIsHTML: true,
     },
     {
         level: 3,
