@@ -28,7 +28,7 @@ let tips = [
     {
         level: 0,
         title: "Video: CSS Typ-Selektoren",
-        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/maB1WkYX5Bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fZxyffaTQ8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         weblinks: [
             "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
             "https://www.w3schools.com/css/css_selectors.asp",
