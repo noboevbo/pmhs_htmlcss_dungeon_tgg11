@@ -17,9 +17,9 @@ let exerciseID = "09_css_klassen-selektor";
 let instructions = `
 <ol>
 <li>Erstelle eine Klasse mit dem Namen <em>meine-stadt</em>.</li>
-<li>Setze in dieser Klasse den Rand so, dass er 1px stark ist, die Farbe rot sowie den Style <em>dotted</em> hat.</li>
+<li>Setze in dieser Klasse den Rand so, dass er 2px stark ist, die Farbe rot sowie den Style <em>solid</em> hat.</li>
 <li>Wende diese Klasse auf alle Zellen in der Reihe für die Stadt Nürtingen an.</li>
-<li>Erstelle eine weitere Klasse mit dem Namen <em>highlight</em>.</li>
+<li>Erstelle eine weitere Klasse mit dem Namen <em>highlight</em>, deren Style die Hintergrundfarbe auf <em>green</em> und die Schriftfarbe auf <em>white</em> setzt.</li>
 <li>Wende die Klasse highlight auf den jeweils günstigsten Preis für die Spalte Super E10 und Diesel an.</li>
 </ol>
 `;
@@ -109,7 +109,7 @@ let validationFuncs = [
         return hasSelectorStyleValue(".meine-stadt", "border-width", "2px");
     },
     function () {
-        return hasSelectorStyleValue(".meine-stadt", "border-style", "dotted");
+        return hasSelectorStyleValue(".meine-stadt", "border-style", "solid");
     },
     function () {
         return hasSelectorStyleValue(".highlight", "background-color", "green");

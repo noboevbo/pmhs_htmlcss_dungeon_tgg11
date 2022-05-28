@@ -16,7 +16,7 @@ let exerciseID = "08_css_typ-selektor";
 let instructions = `
 <ol>
 <li>Füge einen CSS-Regelsatz für alle TableData (td) Elemente hinzu.</li>
-<li>Setze in diesem den Rand so, dass er 1px stark ist, die Farbe schwarz sowie den Style <em>solid</em> hat.</li>
+<li>Setze in diesem den Rand so, dass er 1px stark ist, die Farbe <em>black</em> sowie den Style <em>solid</em> hat.</li>
 <li>Wende den Rand auch auf die TableHead (th) Zellen an.</li>
 <li>Zusätzlich soll in allen TableHead-Zellen die Schrift fett gedruckt werden.</li>
 </ol>
