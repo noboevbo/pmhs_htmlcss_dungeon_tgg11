@@ -44,6 +44,7 @@ let tips = [
             "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Hintergrund/Gestaltung_mit_CSS",
             "https://www.w3schools.com/colors/colors_names.asp",
         ],
+        contentIsHTML: true,
     },
     {
         level: 2,

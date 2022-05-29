@@ -48,6 +48,7 @@ let tips = [
             "https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor",
             "https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor",
         ],
+        contentIsHTML: true,
     },
     {
         level: 2,
