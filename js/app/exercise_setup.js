@@ -17,6 +17,7 @@ let exercises = [
         level: 2,
     },
     { id: "12_css_navbar", name: "CSS Navigationsleiste", level: 3 },
+    { id: "13_html_strukturierung", name: "HTML Strukturierung", level: 3 },
     // { id: "05_html_pfade", name: "HTML Pfade", level: 3 },
     // { id: "06_html_strukturierung", name: "HTML Strukturierung", level: 2 },
     // { id: "07_html_embedded", name: "HTML Embedded Content", level: 2 },
