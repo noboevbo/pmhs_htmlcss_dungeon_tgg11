@@ -131,7 +131,7 @@ h6 {
 .main-footer-content {
   min-height: 101px;
   display: grid;
-  grid-template-columns: auto 6fr;
+  grid-template-columns: auto 1fr;
 }
 
 .exercise-infos {
