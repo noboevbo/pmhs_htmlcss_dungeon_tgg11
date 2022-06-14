@@ -1,16 +1,7 @@
-import {
-    elementIsCorrectTag,
-    elHasCorrectStyleValue,
-    elHasCSSClass,
-    elementsExist,
-    checkTableContent,
-    or,
-    hasCorrectStyleValue,
-    hasQuerySelectorCorrectStyleValue,
-    cssContains,
-    hasSelectorStyleValue,
-} from "../exercise/validation_helper.js";
 import { Exercise } from "../exercise/exercise_base.js";
+import {
+    elHasCSSClass, hasSelectorStyleValue
+} from "../exercise/validation_helper.js";
 
 let exerciseID = "09_css_klassen-selektor";
 
@@ -25,6 +16,17 @@ let instructions = `
 `;
 
 let tips = [
+    {
+        level: 0,
+        title: "Text: CSS Typselektoren",
+        markdown: "/js/exercises/markdown/CSS_Klassenselektoren.md",
+        contentIsMarkdown: true,
+        weblinks: [
+            "https://www.w3schools.com/cssref/sel_class.asp",
+            "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
+            "https://www.w3schools.com/css/css_selectors.asp",
+        ],
+    },
     {
         level: 0,
         title: "Video: CSS Typ-Selektoren",

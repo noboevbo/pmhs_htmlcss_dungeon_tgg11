@@ -1,6 +1,6 @@
-import { elementIsCorrectTag, getFailResultObj, getSuccessResultObj, innerTextEquals, innerTextStartsWith} from '../exercise/validation_helper.js';
-import { Exercise } from '../exercise/exercise_base.js';
 import { getUpdatePlayerNameMessage } from '../core/event_message_factory.js';
+import { Exercise } from '../exercise/exercise_base.js';
+import { elementIsCorrectTag, getFailResultObj, getSuccessResultObj, innerTextEquals, innerTextStartsWith } from '../exercise/validation_helper.js';
 
 let exerciseID = "01_html_tags";
 let instructions = `
@@ -12,12 +12,14 @@ let instructions = `
 `
 
 let tips = [
-  {level: 0, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4IZYV5vVO2Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut"], contentIsHTML: true},
-  {level: 1, title: "Überschrift / Paragraphen erstellen", content: "Überschriften erster Ordnung können mit dem h1 Tag erstellt werden. Paragraphen können mit dem p Tag erstellt werden.", weblinks: ["https://www.w3schools.com/tags/tag_hn.asp", "https://www.w3schools.com/html/html_paragraphs.asp"]},
-  {level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
+  { level: 0, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4IZYV5vVO2Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut"], contentIsHTML: true },
+  { level: 1, title: "Überschrift / Paragraphen erstellen", content: "Überschriften erster Ordnung können mit dem h1 Tag erstellt werden. Paragraphen können mit dem p Tag erstellt werden.", weblinks: ["https://www.w3schools.com/tags/tag_hn.asp", "https://www.w3schools.com/html/html_paragraphs.asp"] },
+  {
+    level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
   <h1 id="hauptueberschrift">Dungeon Run 1</h1> 
   <p id="spielertext">Spielername: <strong>Fritz</strong></p>
-  </xmp>`, contentIsHTML: true}
+  </xmp>`, contentIsHTML: true
+  }
 ]
 
 var spielername = "";
@@ -36,11 +38,11 @@ function checkPlayerName() {
 }
 
 let validationFuncs = [
-  function() { return elementIsCorrectTag("hauptueberschrift", "h1"); },
-  function() { return innerTextEquals("hauptueberschrift", "Dungeon Run 1"); },
-  function() { return elementIsCorrectTag("spielertext", "p"); },
-  function() { return innerTextStartsWith("spielertext", "Spielername: "); },
-  function() { return checkPlayerName(); },
+  function () { return elementIsCorrectTag("hauptueberschrift", "h1"); },
+  function () { return innerTextEquals("hauptueberschrift", "Dungeon Run 1"); },
+  function () { return elementIsCorrectTag("spielertext", "p"); },
+  function () { return innerTextStartsWith("spielertext", "Spielername: "); },
+  function () { return checkPlayerName(); },
 ]
 
 class ExerciseA extends Exercise {

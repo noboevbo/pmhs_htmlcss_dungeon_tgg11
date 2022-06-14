@@ -1,10 +1,7 @@
-import {
-    elCheckStyleSameValue,
-    cssBorderColorNames,
-    cssBorderWidthNames,
-    cssBorderStyleNames,
-} from "../exercise/validation_helper.js";
 import { Exercise } from "../exercise/exercise_base.js";
+import {
+    cssBorderColorNames, cssBorderStyleNames, cssBorderWidthNames, elCheckStyleSameValue
+} from "../exercise/validation_helper.js";
 
 let exerciseID = "06_css_tabellen";
 

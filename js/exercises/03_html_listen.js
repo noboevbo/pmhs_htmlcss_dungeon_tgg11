@@ -1,5 +1,5 @@
-import { elementIsChildOf, elementIsCorrectTag, getFailResultObj, getSuccessResultObj, innerTextEquals, innerTextStartsWith, isBlockElement, isInlineElement, listHasMinElements } from '../exercise/validation_helper.js';
 import { Exercise } from '../exercise/exercise_base.js';
+import { elementIsChildOf, elementIsCorrectTag, listHasMinElements } from '../exercise/validation_helper.js';
 
 let exerciseID = "03_html_listen";
 let instructions = `
@@ -11,9 +11,10 @@ let instructions = `
 `
 
 let tips = [
-  {level: 0, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mjYKVJBGz9s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten"], contentIsHTML: true},
-  {level: 2, title: "Listen erstellen", content: "Eine geordnete Liste wird mit dem ol-Tag (OrderedList) erstellt, eine ungeordnete mit dem ul-Tag (UnorderedList). In diesem Tag werden dann Listenelemente benötigt, diese werden mit dem li-Element (ListItem) erstellt.", weblinks: ["https://developer.mozilla.org/de/docs/Web/HTML/Element/ol", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten#li"]},
-  {level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
+  { level: 0, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mjYKVJBGz9s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten"], contentIsHTML: true },
+  { level: 2, title: "Listen erstellen", content: "Eine geordnete Liste wird mit dem ol-Tag (OrderedList) erstellt, eine ungeordnete mit dem ul-Tag (UnorderedList). In diesem Tag werden dann Listenelemente benötigt, diese werden mit dem li-Element (ListItem) erstellt.", weblinks: ["https://developer.mozilla.org/de/docs/Web/HTML/Element/ol", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten#li"] },
+  {
+    level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
   <ul id="ungeordneteliste">
     <li>1</li>
     <li>2</li>
@@ -31,7 +32,8 @@ let tips = [
       <ul>
     </li>
   </ol>
-  </xmp>`, contentIsHTML: true}
+  </xmp>`, contentIsHTML: true
+  }
 ]
 
 // var spielername = "";
@@ -50,13 +52,13 @@ let tips = [
 // }
 
 let validationFuncs = [
-  function() { return elementIsCorrectTag("ungeordneteliste", "ul"); },
-  function() { return listHasMinElements("ungeordneteliste", 3); },
-  function() { return elementIsCorrectTag("geordneteliste", "ol"); },
-  function() { return listHasMinElements("geordneteliste", 3); },
-  function() { return elementIsCorrectTag("listeebene2", "ul"); },
-  function() { return listHasMinElements("listeebene2", 3); },
-  function() { return elementIsChildOf("listeebene2", "geordneteliste")}
+  function () { return elementIsCorrectTag("ungeordneteliste", "ul"); },
+  function () { return listHasMinElements("ungeordneteliste", 3); },
+  function () { return elementIsCorrectTag("geordneteliste", "ol"); },
+  function () { return listHasMinElements("geordneteliste", 3); },
+  function () { return elementIsCorrectTag("listeebene2", "ul"); },
+  function () { return listHasMinElements("listeebene2", 3); },
+  function () { return elementIsChildOf("listeebene2", "geordneteliste") }
   // function() { return isInlineElement("inlinelement"); },
   // function() { return isBlockElement("blockelement"); },
 ]

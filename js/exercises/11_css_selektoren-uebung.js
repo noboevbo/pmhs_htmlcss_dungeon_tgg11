@@ -1,14 +1,8 @@
-import {
-    elementIsCorrectTag,
-    elementsExist,
-    checkTableContent,
-    or,
-    hasCorrectStyleValue,
-    hasQuerySelectorCorrectStyleValue,
-    cssContains,
-    hasSelectorStyleValue,
-} from "../exercise/validation_helper.js";
 import { Exercise } from "../exercise/exercise_base.js";
+import {
+    cssContains, elementIsCorrectTag, hasCorrectStyleValue,
+    hasQuerySelectorCorrectStyleValue, hasSelectorStyleValue
+} from "../exercise/validation_helper.js";
 
 let exerciseID = "11_css_selektoren-uebung";
 

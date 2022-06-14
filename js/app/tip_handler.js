@@ -4,9 +4,7 @@ import {
 } from "./dom_selectors.js";
 import {
     createOrUpdate,
-    getDB,
-    getOrCreate,
-    updatePlayerGold
+    getDB, updatePlayerGold
 } from './model.js';
 import {
     updatePageVariables
@@ -14,6 +12,7 @@ import {
 
 var currentTips = []
 var currentTipNodes = []
+var converter = new showdown.Converter();
 
 async function setTips(initTipMsg) {
     let db = getDB();
@@ -29,7 +28,7 @@ async function setTips(initTipMsg) {
         let tip = tips[i]
         let isPurchased = await tipIsPurchased(exerciseID, exerciseState, i);
         let aNode = getTipButtonElement(exerciseID, i, getTipPrice(tip.level), tip.title)
-        let dialog = getTipDialogElement(exerciseID, i, tip);
+        let dialog = await getTipDialogElement(exerciseID, i, tip);
         dialogWrapperEl.appendChild(dialog);
         if (isPurchased) {
             setTipPurchasedState(aNode, i);
@@ -37,6 +36,8 @@ async function setTips(initTipMsg) {
         exerciseTipListEl.appendChild(aNode.buttonEl);
         currentTipNodes.push(aNode);
     }
+    await Prism.highlightAllUnder(dialogWrapperEl);
+    // hljs.highlightAll();
 }
 
 function getTipButtonElement(exerciseID, tipID, tipCost, tipTitle) {
@@ -47,7 +48,7 @@ function getTipButtonElement(exerciseID, tipID, tipCost, tipTitle) {
     buttonEl.addEventListener("click", buyTipDelegate(exerciseID, tipID));
     // buttonEl.setAttribute("onclick", `buyTip("${exerciseID}", ${tipID})`);
     const buttonTextEl = document.createElement("span");
-    buttonTextEl.innerHTML = `Tipp ${tipID+1} (<i class="nes-icon coin is-small"></i> ${tipCost}g)`;
+    buttonTextEl.innerHTML = `Tipp ${tipID + 1} (<i class="nes-icon coin is-small"></i> ${tipCost}g)`;
     const tooltipSpanEl = document.createElement("span");
     tooltipSpanEl.className = "tooltiptext";
     const tooltipPEl = document.createElement("p");
@@ -64,7 +65,7 @@ function getTipButtonElement(exerciseID, tipID, tipCost, tipTitle) {
     };
 }
 
-function getTipDialogElement(exerciseID, tipID, tip) {
+async function getTipDialogElement(exerciseID, tipID, tip) {
     const dialogEl = document.createElement("dialog");
     dialogEl.id = `dialog-tip${tipID}`;
     dialogEl.className = "nes-dialog is-rounded";
@@ -72,10 +73,17 @@ function getTipDialogElement(exerciseID, tipID, tip) {
     formEl.method = "dialog";
     const titleEl = document.createElement("h1");
     titleEl.class = "title";
-    titleEl.innerText = `Tipp ${tipID+1}`;
+    titleEl.innerText = `Tipp ${tipID + 1}`;
     formEl.appendChild(titleEl);
     const contentEl = document.createElement("p");
-    if (tip.contentIsHTML) {
+    if (tip.contentIsMarkdown) {
+        let data = await fetch(tip.markdown)
+            .then(response => response.text())
+        console.log("Loaded markdown");
+        console.log(data);
+        contentEl.innerHTML = converter.makeHtml(data);
+    }
+    else if (tip.contentIsHTML) {
         contentEl.innerHTML = tip.content;
     } else {
         contentEl.innerText = tip.content;
@@ -114,7 +122,7 @@ function getTipDialogElement(exerciseID, tipID, tip) {
 function setTipPurchasedState(button, tipID) {
     button.buttonEl.className = "nes-btn is-success tooltip";
     button.buttonEl.setAttribute("onclick", `document.getElementById('dialog-tip${tipID}').showModal();`);
-    button.buttonTextEl.innerHTML = `Tipp ${tipID+1}`;
+    button.buttonTextEl.innerHTML = `Tipp ${tipID + 1}`;
 }
 
 function buyTipDelegate(exerciseID, tipNum) {

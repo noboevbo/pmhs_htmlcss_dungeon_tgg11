@@ -30,15 +30,15 @@ class Exercise {
     return initTipsMsg;
   }
 
-  beforeSuccess() {}
-  afterSuccess() {}
-  beforeFail() {}
-  afterFail() {}
+  beforeSuccess() { }
+  afterSuccess() { }
+  beforeFail() { }
+  afterFail() { }
 
   validate() {
     let finalResult = true;
     let errorMessages = [];
-    for(let i = 0; i < this.validationFuncs.length; i++) {
+    for (let i = 0; i < this.validationFuncs.length; i++) {
       try {
         let resultObj = this.validationFuncs[i]();
         if (!resultObj.result) {
@@ -55,10 +55,10 @@ class Exercise {
     // let exerciseState = window.parent.getExerciseState(exerciseID);
     let exerciseSolvedMsg = getEmptyExerciseStateMessage();
     exerciseSolvedMsg.exerciseID = this.exerciseID;
-    exerciseSolvedMsg.content = { 
-      solved: finalResult, 
+    exerciseSolvedMsg.content = {
+      solved: finalResult,
       solution: getSolutionHTMLCode(),
-      errorMessages 
+      errorMessages
     };
     if (exerciseSolvedMsg.content.solved) {
       this.beforeSuccess();
@@ -85,11 +85,11 @@ function getSolutionHTMLCode() {
 
 function removeScriptTags(doc) {
   var r = doc.getElementsByTagName('script');
-  for (var i = (r.length-1); i >= 0; i--) {
+  for (var i = (r.length - 1); i >= 0; i--) {
 
-      if(r[i].getAttribute('id') != 'a'){
-          r[i].parentNode.removeChild(r[i]);
-      }
+    if (r[i].getAttribute('id') != 'a') {
+      r[i].parentNode.removeChild(r[i]);
+    }
   }
   return r;
 }
@@ -107,7 +107,7 @@ function removeScriptTags(doc) {
 // }
 
 // function addScripts() {
-  
+
 // }
 
 export { Exercise };

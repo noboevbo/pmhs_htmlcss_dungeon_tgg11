@@ -1,10 +1,9 @@
+import { Exercise } from "../exercise/exercise_base.js";
 import {
     elCheckAttributeValue,
     elementIsCorrectTag,
-    elementIsDirectChildOf,
-    or,
+    elementIsDirectChildOf
 } from "../exercise/validation_helper.js";
-import { Exercise } from "../exercise/exercise_base.js";
 let exerciseID = "05_html_formulare";
 
 let instructions = `

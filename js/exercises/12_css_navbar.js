@@ -1,16 +1,7 @@
-import {
-    classCheckStyleSameValue,
-    classCheckStyleValues,
-    classHasCorrectStyleValue,
-    cssBorderColorNames,
-    cssBorderStyleNames,
-    cssBorderWidthNames,
-    cssMarginNames,
-    cssPaddingNames,
-    hasSelectorStyleValue as hasStyleValue,
-    hasQuerySelectorCorrectStyleValue,
-} from "../exercise/validation_helper.js";
 import { Exercise } from "../exercise/exercise_base.js";
+import {
+    hasQuerySelectorCorrectStyleValue, hasSelectorStyleValue as hasStyleValue
+} from "../exercise/validation_helper.js";
 
 let exerciseID = "12_css_navbar";
 

@@ -1,15 +1,8 @@
+import { Exercise } from "../exercise/exercise_base.js";
 import {
     elementIsCorrectTag,
-    elHasCorrectStyleValue,
-    elementsExist,
-    checkTableContent,
-    or,
-    hasCorrectStyleValue,
-    hasQuerySelectorCorrectStyleValue,
-    cssContains,
-    hasSelectorStyleValue,
+    elHasCorrectStyleValue, hasCorrectStyleValue
 } from "../exercise/validation_helper.js";
-import { Exercise } from "../exercise/exercise_base.js";
 
 let exerciseID = "07_css_grundlagen";
 

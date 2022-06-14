@@ -1,15 +1,7 @@
-import {
-    elementIsCorrectTag,
-    elHasCorrectStyleValue,
-    elementsExist,
-    checkTableContent,
-    or,
-    hasCorrectStyleValue,
-    hasQuerySelectorCorrectStyleValue,
-    cssContains,
-    hasSelectorStyleValue,
-} from "../exercise/validation_helper.js";
 import { Exercise } from "../exercise/exercise_base.js";
+import {
+    hasSelectorStyleValue, or
+} from "../exercise/validation_helper.js";
 
 let exerciseID = "08_css_typ-selektor";
 
@@ -25,7 +17,18 @@ let instructions = `
 let tips = [
     {
         level: 0,
-        title: "Video: CSS Typselektoren",
+        title: "Text: CSS Typselektoren",
+        markdown: "/js/exercises/markdown/CSS_Typselektoren.md",
+        contentIsMarkdown: true,
+        weblinks: [
+            "https://www.w3schools.com/cssref/sel_element.asp",
+            "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
+            "https://www.w3schools.com/css/css_selectors.asp",
+        ],
+    },
+    {
+        level: 0,
+        title: "Text: CSS Typselektoren",
         content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fKEXIS00wKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         weblinks: [
             "https://www.w3schools.com/cssref/sel_element.asp",

@@ -1,7 +1,7 @@
+import { Exercise } from '../exercise/exercise_base.js';
 import {
     getSuccessResultObj
 } from '../exercise/validation_helper.js';
-import { Exercise } from '../exercise/exercise_base.js';
 
 let exerciseID = "00_tutorial";
 
@@ -27,7 +27,7 @@ let tips = [{
     content: `Gut gemacht! Du hast deinen ersten Tipp gekauft. Hier gibt es dann Informationen in Form von Texten, Videos oder Audiodateien, die dir bei den Aufgaben helfen!`,
     weblinks: ["https://www.pmhs.de"],
     contentIsHTML: true
-}, ]
+},]
 
 let exerciseBase = new Exercise(exerciseID, instructions, tips, validationFuncs);
 window.onload = exerciseBase.init();

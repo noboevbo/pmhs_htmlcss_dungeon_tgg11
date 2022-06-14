@@ -1,9 +1,7 @@
-import {
-    elementIsCorrectTag,
-    elementsExist,
-    or,
-} from "../exercise/validation_helper.js";
 import { Exercise } from "../exercise/exercise_base.js";
+import {
+    elementsExist
+} from "../exercise/validation_helper.js";
 let exerciseID = "13_html_strukturierung";
 
 let instructions = `
