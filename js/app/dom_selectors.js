@@ -11,6 +11,8 @@ let exerciseTipListEl = document.getElementById("exerciseTips");
 let loadModalEl = document.getElementById('dialog-load');
 let loadZoneEl = document.getElementById("load_zone");
 let dialogWrapperEl = document.getElementById("dialogWrapper");
+let infoDialogWrapperEl = document.getElementById("infoDialogWrapper");
+let exerciseInfoListEl = document.getElementById("exerciseInfos");
 
 export {
   playerNameEl,
@@ -25,5 +27,7 @@ export {
   exerciseTipListEl,
   loadModalEl,
   loadZoneEl,
-  dialogWrapperEl
+  dialogWrapperEl,
+  infoDialogWrapperEl,
+  exerciseInfoListEl
 };

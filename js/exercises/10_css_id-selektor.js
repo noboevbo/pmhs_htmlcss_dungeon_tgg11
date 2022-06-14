@@ -13,10 +13,9 @@ let instructions = `
 </ol>
 `;
 
-let tips = [
+let infos = [
     {
-        level: 0,
-        title: "Text: CSS Typselektoren",
+        title: "Text",
         markdown: "/js/exercises/markdown/CSS_ID-Selektoren.md",
         contentIsMarkdown: true,
         weblinks: [
@@ -26,8 +25,7 @@ let tips = [
         ],
     },
     {
-        level: 0,
-        title: "Video: CSS Typ-Selektoren",
+        title: "Video",
         content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gg167ZBoUTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         weblinks: [
             "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
@@ -36,6 +34,9 @@ let tips = [
         ],
         contentIsHTML: true,
     },
+]
+
+let tips = [
     {
         level: 2,
         title: "Benötigte Elemente und Styles",
@@ -85,6 +86,7 @@ let validationFuncs = [
 let exerciseBase = new Exercise(
     exerciseID,
     instructions,
+    infos,
     tips,
     validationFuncs
 );

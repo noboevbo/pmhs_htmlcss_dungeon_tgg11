@@ -14,10 +14,9 @@ Die Tabelle aus Aufgabe 4 hat noch keine Ränder, daher ist sie schwer als Tabel
 </ol>
 `;
 
-let tips = [
+let infos = [
     {
-        level: 0,
-        title: "Inline-CSS verwenden",
+        title: "Text",
         content: `Um CSS inline anzuwenden benötigst du das <em>style</em> Attribut. Der Wert des Attributs sind dann CSS Regeln. Ein Beispiel wäre <em>style="color:red;"</em> um die Schriftfarbe auf rot zu setzen. Die CSS Eigenschaft (color) steht vor dem Doppelpunkt (:), der Wert (red) dahinter, abgeschlossen wird immer mit einem Semikolon (;).  Unten findest du einen Link, der den Aufbau eines solchen style-Attributs genauer beschreibt. Zusatztipp: Da style ein Attribut ist, schreibt man es IM Starttag.
   `,
         weblinks: [
@@ -25,6 +24,9 @@ let tips = [
         ],
         contentIsHTML: true,
     },
+]
+
+let tips = [
     {
         level: 2,
         title: "Benötigte Elemente und Styles",
@@ -121,6 +123,7 @@ for (let i = 1; i < 5; i++) {
 let exerciseBase = new Exercise(
     exerciseID,
     instructions,
+    infos,
     tips,
     validationFuncs
 );

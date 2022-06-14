@@ -13,6 +13,8 @@ let instructions = `
 </ol>
 `
 
+let infos = []
+
 let tips = [
   { level: 1, title: "Texte im Paragraphen markieren.", content: "Innerhalb eines Paragraphen können unterschiedliche Auszeichnungen verwendet werden, bsp. <p>Das ist ein <strong>Text</strong></p>. Unter dem Link findest du weitere Auszeichnungsmöglichkeiten.", weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/HTML5/Textauszeichnung"] },
   { level: 1, title: "Zeilenumbruch im Paragraphen verwenden.", content: "Paragraphen können beliebigen HTML Code enthalten, entsprechend kannst du einfach im Text innerhalb des Paragraphen einen Zeilenumbruch (<br>) Einsetzen.", weblinks: ["https://www.w3schools.com/html/html_paragraphs.asp"] },
@@ -35,5 +37,5 @@ let validationFuncs = [
   function () { return elementsExist("hr", 1, true); },
 ]
 
-let exerciseBase = new Exercise(exerciseID, instructions, tips, validationFuncs);
+let exerciseBase = new Exercise(exerciseID, instructions, infos, tips, validationFuncs);
 window.onload = exerciseBase.init();

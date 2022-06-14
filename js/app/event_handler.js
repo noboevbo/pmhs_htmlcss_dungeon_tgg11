@@ -1,12 +1,13 @@
 import {
   selectedExerciseInstructionsEl
 } from "./dom_selectors.js";
+import { updateExerciseState } from "./experiment_state_handler.js";
+import { setInfos } from "./info_handler.js";
+import { updateAppData } from "./model.js";
 import {
   setTips
 } from "./tip_handler.js";
-import { updateExerciseState } from "./experiment_state_handler.js";
 import { updatePageVariables } from "./view.js";
-import { updateAppData } from "./model.js";
 
 async function exerciseMessageHandler(event) {
   if (event.origin !== window.origin) {
@@ -19,6 +20,9 @@ async function exerciseMessageHandler(event) {
     case "initInstructions":
       await setInstructions(msg);
       break;
+    case "initInfos":
+      await setInfos(msg);
+      break;
     case "initTips":
       await setTips(msg);
       break;
@@ -26,7 +30,7 @@ async function exerciseMessageHandler(event) {
       await updateExerciseState(msg.exerciseID, msg.content);
       break;
     case "updatePlayerName":
-      await updateAppData({playerName: msg.playerName})
+      await updateAppData({ playerName: msg.playerName })
       await updatePageVariables();
       break;
     default:

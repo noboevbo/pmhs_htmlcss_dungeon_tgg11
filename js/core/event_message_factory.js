@@ -6,6 +6,14 @@ function getEmptyInitInstructionsMessage() {
   }
 };
 
+function getEmptyInitInfosMessage() {
+  return {
+    subject: "initInfos",
+    exerciseID: -1,
+    content: ""
+  };
+};
+
 function getEmptyInitTipsMessage() {
   return {
     subject: "initTips",
@@ -31,6 +39,8 @@ function getUpdatePlayerNameMessage() {
 
 export {
   getEmptyInitInstructionsMessage,
+  getEmptyInitInfosMessage,
   getEmptyInitTipsMessage,
   getEmptyExerciseStateMessage,
-  getUpdatePlayerNameMessage};
+  getUpdatePlayerNameMessage
+};

@@ -15,6 +15,15 @@ let validationFuncs = [
   function () { return TODO }
 ]
 
+let infos = [
+  {
+    title: "",
+    content: ``,
+    weblinks: [""],
+    contentIsHTML: true
+  }
+]
+
 let tips = [
   {
     level: 0,
@@ -25,5 +34,5 @@ let tips = [
   }
 ]
 
-let exerciseBase = new Exercise(exerciseID, instructions, tips, validationFuncs);
+let exerciseBase = new Exercise(exerciseID, instructions, infos, tips, validationFuncs);
 window.onload = exerciseBase.init();

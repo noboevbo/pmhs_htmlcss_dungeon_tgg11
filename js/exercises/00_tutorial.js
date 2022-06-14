@@ -21,6 +21,8 @@ let instructions = `
     <li>Lies dir den Text im Feld <em>Ergebnis</em> durch. Dort wird die HTML Datei aus dem ordner <em>Aufgaben</em> so angezeigt, wie sie bearbeitet wurde. In diesem Tutorial findest du dort noch einige Infos.</li>
 </ol>`
 
+let infos = []
+
 let tips = [{
     level: 0,
     title: "Beispieltipp - kauf mich!",
@@ -29,5 +31,5 @@ let tips = [{
     contentIsHTML: true
 },]
 
-let exerciseBase = new Exercise(exerciseID, instructions, tips, validationFuncs);
+let exerciseBase = new Exercise(exerciseID, instructions, infos, tips, validationFuncs);
 window.onload = exerciseBase.init();

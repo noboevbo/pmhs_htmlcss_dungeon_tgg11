@@ -1,10 +1,11 @@
-import { getEmptyExerciseStateMessage, getEmptyInitInstructionsMessage, getEmptyInitTipsMessage } from "../core/event_message_factory.js";
+import { getEmptyExerciseStateMessage, getEmptyInitInfosMessage, getEmptyInitInstructionsMessage, getEmptyInitTipsMessage } from "../core/event_message_factory.js";
 
 class Exercise {
-  constructor(exerciseID, instructions, tips, validationFuncs) {
+  constructor(exerciseID, instructions, infos, tips, validationFuncs) {
     console.log(`Setup exercise ${exerciseID}`);
     this.exerciseID = exerciseID
     this.instructions = instructions;
+    this.infos = infos;
     this.tips = tips;
     this.validationFuncs = validationFuncs;
   }
@@ -12,6 +13,7 @@ class Exercise {
   init() {
     console.log(`Initialize exercise ${this.exerciseID}`);
     window.parent.postMessage(this.getInstructionsMsg(), window.origin);
+    window.parent.postMessage(this.getInfosMsg(), window.origin);
     window.parent.postMessage(this.getTipsMsg(), window.origin);
     this.validate(this.exerciseID, this.validationFuncs);
   }
@@ -21,6 +23,13 @@ class Exercise {
     initInstructionsMsg.exerciseID = this.exerciseID;
     initInstructionsMsg.content = this.instructions;
     return initInstructionsMsg;
+  }
+
+  getInfosMsg() {
+    let initInfosMsg = getEmptyInitInfosMessage();
+    initInfosMsg.exerciseID = this.exerciseID;
+    initInfosMsg.content = this.infos;
+    return initInfosMsg;
   }
 
   getTipsMsg() {

@@ -11,8 +11,11 @@ let instructions = `
 </ol>
 `
 
+let infos = [
+  { title: "Video", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4IZYV5vVO2Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut"], contentIsHTML: true },
+]
+
 let tips = [
-  { level: 0, title: "Video: HTML Einführung: Elemente, Tags und Attribute", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4IZYV5vVO2Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut"], contentIsHTML: true },
   { level: 1, title: "Überschrift / Paragraphen erstellen", content: "Überschriften erster Ordnung können mit dem h1 Tag erstellt werden. Paragraphen können mit dem p Tag erstellt werden.", weblinks: ["https://www.w3schools.com/tags/tag_hn.asp", "https://www.w3schools.com/html/html_paragraphs.asp"] },
   {
     level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
@@ -46,8 +49,8 @@ let validationFuncs = [
 ]
 
 class ExerciseA extends Exercise {
-  constructor(exerciseID, instructions, tips, validationFuncs) {
-    super(exerciseID, instructions, tips, validationFuncs);
+  constructor(exerciseID, instructions, infos, tips, validationFuncs) {
+    super(exerciseID, instructions, infos, tips, validationFuncs);
   }
 
   afterSuccess() {
@@ -57,5 +60,5 @@ class ExerciseA extends Exercise {
   }
 }
 console.log("Hello")
-let exercise = new ExerciseA(exerciseID, instructions, tips, validationFuncs);
+let exercise = new ExerciseA(exerciseID, instructions, infos, tips, validationFuncs);
 window.onload = exercise.init();

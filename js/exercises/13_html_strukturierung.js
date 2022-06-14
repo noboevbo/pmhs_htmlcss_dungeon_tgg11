@@ -17,6 +17,10 @@ let instructions = `
 </ol>
 `;
 
+let infos = [
+
+]
+
 let tips = [
     {
         level: 1,
@@ -122,6 +126,7 @@ let validationFuncs = [
 let exerciseBase = new Exercise(
     exerciseID,
     instructions,
+    infos,
     tips,
     validationFuncs
 );
