@@ -1,0 +1,22 @@
+{
+  "name": "pmhs_htmlcss_dungeon_tgg11",
+  "version": "1.0.0",
+  "description": "## Anleitung zum Hinzufügen neuer Aufgaben 1. Im Unterodner aufgaben die Datei 00_template.html kopieren und unter neuem Aufgabennamen einfügen 2. Im Template die TODOs (Anleitung erstellen + externe JS Check Datei (js/exercises/aufgabenname.js) einbinden) 3. Im Ordner js/exercises/ das Template kopieren und unter neuem Aufgabennamen einfügen und den Check implementieren 4. In der Datei js/jsdungeon.js das Array exerciseList um die neue Aufgabe (Aufgabenname == Dateiname) erweitern",
+  "main": "server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noboevbo/pmhs_htmlcss_dungeon_tgg11.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noboevbo/pmhs_htmlcss_dungeon_tgg11/issues"
+  },
+  "homepage": "https://github.com/noboevbo/pmhs_htmlcss_dungeon_tgg11#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

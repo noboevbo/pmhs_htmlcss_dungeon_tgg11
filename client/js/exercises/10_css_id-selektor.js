@@ -1,16 +1,7 @@
-import {
-    elementIsCorrectTag,
-    elHasCorrectStyleValue,
-    elHasCSSClass,
-    elementsExist,
-    checkTableContent,
-    or,
-    hasCorrectStyleValue,
-    hasQuerySelectorCorrectStyleValue,
-    cssContains,
-    hasSelectorStyleValue,
-} from "../exercise/validation_helper.js";
 import { Exercise } from "../exercise/exercise_base.js";
+import {
+    elementIsCorrectTag, hasSelectorStyleValue
+} from "../exercise/validation_helper.js";
 
 let exerciseID = "10_css_id-selektor";
 
