@@ -8,9 +8,10 @@ let exerciseID = "08_css_typ-selektor";
 let instructions = `
 <ol>
 <li>Füge einen CSS-Regelsatz für alle TableData (td) Elemente hinzu.</li>
-<li>Setze in diesem den Rand so, dass er 1px stark ist, die Farbe <em>black</em> sowie den Style <em>solid</em> hat.</li>
-<li>Wende den Rand auch auf die TableHead (th) Zellen an.</li>
-<li>Zusätzlich soll in allen TableHead-Zellen die Schrift fett gedruckt werden.</li>
+<li>Füge in diesem die CSS Deklaration <em>border: 1px solid black</em> ein, um einen schwarzen Rand um alle td-Elemente zu legen.</li>
+<li>Wende den Rand auch auf die TableHead (th) Zellen an (Tipp: Nur der Selektor muss angepasst werden).</li>
+<li>Füge noch einen CSS-Regelsatz für alle th-Elemente ein.</li>
+<li>Füge in diesem die CSS Deklaration <em>font-weight: bold</em> ein, um den Text in th-Zellen fett zu drucken.</li>
 </ol>
 `;
 
@@ -27,7 +28,7 @@ let infos = [
     },
     {
         title: "Video",
-        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fKEXIS00wKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/H9lYGiNAAYQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         weblinks: [
             "https://www.w3schools.com/cssref/sel_element.asp",
             "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",

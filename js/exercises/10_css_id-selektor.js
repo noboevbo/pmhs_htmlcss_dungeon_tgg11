@@ -7,9 +7,9 @@ let exerciseID = "10_css_id-selektor";
 
 let instructions = `
 <ol>
-<li>Gib dem Tabellenelement die ID <em>benzinpreis-tabelle</em>.</li>
+<li>Setze für das Tabellenelement das Attribut <em>id="benzinpreis-tabelle"</em>.</li>
 <li>Erstelle einen CSS-Regelsatz für das Tabellen-Element mit der ID <em>benzinpreis-tabelle</em>.</li>
-<li>Füge diesem eine Regel hinzu, durch die die Tabelle eine Breite von 100% erhält.</li>
+<li>Füge diesem die Deklaration <em>width: 100%</em> hinzu, damit die Tabelle die ganze verfügbare Breite einnimmt.</li>
 </ol>
 `;
 
@@ -26,7 +26,7 @@ let infos = [
     },
     {
         title: "Video",
-        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gg167ZBoUTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cUbKLTYqn5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         weblinks: [
             "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
             "https://www.w3schools.com/css/css_selectors.asp",

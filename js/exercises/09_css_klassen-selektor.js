@@ -7,10 +7,10 @@ let exerciseID = "09_css_klassen-selektor";
 
 let instructions = `
 <ol>
-<li>Erstelle eine Klasse mit dem Namen <em>meine-stadt</em>.</li>
-<li>Setze in dieser Klasse den Rand so, dass er 2px stark ist, die Farbe rot sowie den Style <em>solid</em> hat.</li>
-<li>Wende diese Klasse auf alle Zellen in der Reihe für die Stadt Nürtingen an.</li>
-<li>Erstelle eine weitere Klasse mit dem Namen <em>highlight</em>, deren Style die Hintergrundfarbe auf <em>green</em> und die Schriftfarbe auf <em>white</em> setzt.</li>
+<li>Erstelle einen CSS Regelsatz für die Klasse <em>meine-stadt</em>.</li>
+<li>Füge dieser Klasse die CSS Deklaration <em>border: 2px solid red;</em> hinzu.</li>
+<li>Wende diese Klasse auf alle Zellen in der <strong>Reihe</strong> für die Stadt Nürtingen an.</li>
+<li>Erstelle einen weiteren CSS-Regelsatz für die Klasse <em>highlight</em>, deren Style die Hintergrundfarbe auf <em>green</em> und die Schriftfarbe auf <em>white</em> setzt.</li>
 <li>Wende die Klasse highlight auf den jeweils günstigsten Preis für die Spalte Super E10 und Diesel an.</li>
 </ol>
 `;
@@ -28,7 +28,7 @@ let infos = [
     },
     {
         title: "Video",
-        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fZxyffaTQ8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+        content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HLcfrGFKg2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         weblinks: [
             "https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/einfacher_Selektor",
             "https://www.w3schools.com/css/css_selectors.asp",
