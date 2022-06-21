@@ -133,7 +133,7 @@ let validationFuncs = [
         return elHasCSSClass("td_4_2", "highlight");
     },
     function () {
-        return elHasCSSClass("td_3_3", "highlight");
+        return elHasCSSClass("td_4_3", "highlight");
     },
 ];
 
