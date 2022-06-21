@@ -1,0 +1,3 @@
+- Füge einen Link zur Website [https://wiki.selfhtml.org](https://wiki.selfhtml.org) ein. Der sichtbare Text des Links soll nur *selfhtml* sein. Wenn man auf den Link klickt, soll sich die Website in einem **neuen Tab** öffnen. Das HTML-Element soll die ID **einlink** haben.
+- Füge ein img-Element ein um das Bild **aufgaben/static/Boxmodell-detail.png** anzuzeigen. Verwende eine relative Pfadangabe. Das HTML-Element soll die ID **bild1** haben.
+- Füge ein img-Element ein um das Bild **img/00_tutorial-code-screenshot.png** anzuzeigen. Das Bild zeigt einen Screenshot von Aufgabencode. Verwende eine relative Pfadangabe vom aktuellen Verzeichnis aus! Das HTML-Element soll die ID **bild2** haben.

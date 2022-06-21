@@ -4,10 +4,20 @@ class Exercise {
   constructor(exerciseID, instructions, infos, tips, validationFuncs) {
     console.log(`Setup exercise ${exerciseID}`);
     this.exerciseID = exerciseID
-    this.instructions = instructions;
+    this.instructions = this.getInstructions(instructions);
     this.infos = infos;
     this.tips = tips;
     this.validationFuncs = validationFuncs;
+  }
+
+  getInstructions(instructions) {
+    // If instructions are a direct string, pack them into an object
+    console.log("Hello");
+    if (typeof (instructions) === "string") {
+      console.log("Hello");
+      return { content: instructions };
+    }
+    return instructions;
   }
 
   init() {

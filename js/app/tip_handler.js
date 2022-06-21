@@ -15,15 +15,21 @@ var currentTipNodes = []
 var converter = new showdown.Converter();
 
 async function setTips(initTipMsg) {
+    console.log("setTips");
+    console.log(initTipMsg);
     let db = getDB();
+
     let exerciseID = initTipMsg.exerciseID;
 
     let tips = initTipMsg.content;
+
     currentTips = tips;
     currentTipNodes = [];
     dialogWrapperEl.innerHTML = ""; // Reset dialogs
     exerciseTipListEl.innerHTML = "";
+
     let exerciseState = await db.get(exerciseID);
+
     for (let i = 0; i < tips.length; i++) {
         let tip = tips[i]
         let isPurchased = await tipIsPurchased(exerciseID, exerciseState, i);
@@ -76,6 +82,7 @@ async function getTipDialogElement(exerciseID, tipID, tip) {
     titleEl.innerText = `Tipp ${tipID + 1}`;
     formEl.appendChild(titleEl);
     const contentEl = document.createElement("p");
+
     if (tip.contentIsMarkdown) {
         let data = await fetch(tip.markdown)
             .then(response => response.text())

@@ -8,6 +8,7 @@ import {
   setTips
 } from "./tip_handler.js";
 import { updatePageVariables } from "./view.js";
+var converter = new showdown.Converter();
 
 async function exerciseMessageHandler(event) {
   if (event.origin !== window.origin) {
@@ -18,7 +19,7 @@ async function exerciseMessageHandler(event) {
   let msg = event.data;
   switch (msg.subject) {
     case "initInstructions":
-      await setInstructions(msg);
+      await setInstructions(msg.content);
       break;
     case "initInfos":
       await setInfos(msg);
@@ -39,8 +40,16 @@ async function exerciseMessageHandler(event) {
   }
 }
 
-function setInstructions(msg) {
-  selectedExerciseInstructionsEl.innerHTML = msg.content;
+async function setInstructions(instructionData) {
+  if (instructionData.isMarkdown) {
+    let data = await fetch(instructionData.content)
+      .then(response => response.text())
+    console.log("Loaded markdown");
+    console.log(data);
+    selectedExerciseInstructionsEl.innerHTML = converter.makeHtml(data);
+    return
+  }
+  selectedExerciseInstructionsEl.innerHTML = instructionData.content;
 }
 
 
