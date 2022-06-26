@@ -1,10 +1,10 @@
 import { Exercise } from '../exercise/exercise_base.js';
 import { elAttributeValueRegex, elCheckAttributeValue, elementIsCorrectTag, elSrcAttributeIs } from '../exercise/validation_helper.js';
 
-let exerciseID = "15_html_embedded";
+let exerciseID = "16_html_embedded";
 
 let instructions = {
-  content: "/js/exercises/markdown/15_html_embedded/aufgabe_html_embedded.md",
+  content: "/js/exercises/markdown/16_html_embedded/aufgabe_html_embedded.md",
   isMarkdown: true
 }
 
