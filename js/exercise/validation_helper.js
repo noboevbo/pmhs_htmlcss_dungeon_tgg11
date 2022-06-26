@@ -1,17 +1,7 @@
 import {
-    globalVarDoesNotExistMsg,
-    localVarDoesNotExistMsg,
-    isGlobalNotLocalMsg,
-    wrongTypeMsg,
-    stringIsEmptyMsg,
-    isNotConstMsg,
     elDoesNotExistMsg,
     elWrongInnerTextMsg,
-    elWrongStyleValueMsg,
-    wrongValueMsg,
-    logCallDoesNotExist,
-    elWrongTagMsg,
-    validationErrorPossibleUndefinedObjMsg,
+    elWrongStyleValueMsg, elWrongTagMsg, globalVarDoesNotExistMsg, isGlobalNotLocalMsg, isNotConstMsg, localVarDoesNotExistMsg, logCallDoesNotExist, stringIsEmptyMsg, wrongTypeMsg, wrongValueMsg
 } from "./error_messages.js";
 
 // Replace console.log with stub implementation and add.
@@ -185,13 +175,7 @@ export function elementIsDirectChildOf(elID, parentID) {
 }
 
 export function linkTargetIsCorrect(elID, target) {
-    let el = document.getElementById(elID);
-    if (el && el.getAttribute("href") === target) {
-        return getSuccessResultObj();
-    }
-    return getFailResultObj(
-        `Das Ziel des Links <em>${elID}</em> ist nicht korrekt!`
-    );
+    return elAttributeIs(elID, "href", target)
 }
 
 export function linkContentIsCorrect(elID, content) {
@@ -205,12 +189,16 @@ export function linkContentIsCorrect(elID, content) {
 }
 
 export function elSrcAttributeIs(elID, path) {
+    return elAttributeIs(elID, "src", path)
+}
+
+export function elAttributeIs(elID, attributeName, attributeValue) {
     let el = document.getElementById(elID);
-    if (el && el.getAttribute("src") === path) {
+    if (el && el.getAttribute(attributeName) === attributeValue) {
         return getSuccessResultObj();
     }
     return getFailResultObj(
-        `Der Pfad des Elements <em>${elID}</em> ist nicht korrekt!`
+        `Der Wert des Attributs <em>${attributeName}</em> im HTML-Element <em>${elID}</em> ist nicht korrekt!`
     );
 }
 
@@ -231,14 +219,12 @@ export function checkTableContent(elID, tableContent) {
             if (
                 curr_column.tagName.toUpperCase() !== column_type.toUpperCase()
             ) {
-                errors += `Der Zellentyp von Zeile ${row + 1} Spalte ${
-                    column + 1
-                } (Wert: ${column_value}) ist nicht korrekt!<br>`;
+                errors += `Der Zellentyp von Zeile ${row + 1} Spalte ${column + 1
+                    } (Wert: ${column_value}) ist nicht korrekt!<br>`;
             }
             if (curr_column.innerText !== column_value) {
-                errors += `Der Wert in Zeile ${row + 1} Spalte ${
-                    column + 1
-                } ist nicht korrekt!<br>`;
+                errors += `Der Wert in Zeile ${row + 1} Spalte ${column + 1
+                    } ist nicht korrekt!<br>`;
             }
         }
     }
@@ -592,8 +578,7 @@ export function hasMinBlockOrInlineElements(minNumElements, inline = false) {
         }
     }
     return getFailResultObj(
-        `Es sind erst ${found.length} von ${minNumElements} ${
-            inline ? "Inline" : "Block"
+        `Es sind erst ${found.length} von ${minNumElements} ${inline ? "Inline" : "Block"
         }-Elemente vorhanden!`
     );
 }
