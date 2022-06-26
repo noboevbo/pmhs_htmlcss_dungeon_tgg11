@@ -11,7 +11,7 @@ let instructions = {
 let infos = [
   {
     title: "Text",
-    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/aufgabe_html_ziel_und_quelle.md",
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/info_html_ziel_und_quelle.md",
     contentIsMarkdown: true,
     weblinks: [
       "https://www.w3schools.com/tags/tag_a.asp",
@@ -22,26 +22,39 @@ let infos = [
 
 let tips = [
   {
-    level: 1,
-    title: "Video: HTML Links & Pfade.",
-    content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DHX4U4oKSLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links/Referenzieren_in_HTML", "https://www.w3schools.com/html/html_links.asp"],
-    contentIsHTML: true
+    level: 2,
+    title: "Tipp zum HTML Link",
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip1_html_link.md",
+    contentIsMarkdown: true,
+    weblinks: [
+      "https://www.w3schools.com/html/html_links.asp",
+      "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links/Referenzieren_in_HTML"
+    ],
   },
-  { level: 1, title: "Aufbau von HTML Links.", content: `HTML Links werden über das anchor (<a>-Tag) Element erstellt. Dieses benötigt das Attribut href, in dem das Ziel (z.B. eine URL oder ein Dateipfad) angegeben wird. Der Inhalt des Elements ist dann der Text, der auf der Website angezeigt werden soll, ein Beispiel wäre: <xmp><a href="https://www.pmhs.de/">PMHS Website</a></xmp>Um lokale Dateien (also Dateien auf dem PC auf dem auch die Website liegt) einzubinden sollten relative Pfade verwendet werden. Sieh dir dafür am besten den ersten Link an, dort findet ihr gute Beispiele! Die anderen Links helfen dir ansonsten sicher auch weiter.`, weblinks: ["https://www.akademie.de/de/wissen/html-lernen-1-grundlagen/relative-pfade", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links/Referenzieren_in_HTML", "https://www.w3schools.com/html/html_links.asp"], contentIsHTML: true },
   {
-    level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
-  <a id="einlink" href="https://wiki.selfhtml.org", target="_blank">selfhtml</a>
-  <img id="bild1" src="static/Boxmodell-detail.png" alt="Das CSS-Boxmodell.">
-  <img id="bild2" src="../img/00_tutorial-code-screenshot.png" alt="Screenshot vom Aufgabencode">
-  </xmp>`, contentIsHTML: true
-  }
+    level: 2,
+    title: "Tipp zum HTML Bild",
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip2_html_bild.md",
+    contentIsMarkdown: true,
+    weblinks: [
+      "https://www.w3schools.com/tags/tag_img.asp",
+      "https://wiki.selfhtml.org/wiki/HTML/Elemente/img"
+    ],
+  },
+  {
+    level: 3,
+    title: "Lösung anzeigen",
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip3_loesung.md",
+    contentIsMarkdown: true,
+    weblinks: [
+    ],
+  },
 ]
 
 let validationFuncs = [
-  function () { return elementIsCorrectTag("einlink", "a"); },
-  function () { return linkTargetIsCorrect("einlink", "https://wiki.selfhtml.org"); },
-  function () { return linkContentIsCorrect("einlink", "selfhtml"); },
+  function () { return elementIsCorrectTag("link1", "a"); },
+  function () { return linkTargetIsCorrect("link1", "https://www.w3schools.com/html/default.asp"); },
+  function () { return linkContentIsCorrect("link1", "w3schools: HTML Informationen"); },
   function () { return elAttributeIs("bild1", "src", "https://www.pmhs.de/wp-content/uploads/TG_GMT_PMHS-2.png") },
   function () { return elAttributeIs("bild1", "alt", "TG Werbung: Berufswünsche") }
 ]
