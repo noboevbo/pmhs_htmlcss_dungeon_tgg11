@@ -1,5 +1,5 @@
 import { Exercise } from '../exercise/exercise_base.js';
-import { elementIsCorrectTag, elSrcAttributeIs, linkContentIsCorrect, linkTargetIsCorrect, or } from '../exercise/validation_helper.js';
+import { elAttributeIs, elementIsCorrectTag, elSrcAttributeIs, linkContentIsCorrect, linkTargetIsCorrect, or } from '../exercise/validation_helper.js';
 
 let exerciseID = "15_html_pfade";
 
@@ -32,22 +32,45 @@ let infos = [
 ]
 
 let tips = [
-  { level: 1, title: "Aufbau von HTML Links.", content: `HTML Links werden über das anchor (<a>-Tag) Element erstellt. Dieses benötigt das Attribut href, in dem das Ziel (z.B. eine URL oder ein Dateipfad) angegeben wird. Der Inhalt des Elements ist dann der Text, der auf der Website angezeigt werden soll, ein Beispiel wäre: <xmp><a href="https://www.pmhs.de/">PMHS Website</a></xmp>Um lokale Dateien (also Dateien auf dem PC auf dem auch die Website liegt) einzubinden sollten relative Pfade verwendet werden. Sieh dir dafür am besten den ersten Link an, dort findet ihr gute Beispiele! Die anderen Links helfen dir ansonsten sicher auch weiter.`, weblinks: ["https://www.akademie.de/de/wissen/html-lernen-1-grundlagen/relative-pfade", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links", "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links/Referenzieren_in_HTML", "https://www.w3schools.com/html/html_links.asp"], contentIsHTML: true },
   {
-    level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
-  <a id="einlink" href="https://wiki.selfhtml.org", target="_blank">selfhtml</a>
-  <img id="bild1" src="static/Boxmodell-detail.png" alt="Das CSS-Boxmodell.">
-  <img id="bild2" src="../img/00_tutorial-code-screenshot.png" alt="Screenshot vom Aufgabencode">
-  </xmp>`, contentIsHTML: true
-  }
+    level: 1,
+    title: "Link in neuem Tab öffnen",
+    markdown: "/js/exercises/markdown/15_html_pfade/tip_link_neuer_tab.md",
+    contentIsMarkdown: true,
+    weblinks: [
+      "https://www.w3schools.com/tags/att_a_target.asp",
+      "https://wiki.selfhtml.org/wiki/HTML/Attribute/target",
+    ],
+  },
+  {
+    level: 2,
+    title: "Benötigte Pfade",
+    markdown: "/js/exercises/markdown/15_html_pfade/tip_pfade.md",
+    contentIsMarkdown: true,
+    weblinks: [
+      "https://www.akademie.de/de/wissen/html-lernen-1-grundlagen/relative-pfade",
+      "https://lehre.idh.uni-koeln.de/lehrveranstaltungen/wisem20/basissysteme-der-informationsverarbeitung-1-bsi-4/web-technologien/html-1/relative-vs-absolute-pfade/",
+    ],
+  },
+
+  {
+    level: 3,
+    title: "Lösung anzeigen",
+    markdown: "/js/exercises/markdown/15_html_pfade/tip_loesung.md",
+    contentIsMarkdown: true,
+    weblinks: [
+    ],
+  },
 ]
 
 let validationFuncs = [
-  function () { return elementIsCorrectTag("einlink", "a"); },
-  function () { return linkTargetIsCorrect("einlink", "https://wiki.selfhtml.org"); },
-  function () { return linkContentIsCorrect("einlink", "selfhtml"); },
+  function () { return elementIsCorrectTag("link1", "a"); },
+  function () { return linkTargetIsCorrect("link1", "00_tutorial.html"); },
+  function () { return linkContentIsCorrect("link1", "Zur Tutorial-Aufgabe"); },
   function () { return or([elSrcAttributeIs("bild1", "/aufgaben/static/Boxmodell-detail.png"), elSrcAttributeIs("bild1", "static/Boxmodell-detail.png")]); },
-  function () { return elSrcAttributeIs("bild2", "../img/00_tutorial-code-screenshot.png"); }
+  function () { return elAttributeIs("bild1", "alt", "Das CSS-Boxmodell"); },
+  function () { return elSrcAttributeIs("bild2", "../img/00_tutorial-code-screenshot.png"); },
+  function () { return elAttributeIs("bild2", "alt", "Screenshot vom Aufgabencode"); },
 ]
 
 let exerciseBase = new Exercise(exerciseID, instructions, infos, tips, validationFuncs);

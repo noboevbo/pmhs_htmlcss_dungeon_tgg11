@@ -1,3 +1,3 @@
 - Füge das Video **aufgaben/static/sample.mp4** über das HTML5 Video-Tag ein. Nutze einen relativen Pfad ausgehend vom aufgaben Ordner! Das Video soll in der Breite 100% des verfügbaren Platzes einnehmen. Weitergehend soll der Benutzer Bedienmöglichkeiten (unter anderem Play/Pause) haben.
 - Füge die MP3 **aufgaben/static/airtone_-_shimmer_1.mp3** über das HTML5 Audio-Tag ein. Nutze einen relativen Pfad ausgehend vom aufgaben Ordner! Der Benutzer soll Bedienmöglichkeiten (unter anderem Play/Pause) haben.
-- Bette ein beliebiges YouTube Video ein.
+- Bette ein beliebiges YouTube Video ein (Tipp: Den Code dazu findest du über das **Teilen** Menü bei YouTube).

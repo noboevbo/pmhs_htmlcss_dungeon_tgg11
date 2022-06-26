@@ -42,3 +42,6 @@ Relative Pfade funktionieren auch nach einem verschieben des Ordners an einen an
 
 - `href="C:\Benutzer\bug\Desktop\pmhs_htmlcss_dungeon_tgg11\aufgaben\16_html_medien.html"` funktioniert nur auf einem Windows PC mit dem Laufwerk **C:**, auf dem der Benutzer **bug** das pmhs Dungeon auf dem **Desktop** abgelegt hat.
 - `href="16_html_medien.html"` funktioniert auf allen Systemen, da der vordere Teil des Pfades dynamisch gesetzt wird.
+
+# Weitere Infos zu Pfaden
+Wenn dir noch etwas nicht ganz klar ist, sieh dir noch die Website der Uni Köln und/oder die Videoinfo dieser Aufgabe an.
