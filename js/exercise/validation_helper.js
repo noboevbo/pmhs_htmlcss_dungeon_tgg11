@@ -129,6 +129,18 @@ export function innerTextEquals(elID, innerText) {
     return getSuccessResultObj();
 }
 
+export function elContainsInnerHTML(elID, innerText) {
+    let el = document.getElementById(elID);
+    if (!el) {
+        return getFailResultObj(elDoesNotExistMsg(elID));
+    }
+    if (!el.innerHTML.includes(innerText)) {
+        return getFailResultObj(`Das HTML-Element ${elID} beinhaltet nicht <strong>${innerText}</strong>.`);
+    }
+    return getSuccessResultObj();
+}
+
+
 export function innerTextStartsWith(elID, innerText) {
     let h1El = document.getElementById(elID);
     if (!h1El) {
@@ -190,6 +202,46 @@ export function linkContentIsCorrect(elID, content) {
 
 export function elSrcAttributeIs(elID, path) {
     return elAttributeIs(elID, "src", path)
+}
+
+export function elChildElAttributeIs(elID, childEl, attributeName, attributeValue) {
+    let el = document.getElementById(elID);
+    if (!el) {
+        return getFailResultObj(elDoesNotExistMsg(elID));
+    }
+    let children = el.getElementsByTagName(childEl);
+    if (children.length < 1) {
+        return `Es wurden keine Kindelemente vom Typ ${childEl} in ${elID} gefunden`;
+    }
+    for (let i = 0; i < children.length; i++) {
+        let child = children[i];
+        if (child.getAttribute(attributeName) === attributeValue) {
+            return getSuccessResultObj();
+        }
+    }
+    return getFailResultObj(
+        `Der Wert des Attributs <em>${attributeName}</em> im HTML-Element <em>${elID}</em> ist nicht korrekt!`
+    );
+}
+
+export function elChildElInnerTextIs(elID, childEl, innerText) {
+    let el = document.getElementById(elID);
+    if (!el) {
+        return getFailResultObj(elDoesNotExistMsg(elID));
+    }
+    let children = el.getElementsByTagName(childEl);
+    if (children.length < 1) {
+        return `Es wurden keine Kindelemente vom Typ ${childEl} in ${elID} gefunden`;
+    }
+    for (let i = 0; i < children.length; i++) {
+        let child = children[i];
+        if (child.innerText === innerText) {
+            return getSuccessResultObj();
+        }
+    }
+    return getFailResultObj(
+        `Der Inhalt des Elements <em>${childEl}</em> im HTML-Element <em>${elID}</em> ist nicht korrekt!`
+    );
 }
 
 export function elAttributeIs(elID, attributeName, attributeValue) {
