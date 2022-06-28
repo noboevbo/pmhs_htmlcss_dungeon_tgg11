@@ -1,11 +1,3 @@
-# Links in neuen Tabs öffnen
-Um einen Link (a-Element) in einem neuen Browser-Tab zu öffnen muss man den Wert des Attributs **target** auf **_blank** setzen.
-
-## Beispiel
-```html
-<a href="https://www.pmhs.de/" target="_blank">PMHS Nürtingen</a>
-```
-
 # Pfadangaben
 Einige HTML-Elemente benötigen Ziele (z.B. href im a-Element) oder Quellen (z.B. src im img-Element). Diese können entweder eine URL (z.B. https://pmhs.de) sein, wenn das Element auf irgendeinem Webserver zugänglich ist, oft sind es aber HTML-Seiten, Bilder oder sonstige Elemente, die auf dem eigenen Server bzw. im eigenen Projektordner liegen. Um diese zu verlinken benötigt man **absolute** oder **relative** Pfade.
 
