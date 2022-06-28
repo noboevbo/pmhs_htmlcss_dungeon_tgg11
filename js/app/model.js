@@ -18,6 +18,7 @@ async function initializeAppData() {
     uuid: uuidv4(),
     playerGold: 0,
     selectedExercise: 0,
+    playerName: "Erscheint nach Lvl 2"
   };
   appData = await getOrCreate("appData", defaultAppData);
   return appData;
