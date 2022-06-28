@@ -1,3 +1,4 @@
+import { closeDialogOnOutsideClick } from "../core/helper.js";
 import {
     dialogWrapperEl,
     exerciseTipListEl
@@ -73,6 +74,7 @@ function getTipButtonElement(exerciseID, tipID, tipCost, tipTitle) {
 
 async function getTipDialogElement(exerciseID, tipID, tip) {
     const dialogEl = document.createElement("dialog");
+    dialogEl.addEventListener('click', closeDialogOnOutsideClick);
     dialogEl.id = `dialog-tip${tipID}`;
     dialogEl.className = "nes-dialog is-rounded";
     const formEl = document.createElement("form");

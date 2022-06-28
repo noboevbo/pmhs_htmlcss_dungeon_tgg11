@@ -1,33 +1,30 @@
-import {exerciseResultEl,
-  exerciseResultHeaderEl,
-  exerciseResultFooterEl,
-  exerciseResultMessageListEl,
-  } from './dom_selectors.js';
+import { closeDialogOnOutsideClick } from '../core/helper.js';
+import { exerciseResultEl, exerciseResultFooterEl, exerciseResultHeaderEl, exerciseResultMessageListEl } from './dom_selectors.js';
 import { createOrUpdate, getDB, updatePlayerGold } from './model.js';
 import { updatePageVariables } from './view.js';
 
 async function updateExerciseState(exerciseID, exerciseData) {
   let db = getDB();
   db.get(exerciseID)
-  .then((exerciseState) => {
-    setLinkState(exerciseID, exerciseData.solved);
-    if (exerciseState.solved) {
-      showExperimentState(exerciseID, exerciseState, exerciseData.solved, exerciseData.errorMessages);
-      return Promise.reject("State did not change, no need to update db");
-    }
-    return exerciseState;
-  })
-  .then((exerciseState) => {
-    exerciseState.updated = Date.now();
-    exerciseState.solution = exerciseData.solution;
-    exerciseState.solved = exerciseData.solved;
-    return createOrUpdate(exerciseState);
-  }).then((exerciseState) => {
-    showExperimentState(exerciseID, exerciseState, true, exerciseData.errorMessages);
-  }).catch(() => {});
+    .then((exerciseState) => {
+      setLinkState(exerciseID, exerciseData.solved);
+      if (exerciseState.solved) {
+        showExperimentState(exerciseID, exerciseState, exerciseData.solved, exerciseData.errorMessages);
+        return Promise.reject("State did not change, no need to update db");
+      }
+      return exerciseState;
+    })
+    .then((exerciseState) => {
+      exerciseState.updated = Date.now();
+      exerciseState.solution = exerciseData.solution;
+      exerciseState.solved = exerciseData.solved;
+      return createOrUpdate(exerciseState);
+    }).then((exerciseState) => {
+      showExperimentState(exerciseID, exerciseState, true, exerciseData.errorMessages);
+    }).catch(() => { });
 }
 
-function  setLinkState(exerciseID, solved) {
+function setLinkState(exerciseID, solved) {
   let linkNode = document.getElementById(exerciseID + "_link");
   console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${solved}`)
   let iconNode = linkNode.getElementsByTagName("i")[0];
@@ -53,25 +50,25 @@ function showExperimentState(exerciseID, exerciseState, currentlySolved, message
     const solutionButtonEl = getSolutionButtonElement(exerciseID);
     exerciseResultFooterEl.appendChild(solutionButtonEl);
     if (!exerciseState.rewardCollected) {
-        let reward = getGoldAmountFromLevel(exerciseState.level);
-        const h3El = document.createElement("h3");
-        h3El.innerText = "Belohnung abholen";
-        exerciseResultFooterEl.appendChild(h3El);
-        const buttonEl = document.createElement("button");
-        buttonEl.setAttribute("type", "button");
-        buttonEl.id = "collectRewardButton";
-        buttonEl.className = "nes-btn is-warning tooltip";
-        buttonEl.addEventListener("click", getRewardDelegate(exerciseID));
-        buttonEl.innerHTML = `<span><i class="nes-icon coin is-small"></i> ${reward}g</span>`;
-        exerciseResultFooterEl.appendChild(buttonEl);
+      let reward = getGoldAmountFromLevel(exerciseState.level);
+      const h3El = document.createElement("h3");
+      h3El.innerText = "Belohnung abholen";
+      exerciseResultFooterEl.appendChild(h3El);
+      const buttonEl = document.createElement("button");
+      buttonEl.setAttribute("type", "button");
+      buttonEl.id = "collectRewardButton";
+      buttonEl.className = "nes-btn is-warning tooltip";
+      buttonEl.addEventListener("click", getRewardDelegate(exerciseID));
+      buttonEl.innerHTML = `<span><i class="nes-icon coin is-small"></i> ${reward}g</span>`;
+      exerciseResultFooterEl.appendChild(buttonEl);
     }
   } else {
-      exerciseResultEl.className = "alert alert-danger";
-      exerciseResultHeaderEl.innerHTML = `<span class="nes-text is-error">Aufgabe noch nicht korrekt gelöst!</span>`;
-      exerciseResultFooterEl.innerHTML = ``;
+    exerciseResultEl.className = "alert alert-danger";
+    exerciseResultHeaderEl.innerHTML = `<span class="nes-text is-error">Aufgabe noch nicht korrekt gelöst!</span>`;
+    exerciseResultFooterEl.innerHTML = ``;
   }
   for (let i = 0; i < messages.length; i++) {
-      exerciseResultMessageListEl.appendChild(getResultMessageListItem(messages[i]))
+    exerciseResultMessageListEl.appendChild(getResultMessageListItem(messages[i]))
   }
 }
 
@@ -89,6 +86,7 @@ function getSolutionButtonElement() {
 
 function getSolutionDialogElement(solutionText, exerciseName) {
   const dialogEl = document.createElement("dialog");
+  dialogEl.addEventListener('click', closeDialogOnOutsideClick);
   dialogEl.id = `dialog-solution`;
   dialogEl.className = "nes-dialog is-rounded";
   const formEl = document.createElement("form");
@@ -103,7 +101,7 @@ function getSolutionDialogElement(solutionText, exerciseName) {
   const menuEl = document.createElement("menu");
   menuEl.className = "dialog-menu";
   const okButtonEl = document.createElement("button");
-  okButtonEl.className="nes-btn is-primary";
+  okButtonEl.className = "nes-btn is-primary";
   okButtonEl.innerText = "Ok";
   menuEl.appendChild(okButtonEl);
   formEl.appendChild(menuEl);
@@ -113,7 +111,7 @@ function getSolutionDialogElement(solutionText, exerciseName) {
 
 
 function getRewardDelegate(exerciseID) {
-  return async function() {
+  return async function () {
     await getReward(exerciseID);
   };
 }
@@ -128,35 +126,35 @@ async function getReward(exerciseID) {
     exerciseState.rewardCollected = true;
     return createOrUpdate(exerciseState);
   })
-  .then((exerciseState) => {
-    return updatePlayerGold(getGoldAmountFromLevel(exerciseState.level));
-  })
-  .then(() => {
-    exerciseResultFooterEl.innerHTML = ``;
-    updatePageVariables();
-  })
-  .then(() => {
-    console.log("Reward collected");
-  })
-  .catch((err) => {
-    console.log(`Reward collection rejected: ${err}`)
-  });
+    .then((exerciseState) => {
+      return updatePlayerGold(getGoldAmountFromLevel(exerciseState.level));
+    })
+    .then(() => {
+      exerciseResultFooterEl.innerHTML = ``;
+      updatePageVariables();
+    })
+    .then(() => {
+      console.log("Reward collected");
+    })
+    .catch((err) => {
+      console.log(`Reward collection rejected: ${err}`)
+    });
 
 
 }
 
 function getGoldAmountFromLevel(level) {
   switch (level) {
-      case 0:
-          return 10;
-      case 1:
-          return 25;
-      case 2:
-          return 50;
-      case 3:
-          return 75;
-      default:
-          return 0;
+    case 0:
+      return 10;
+    case 1:
+      return 25;
+    case 2:
+      return 50;
+    case 3:
+      return 75;
+    default:
+      return 0;
   }
 }
 
