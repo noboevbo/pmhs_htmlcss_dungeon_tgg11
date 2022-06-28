@@ -1,5 +1,5 @@
 import { Exercise } from '../exercise/exercise_base.js';
-import { elAttributeIs, elementIsCorrectTag, elSrcAttributeIs, linkTargetIsCorrect, or } from '../exercise/validation_helper.js';
+import { elAttributeIs, elementIsCorrectTag, elSrcAttributeIs, linkContentContains, linkTargetIsCorrect, or } from '../exercise/validation_helper.js';
 
 let exerciseID = "15_html_pfade";
 
