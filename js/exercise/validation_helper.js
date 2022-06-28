@@ -200,6 +200,16 @@ export function linkContentIsCorrect(elID, content) {
     );
 }
 
+export function linkContentContains(elID, content) {
+    let el = document.getElementById(elID);
+    if (el && el.innerHTML.includes(content)) {
+        return getSuccessResultObj();
+    }
+    return getFailResultObj(
+        `Der Inhalt des Links <em>${elID}</em> ist nicht korrekt!`
+    );
+}
+
 export function elSrcAttributeIs(elID, path) {
     return elAttributeIs(elID, "src", path)
 }

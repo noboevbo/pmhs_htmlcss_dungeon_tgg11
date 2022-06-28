@@ -1,5 +1,5 @@
 import { Exercise } from '../exercise/exercise_base.js';
-import { elAttributeIs, elementIsCorrectTag, linkContentIsCorrect, linkTargetIsCorrect } from '../exercise/validation_helper.js';
+import { elAttributeIs, elementIsCorrectTag, linkContentContains, linkTargetIsCorrect } from '../exercise/validation_helper.js';
 
 let exerciseID = "14_html_ziel_und_quelle";
 
@@ -54,7 +54,7 @@ let tips = [
 let validationFuncs = [
   function () { return elementIsCorrectTag("link1", "a"); },
   function () { return linkTargetIsCorrect("link1", "https://www.w3schools.com/html/default.asp"); },
-  function () { return linkContentIsCorrect("link1", "w3schools: HTML Informationen"); },
+  function () { return linkContentContains("link1", "w3schools: HTML Informationen"); },
   function () { return elAttributeIs("bild1", "src", "https://www.pmhs.de/wp-content/uploads/TG_GMT_PMHS-2.png") },
   function () { return elAttributeIs("bild1", "alt", "TG Werbung: Berufswünsche") }
 ]

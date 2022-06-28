@@ -1,5 +1,5 @@
 import { Exercise } from '../exercise/exercise_base.js';
-import { elAttributeIs, elementIsCorrectTag, elSrcAttributeIs, linkContentIsCorrect, linkTargetIsCorrect, or } from '../exercise/validation_helper.js';
+import { elAttributeIs, elementIsCorrectTag, elSrcAttributeIs, linkTargetIsCorrect, or } from '../exercise/validation_helper.js';
 
 let exerciseID = "15_html_pfade";
 
@@ -66,7 +66,7 @@ let tips = [
 let validationFuncs = [
   function () { return elementIsCorrectTag("link1", "a"); },
   function () { return linkTargetIsCorrect("link1", "00_tutorial.html"); },
-  function () { return linkContentIsCorrect("link1", "Zur Tutorial-Aufgabe"); },
+  function () { return linkContentContains("link1", "Zur Tutorial-Aufgabe"); },
   function () { return or([elSrcAttributeIs("bild1", "/aufgaben/static/Boxmodell-detail.png"), elSrcAttributeIs("bild1", "static/Boxmodell-detail.png")]); },
   function () { return elAttributeIs("bild1", "alt", "Das CSS-Boxmodell"); },
   function () { return elSrcAttributeIs("bild2", "../img/00_tutorial-code-screenshot.png"); },
