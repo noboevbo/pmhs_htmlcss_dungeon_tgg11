@@ -130,4 +130,4 @@ let exerciseBase = new Exercise(
     tips,
     validationFuncs
 );
-window.onload = exerciseBase.init();
+exerciseBase.init();

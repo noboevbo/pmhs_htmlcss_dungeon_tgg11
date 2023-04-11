@@ -76,4 +76,4 @@ let validationFuncs = [
 ]
 
 let exerciseBase = new Exercise(exerciseID, instructions, infos, tips, validationFuncs);
-window.onload = exerciseBase.init();
+exerciseBase.init();

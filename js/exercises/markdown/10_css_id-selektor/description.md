@@ -1,3 +1,3 @@
-1. Erstelle eine Überschrift erster Ordnung mit dem Titel *Dungeon Run 1*. Die Überschrift soll die **id** *hauptueberschrift* haben.
-2. Erstelle einen Paragraphen, mit dem Text *Spielername: DEINSPIELERNAME*, erstetze *DEINSPIELERNAME* dabei mit einem beliebigen Namen. Der Paragraph soll die ID *spielertext* haben.
-3. Der Spielername soll mithilfe eines HTML-Elements **fett** dargestellt werden.
+1.  Setze für das Tabellenelement das Attribut _id="benzinpreis-tabelle"_.
+2.  Erstelle einen CSS-Regelsatz für das Tabellen-Element mit der ID _benzinpreis-tabelle_.
+3.  Füge diesem die Deklaration _width: 100%_ hinzu, damit die Tabelle die ganze verfügbare Breite einnimmt.

@@ -1,5 +1,16 @@
 # Lösung
+## Im `<head>`
 ```html
-<h1 id="hauptueberschrift">Dungeon Run 1</h1> 
-<p id="spielertext">Spielername: <strong>Fritz</strong></p>
+<style>
+    #benzinpreis-tabelle {
+        width: 100%;
+    }
+</style>
+```
+
+## Im `<body>`
+```html
+<table id="benzinpreis-tabelle">
+...
+</table>
 ```

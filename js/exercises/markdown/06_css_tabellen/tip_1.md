@@ -1,9 +1,8 @@
-# CSS Klassen verwenden
-Überschriften erster Ordnung können mit dem **h1**-Element erstellt werden. Paragraphen können mit dem **p**-Element erstellt werden. Der Text steht zwischen dem **Start-** und **End-Tag**!
+# Benötigte CSS Eigenschaften
+Du benötigst die folgenden CSS Eigenschaften:
 
-## Beispiel
+*   Farbwerte: z.B. *#ff0000* (je zwei Stellen für r, g und b) = rot, alternativ: einfach _red_
+*   Kontur: *border* (Beispiel: *`border: 1px dotted black`* für 1px breite, gepunktete und schwarze Kontur)
 
-```html
-<h1>Meine Überschrift</h1>
-<p>Mein Paragraph</p>
-```
+## Weiterführende Informationen
+- [https://developer.mozilla.org/de/docs/Web/CSS/border](https://developer.mozilla.org/de/docs/Web/CSS/border)

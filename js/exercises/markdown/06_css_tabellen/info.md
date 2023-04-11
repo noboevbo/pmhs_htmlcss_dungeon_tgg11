@@ -1,5 +1,14 @@
-# Info: Das CSS Boxmodell
-<iframe title="Einführung HTML: Elemente, Tags und Attribute" width="560" height="315" src="https://zumvideo.de/videos/embed/3711fb8c-114a-4642-97a2-08882811bc44" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+# Info: CSS Tabellen
+Um CSS inline anzuwenden benötigst du das _style_ Attribut. Der Wert des Attributs sind dann CSS Regeln. Ein Beispiel wäre _style="color:red;"_ um die Schriftfarbe auf rot zu setzen. Die CSS Eigenschaft (color) steht vor dem Doppelpunkt (:), der Wert (red) dahinter, abgeschlossen wird immer mit einem Semikolon (;). Unten findest du einen Link, der den Aufbau eines solchen style-Attributs genauer beschreibt. Zusatztipp: Da style ein Attribut ist, schreibt man es IM Starttag.
+
+## Beispiel
+```html
+<table style="border: 1px dotted red">
+  <tr>
+    <td>Zeile 1, Spalte 1</td>
+  </tr>
+</table>
+```
 
 ## Weiterführende Informationen
-- [https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut](https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut)
+- [https://wiki.selfhtml.org/wiki/CSS/Tutorials/Einstieg/Stylesheets_einbinden#direkt_in_einem_style-Attribut](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Einstieg/Stylesheets_einbinden#direkt_in_einem_style-Attribut)
