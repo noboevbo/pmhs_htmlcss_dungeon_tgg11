@@ -17,14 +17,8 @@ let infos = [
 let tips = [
   {
       level: 1,
-      title: "Texte im Paragraphen markieren",
+      title: "Listen erstellen",
       markdown: "/js/exercises/markdown/03_html_listen/tip_1.md",
-      contentIsMarkdown: true,
-  },
-  {
-      level: 2,
-      title: "IDs einfügen",
-      markdown: "/js/exercises/markdown/03_html_listen/tip_2.md",
       contentIsMarkdown: true,
   },
   {

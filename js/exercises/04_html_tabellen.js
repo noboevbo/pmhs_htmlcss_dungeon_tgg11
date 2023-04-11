@@ -3,44 +3,30 @@ import { checkTableContent, elementIsCorrectTag } from '../exercise/validation_h
 
 let exerciseID = "04_html_tabellen";
 
-
-let instructions = `
-<ol>
-<li>Füge eine Tabelle mit folgendem Inhalt ein. Nutze für die erste Zeile header-Zellen! Das Tabellen-Element soll die id <em>tabelle1</em> haben. <br><img src="aufgaben/static/tabelle.png" alt="Beispieltabelle"></li>
-</ol>
-`
+let instructions = {
+  content: "/js/exercises/markdown/04_html_tabellen/description.md",
+  isMarkdown: true
+}
 
 let infos = [
-  { title: "Video", content: `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3_dMtz73tUk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe`, weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tabellen"], contentIsHTML: true },
-]
-
-let tips = [
-  { level: 1, title: "HTML-Element: <table>.", content: "Eine Tabelle wird mit dem <table>-Tag begonnen. In diesem Tag nutzt man dann Zeilen (<tr>-Tag) und in den Zeilen Spaltenelemente (<th>-Tag für Überschriften und <td>-Tag für Datenzellen). Dabei steht tr für tablerow, th für tablehead und td für tabledata. Mehr Infos findest du unter dem Link unten.", weblinks: ["https://wiki.selfhtml.org/wiki/HTML/Tabellen"] },
   {
-    level: 3, title: "Lösung anzeigen", content: `Die Lösung ist: <xmp>
-  <table id="tabelle1">
-    <tr>
-      <th>Schüler</th>
-      <th>Alter</th>
-      <th>Note</th>
-    </tr>
-    <tr>
-      <td>Alice</td>
-      <td>17</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Bob</td>
-      <td>19</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Eve</td>
-      <td>18</td>
-      <td>1</td>
-    </tr>
-  </table> 
-  </xmp>`, contentIsHTML: true
+      title: "Video: HTML Tabellen",
+      markdown: "/js/exercises/markdown/04_html_tabellen/info.md",
+      contentIsMarkdown: true,
+  },
+]
+let tips = [
+  {
+      level: 1,
+      title: "Formulare: Aufbau",
+      markdown: "/js/exercises/markdown/04_html_tabellen/tip_1.md",
+      contentIsMarkdown: true,
+  },
+  {
+      level: 3,
+      title: "Lösung anzeigen",
+      markdown: "/js/exercises/markdown/04_html_tabellen/tip_solution.md",
+      contentIsMarkdown: true,
   }
 ]
 
@@ -56,4 +42,4 @@ let validationFuncs = [
 ]
 
 let exerciseBase = new Exercise(exerciseID, instructions, infos, tips, validationFuncs);
-window.onload = exerciseBase.init();
+exerciseBase.init();

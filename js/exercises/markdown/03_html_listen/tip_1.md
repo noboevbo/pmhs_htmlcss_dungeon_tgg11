@@ -1,9 +1,14 @@
-# CSS Klassen verwenden
-Überschriften erster Ordnung können mit dem **h1**-Element erstellt werden. Paragraphen können mit dem **p**-Element erstellt werden. Der Text steht zwischen dem **Start-** und **End-Tag**!
+# Listen erstellen
+Eine geordnete Liste wird mit dem **ol**-Element (OrderedList) erstellt, eine ungeordnete mit dem **ul**-Element (UnorderedList). In diesem Element werden dann Listenelemente mit dem **li**-Element (ListItem) erstellt.
 
 ## Beispiel
-
 ```html
-<h1>Meine Überschrift</h1>
-<p>Mein Paragraph</p>
+<ol>
+    <li>Erstes Element einer geordneten Liste</li>
+    <li>Zweites Element einer geordneten Liste</li>
+</ol>
 ```
+
+## Weiterführende Informationen
+- [https://developer.mozilla.org/de/docs/Web/HTML/Element/ol](https://developer.mozilla.org/de/docs/Web/HTML/Element/ol)
+- [https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten#li](https://wiki.selfhtml.org/wiki/HTML/Tutorials/Listen/Aufz%C3%A4hlungslisten#li)
