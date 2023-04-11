@@ -13,7 +13,10 @@ import {
 
 var currentTips = []
 var currentTipNodes = []
-var converter = new showdown.Converter();
+var converter = new showdown.Converter({
+    openLinksInNewWindow: true,
+    parseImgDimensions: true,
+});
 
 async function setTips(initTipMsg) {
     console.log("setTips");
@@ -37,7 +40,7 @@ async function setTips(initTipMsg) {
         let aNode = getTipButtonElement(exerciseID, i, getTipPrice(tip.level), tip.title)
         let dialog = await getTipDialogElement(exerciseID, i, tip);
         dialogWrapperEl.appendChild(dialog);
-        if (isPurchased) {
+        if (isPurchased || tip.level == 0) {
             setTipPurchasedState(aNode, i);
         }
         exerciseTipListEl.appendChild(aNode.buttonEl);
@@ -88,8 +91,8 @@ async function getTipDialogElement(exerciseID, tipID, tip) {
     if (tip.contentIsMarkdown) {
         let data = await fetch(tip.markdown)
             .then(response => response.text())
-        console.log("Loaded markdown");
-        console.log(data);
+        // console.log("Loaded markdown");
+        // console.log(data);
         contentEl.innerHTML = converter.makeHtml(data);
     }
     else if (tip.contentIsHTML) {

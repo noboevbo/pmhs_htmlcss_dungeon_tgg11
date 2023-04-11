@@ -12,7 +12,7 @@ class Exercise {
 
   getInstructions(instructions) {
     // If instructions are a direct string, pack them into an object
-    console.log("Hello");
+    // console.log("Hello");
     if (typeof (instructions) === "string") {
       console.log("Hello");
       return { content: instructions };

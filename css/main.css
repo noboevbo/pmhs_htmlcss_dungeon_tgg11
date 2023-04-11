@@ -130,19 +130,19 @@ h6 {
 
 .main-footer-content {
   min-height: 101px;
-  display: grid;
+  display: flex;
   grid-template-columns: auto 1fr;
 }
 
 .exercise-infos {
   grid-column: 1;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fill, 225px);
 }
 
 .exercise-tips {
   grid-column: 2;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fill, 225px);
 }
 
@@ -201,7 +201,7 @@ h6 {
 
 .exercise-container {
   position: relative;
-  height: 0;
+  min-height: 400px;
   padding-top: 45%;
   /* overflow:hidden; */
   padding-left: 5px;
@@ -261,7 +261,7 @@ nav>ul {
 }
 
 .nes-dialog {
-  max-width: 900px;
+  max-width: 1800px;
 }
 
 blockquote {

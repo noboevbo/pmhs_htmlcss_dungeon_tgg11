@@ -21,8 +21,8 @@
       </span>
       <span id="pageActions">
         <button type="button" id="0" class="nes-btn" onclick="saveToFile()"><span>Speichern</span></button>
-        <button type="button" id="0" class="nes-btn" onclick="document.getElementById('dialog-load').showModal();"><span>Laden</span></button>
-        <button type="button" id="0" class="nes-btn tooltip" onclick="generateReport()"><span>Bericht generieren</span></button>
+        <button type="button" id="1" class="nes-btn" onclick="document.getElementById('dialog-load').showModal();"><span>Laden</span></button>
+        <button type="button" id="2" class="nes-btn tooltip" onclick="generateReport()"><span>Bericht generieren</span></button>
       </span>
       <div class="right">
         <i class="nes-icon coin is-small"></i>
@@ -64,7 +64,6 @@
       <div id="exerciseResultFooter"></div>
       </div>
     </aside>
-    </main>
   </div>
   <footer id="mainFooter" class="main-footer">
     <div class="nes-container is-rounded is-dark main-footer-content">
@@ -75,7 +74,7 @@
   <div id="infoDialogWrapper"></div>
   <div id="dialogWrapper"></div>
   <dialog id="dialog-load" class="nes-dialog is-rounded">
-    <form method="dialog">
+    <form method="get">
       <h1>Spielstand laden</h1>
       <div id="load_zone" class="dropzone" ondrop="loadHandler(event);" ondragover="dragOverHandler(event);" ondragenter="dragEnterHandler(event);" ondragleave="dragLeaveHandler(event);">
         <p>Ziehe deinen Spielstand (pmhs_savegame-[...].txt) hier hinein!</p>
@@ -88,7 +87,7 @@
 
   <script type="module" src="js/uuid.min.js"></script>
   <script type="module" src="js/app/jsdungeon.js"></script>
-  <script scr="js/underscore-esm-min.js"></script>
+  <script src="js/underscore-esm-min.js"></script>
   <script src="js/pouchdb.min.js"></script>
   <script src="js/pouchdb.find.js"></script>
   <script src="js/esprima.js"></script>

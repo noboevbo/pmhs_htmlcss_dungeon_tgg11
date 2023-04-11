@@ -11,6 +11,6 @@ export const elDoesNotExistMsg = (elID) => { return `Das HTML Element <i>${elID}
 export const elWrongTagMsg = (elID, currentTag, requiredTag) => { return `Das HTML Element <i>${elID}</i> ist nicht das gesuchte Tag (aktuell: ${currentTag}, gewünscht: ${requiredTag})!` };
 export const elWrongInnerTextMsg = (elID, innerText) => { return `Der innerText des HTML Elements <i>${elID}</i> ist nicht <i>${innerText}</i>!` };
 // export const elWrongStyleValueMsg = (elID, styleName, styleValue) => { return `Der Style <i>${styleName}</i> von HTML Element <i>${elID}</i> ist nicht <i>${styleValue}</i>!` };
-export const elWrongStyleValueMsg = (elID, styleName, styleValue) => { return `Der Style von HTML Element oder Klasse <i>${elID}</i> ist nicht korrekt!` };
+export const elWrongStyleValueMsg = (elID, styleName, styleValue) => { return `Der Wert von <i>${styleName}</i> von HTML Element <i>${elID}</i> ist nicht korrekt!` };
 export const logCallDoesNotExist = (strValue) => { return `Der console.log-Aufruf mit Wert <i>${strValue}</i> existiert nicht!` };
 export const validationErrorPossibleUndefinedObjMsg = () => { return `Es kam zu einem Fehler während der Validierung, wahrscheinlich ist ein benötigtes Element undefiniert oder null. Prüfe ob du alle Variablen und IDs mit dem korrekten Namen/der korrekten ID versehen hast!` }; 

@@ -8,7 +8,10 @@ import {
   setTips
 } from "./tip_handler.js";
 import { updatePageVariables } from "./view.js";
-var converter = new showdown.Converter();
+var converter = new showdown.Converter({
+  openLinksInNewWindow: true,
+  parseImgDimensions: true,
+});
 
 async function exerciseMessageHandler(event) {
   if (event.origin !== window.origin) {
@@ -44,8 +47,8 @@ async function setInstructions(instructionData) {
   if (instructionData.isMarkdown) {
     let data = await fetch(instructionData.content)
       .then(response => response.text())
-    console.log("Loaded markdown");
-    console.log(data);
+    // console.log("Loaded markdown");
+    // console.log(data);
     selectedExerciseInstructionsEl.innerHTML = converter.makeHtml(data);
     return
   }

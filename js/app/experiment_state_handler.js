@@ -26,7 +26,7 @@ async function updateExerciseState(exerciseID, exerciseData) {
 
 function setLinkState(exerciseID, solved) {
   let linkNode = document.getElementById(exerciseID + "_link");
-  console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${solved}`)
+  // console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${solved}`)
   let iconNode = linkNode.getElementsByTagName("i")[0];
   let stateSymbol = solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
   iconNode.className = stateSymbol;

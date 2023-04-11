@@ -118,6 +118,48 @@ export function elementsExist(
     );
 }
 
+export class NavListItem {
+    constructor(href, innerText) {
+        this.href = href;
+        this.innerText = innerText;
+    }
+}
+export function navListContainsElements(el, listElId, navListItems) {
+    // let el = document.getElementById(listElId);
+    if (!el) {
+        return getFailResultObj(elDoesNotExistMsg(listElId));
+    }
+
+    let children = el.getElementsByTagName("li");
+
+    if (children.length !== navListItems.length) {
+        return getFailResultObj(
+            `Liste ${listElId} enthält ${children.length} Elemente. Gefordert sind ${navListItems.length}.`
+        );
+    }
+    for (let i = 0; i < navListItems.length; i++) {
+        let target = navListItems[i];
+        let child = children[i].children[0];
+        console.log(child);
+        if (child == undefined || child.tagName !== "A") {
+            return getFailResultObj(
+                `Das ${i}te ListItem der Liste ${listElId} enthält keinen Link.`
+            );
+        }
+        if (target.href !== child.getAttribute("href")) {
+            return getFailResultObj(
+                `Das ${i}te ListItem der Liste ${listElId} verweist auf die Website '${child.href}', gefordert ist '${target.href}'.`
+            );
+        }
+        if (target.innerText !== child.innerText) {
+            return getFailResultObj(
+                `Das ${i}te ListItem der Liste ${listElId} enthält den Text ${child.innerText}, gefordert ist ${target.innerText}.`
+            );
+        }
+    }
+    return getSuccessResultObj();
+}
+
 export function innerTextEquals(elID, innerText) {
     let h1El = document.getElementById(elID);
     if (!h1El) {
@@ -352,6 +394,12 @@ export const cssBorderStyleNames = [
     "border-bottom-style",
     "border-right-style",
 ];
+export const cssBorderRadiusNames = [
+    "border-top-left-radius",
+    "border-top-right-radius",
+    "border-bottom-right-radius",
+    "border-bottom-left-radius"
+];
 export const cssMarginNames = [
     "margin-top",
     "margin-left",
@@ -362,6 +410,11 @@ export const cssPaddingNames = [
     "padding-top",
     "padding-left",
     "padding-bottom",
+    "padding-right",
+];
+
+export const cssPaddingNamesLR = [
+    "padding-left",
     "padding-right",
 ];
 
@@ -380,17 +433,19 @@ export function elCheckStyleSameValue(elName, styleNames, styleValue) {
     }
     return getSuccessResultObj();
 }
-export function classCheckStyleSameValue(className, names, value) {
+
+export function classCheckStyleSameValue(className, names, value, round=null) {
     return classCheckStyleValues(
         className,
         names,
-        Array(names.length).fill(value)
+        Array(names.length).fill(value),
+        round
     );
 }
 
-export function classCheckStyleValues(className, names, values) {
+export function classCheckStyleValues(className, names, values, round=null) {
     for (let i = 0; i < names.length; i++) {
-        let result = classHasCorrectStyleValue(className, names[i], values[i]);
+        let result = classHasCorrectStyleValue(className, names[i], values[i], round);
         if (!result.result) {
             return result;
         }
@@ -398,7 +453,7 @@ export function classCheckStyleValues(className, names, values) {
     return getSuccessResultObj();
 }
 
-export function classHasCorrectStyleValue(className, styleName, styleValue) {
+export function classHasCorrectStyleValue(className, styleName, styleValue, round=null) {
     let els = document.getElementsByClassName(className);
     if (els.length === 0) {
         return getFailResultObj(
@@ -410,7 +465,8 @@ export function classHasCorrectStyleValue(className, styleName, styleValue) {
             els[i],
             className,
             styleName,
-            styleValue
+            styleValue,
+            round
         );
         if (!result.result) {
             return result;
@@ -553,7 +609,6 @@ function checkCSSStyleRule(rule, selector, values) {
 }
 
 export function elHasCSSClass(elName, className) {
-    console.log("hello");
     console.log(elName)
     let el = document.getElementById(elName);
     console.log(el)
@@ -606,14 +661,20 @@ export function hasCorrectStyleValue(elName, styleName, styleValue) {
     return elHasCorrectStyleValue(el, elName, styleName, styleValue);
 }
 
-export function elHasCorrectStyleValue(el, elName, styleName, styleValue) {
+export function elHasCorrectStyleValue(el, elName, styleName, styleValue, round=null) {
     if (!el) {
         return getFailResultObj(elDoesNotExistMsg(elName));
     }
     let compStyles = window.getComputedStyle(el);
     let currentValue = compStyles.getPropertyValue(styleName);
     console.log(`${styleName} Ist: ${currentValue} / Soll: ${styleValue}`);
-    if (currentValue !== styleValue) {
+    let success = false
+    if (round != null) {
+        success = parseFloat(currentValue).toFixed(round) === parseFloat(styleValue).toFixed(round);
+    } else {
+        success = currentValue === styleValue;
+    }
+    if (!success) {
         return getFailResultObj(
             elWrongStyleValueMsg(elName, styleName, styleValue)
         );
@@ -677,6 +738,63 @@ export function listHasMinElements(elName, numElements) {
     return getFailResultObj(
         `Die Liste ${elName} hat nicht genug Elemente (mindestens: ${numElements}).`
     );
+}
+
+/* Horizontal Distance */
+
+export function checkHorizontalDistanceBetweenElementsBetween(elName1, elName2, targetDistanceFrom, targetDistanceTo, decimals=0) {
+    const distance = getHorizontalDistanceBetweenElements(elName1, elName2).toFixed(decimals);
+    console.log(`Distanz Ist: ${distance} / Soll: ${targetDistanceFrom} - ${targetDistanceTo}`);
+    if (distance >= targetDistanceFrom.toFixed(decimals) && distance <= targetDistanceTo.toFixed(decimals)) {
+        return getSuccessResultObj();
+    }
+    return getFailResultObj(`Die horizontale Entfernung von ${elName1} und ${elName2} ist nicht korrekt.`)
+}
+
+export function checkHorizontalDistanceBetweenElements(elName1, elName2, targetDistance, decimals=0) {
+    const distance = getHorizontalDistanceBetweenElements(elName1, elName2).toFixed(decimals);
+    console.log(`Distanz Ist: ${distance} / Soll: ${targetDistance}`);
+    if (distance === targetDistance.toFixed(decimals)) {
+        return getSuccessResultObj();
+    }
+    return getFailResultObj(`Die horizontale Entfernung von ${elName1} und ${elName2} ist nicht korrekt.`)
+}
+
+export function getHorizontalDistanceBetweenElements(elName1, elName2) {
+    let el1 = document.getElementById(elName1);
+    if (!el1) {
+        return getFailResultObj(elDoesNotExistMsg(elName1));
+    }
+    let el2 = document.getElementById(elName2);
+    if (!el2) {
+        return getFailResultObj(elDoesNotExistMsg(elName2));
+    }
+    const bb1 = el1.getBoundingClientRect();
+    const bb2 = el2.getBoundingClientRect();
+    return bb2.left-bb1.right;
+}
+
+export function getVerticalDistanceBetweenElements(elName1, elName2) {
+    let el1 = document.getElementById(elName1);
+    if (!el1) {
+        return getFailResultObj(elDoesNotExistMsg(elName1));
+    }
+    let el2 = document.getElementById(elName2);
+    if (!el2) {
+        return getFailResultObj(elDoesNotExistMsg(elName2));
+    }
+    const bb1 = el1.getBoundingClientRect();
+    const bb2 = el2.getBoundingClientRect();
+    return bb2.top-bb1.bottom;
+}
+
+export function checkVerticalDistanceBetweenElements(elName1, elName2, targetDistance, decimals=0) {
+    const distance = getVerticalDistanceBetweenElements(elName1, elName2).toFixed(decimals);
+    console.log(`Distanz Ist: ${distance} / Soll: ${targetDistance}`);
+    if (distance === targetDistance.toFixed(decimals)) {
+        return getSuccessResultObj();
+    }
+    return getFailResultObj(`Die vertikale Entfernung von ${elName1} und ${elName2} ist nicht korrekt.`)
 }
 
 export function or(resultObjects) {

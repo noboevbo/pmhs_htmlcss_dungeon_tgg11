@@ -5,7 +5,10 @@ import {
 
 var currentInfos = []
 var currentInfoNodes = []
-var converter = new showdown.Converter();
+var converter = new showdown.Converter({
+    openLinksInNewWindow: true,
+    parseImgDimensions: true,
+});
 
 async function setInfos(initInfosMsg) {
     let infos = initInfosMsg.content;
@@ -56,8 +59,8 @@ async function getInfoDialogElement(infoID, info) {
     if (info.contentIsMarkdown) {
         let data = await fetch(info.markdown)
             .then(response => response.text())
-        console.log("Loaded markdown");
-        console.log(data);
+        // console.log("Loaded markdown");
+        // console.log(data);
         contentEl.innerHTML = converter.makeHtml(data);
     }
     else if (info.contentIsHTML) {

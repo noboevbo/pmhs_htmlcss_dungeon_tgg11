@@ -1,0 +1,3 @@
+1.  Erstelle eine ungeordnete Liste mit mindestens drei Einträgen! Das Listenelement soll die **id** _ungeordneteliste_ haben.
+2.  Erstelle eine geordnete Liste mit mindestens drei Einträgen! Das Listenelement soll die **id** _geordneteliste_ haben.
+3.  Erstelle eine ungeordnete Liste mit mindestens zwei Einträgen, die im dritten Eintrag der geordneten Liste _geordneteliste_ enthalten ist (verschachtelte Liste)! Die neue Liste soll die **id** _listeebene2_ haben!
