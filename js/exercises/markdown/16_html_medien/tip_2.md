@@ -1,3 +1,4 @@
+# Steuerelemente wie Play/Pause anzeigen
 Um Steuerelemente (z.B. Play oder Pause Buttons) im Video- bzw. Audioplayer anzuzeigen musst du das **controls** Attribut angeben.
 
 ## Beispiel
@@ -9,3 +10,6 @@ Um Steuerelemente (z.B. Play oder Pause Buttons) im Video- bzw. Audioplayer anzu
     <source src="..." type="...">
 </audio>
 ```
+
+## Weiterführende Informationen
+- [https://www.w3schools.com/tags/att_controls.asp](https://www.w3schools.com/tags/att_controls.asp)

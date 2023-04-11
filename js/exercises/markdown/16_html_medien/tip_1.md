@@ -1,3 +1,5 @@
+# Video auf 100% der verfügbaren Breite setzen
+
 Um das Video auf 100% der verfügbaren Breite anzuzeigen benötigst du das Attribut width="100%".
 
 ## Beispiel
@@ -6,3 +8,6 @@ Um das Video auf 100% der verfügbaren Breite anzuzeigen benötigst du das Attri
     <source src="..." type="...">
 </video>
 ```
+
+## Weiterführende Informationen
+- [https://www.w3schools.com/tags/att_video_width.asp](https://www.w3schools.com/tags/att_video_width.asp)

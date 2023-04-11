@@ -1,7 +1,10 @@
-# IDs verwenden
-Eine ID ist ein eindeutiger Identifikator für ein HTML Element. Man erstellt ihn über das **Attribut** id.
+# Styles auf mehrere Elemente anwenden
+Um einen Style auf mehrere Elemente anzuwenden gibt es verschiedene Möglichkeiten. Man könnte allen Elementen die selbe CSS Klasse zuweisen, oder man nutzt den selben Code für mehrere Selektoren. Ein Beispiel wäre die selbe Schriftart für alle Überschriften, dafür müssen die Selektoren mit Komma getrennt geschrieben werden, z.B. _h1, h2, h3 { ... }_, hier würden alle Styles auf h1-h3 angewendet.
 
 ## Beispiel
-```html
-<h1 id="meine-eindeutige-id">Dungeon Run 1</h1> 
+Schriftfarbe für h1-h3 auf weiß setzen.
+```css
+h1, h2, h3 { 
+    color: white;
+}
 ```

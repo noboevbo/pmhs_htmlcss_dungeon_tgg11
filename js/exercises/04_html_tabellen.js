@@ -18,7 +18,7 @@ let infos = [
 let tips = [
   {
       level: 1,
-      title: "Formulare: Aufbau",
+      title: "Aufbau von Tabellen",
       markdown: "/js/exercises/markdown/04_html_tabellen/tip_1.md",
       contentIsMarkdown: true,
   },

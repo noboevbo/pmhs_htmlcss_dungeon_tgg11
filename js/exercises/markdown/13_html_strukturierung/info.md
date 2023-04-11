@@ -1,5 +1,6 @@
-# Info: Das CSS Boxmodell
-<iframe title="Einführung HTML: Elemente, Tags und Attribute" width="560" height="315" src="https://zumvideo.de/videos/embed/3711fb8c-114a-4642-97a2-08882811bc44" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+# Info: HTML Strukturierung
+HTML bietet seit der Version 5 diverse Elemente zur semantischen Strukturierung von Websites. Auf den verlinkten Websites findest du weitere Informationen zu den Tags und wie sie verwendet werden können um Inhalte zu strukturieren.
 
 ## Weiterführende Informationen
-- [https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut](https://wiki.selfhtml.org/wiki/HTML/Tutorials/Element,_Tag_und_Attribut)
+- [https://wiki.selfhtml.org/wiki/HTML/Tutorials/HTML5/Seitenstrukturierung](https://wiki.selfhtml.org/wiki/HTML/Tutorials/HTML5/Seitenstrukturierung)
+- [https://www.w3schools.com/html/html5_semantic_elements.asp](https://www.w3schools.com/html/html5_semantic_elements.asp)

@@ -1,9 +1,5 @@
-# CSS Klassen verwenden
-Überschriften erster Ordnung können mit dem **h1**-Element erstellt werden. Paragraphen können mit dem **p**-Element erstellt werden. Der Text steht zwischen dem **Start-** und **End-Tag**!
+# Typselektoren
+Typselektoren geben Styles für bestimmte HTML-Tags an, will man z.B. für alle ListItem (li) Elemente einen Style angeben schreibt man als Selektor einfach den HTML-Elementnamen *`li { ... }`* verwenden.
 
-## Beispiel
-
-```html
-<h1>Meine Überschrift</h1>
-<p>Mein Paragraph</p>
-```
+## Weiterführende Informationen
+- [https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor](https://wiki.selfhtml.org/wiki/CSS/Selektoren/Typselektor)

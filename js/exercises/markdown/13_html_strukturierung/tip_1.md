@@ -1,9 +1,2 @@
-# CSS Klassen verwenden
-Überschriften erster Ordnung können mit dem **h1**-Element erstellt werden. Paragraphen können mit dem **p**-Element erstellt werden. Der Text steht zwischen dem **Start-** und **End-Tag**!
-
-## Beispiel
-
-```html
-<h1>Meine Überschrift</h1>
-<p>Mein Paragraph</p>
-```
+# Benötigte Elemente
+Um diese Aufgabe zu lösen benötigst du für die Kopfzeile das _header_\-Element, für den Hauptteil das _main_\-Element, für die Fußzeile das _footer_\-Element und die Blogposts sollen in einem _article_\-Element umgesetzt werden. Für die Textformatierungen werden _h1_\-, _h2_\-, _p_\- und _small_\-Elemente benötigt. Weitere Infos findest du auf den verlinkten Websites.

@@ -39,3 +39,9 @@ Audiodateien können wie Videodateien eingebunden werden, nur wird stattdessen d
 Externe Inhalte (wie z.B. von YouTube) können über iframes eingebunden werden. Anbieter wie YouTube haben dafür schon vorgefertigten Code, den man dort z.B. über das Teilen Menü erreichen kann.
 
 ![Beispiel wie man an den iframe Code für YouTube Videos kommt](/img/yt_einbetten.png)
+
+## Weiterführende Informationen
+- [https://wiki.selfhtml.org/wiki/MIME-Type/Übersicht](https://wiki.selfhtml.org/wiki/MIME-Type/Übersicht)
+- [https://www.w3schools.com/tags/tag_video.asp](https://www.w3schools.com/tags/tag_video.asp)
+- [https://www.w3schools.com/tags/tag_audio.asp](https://www.w3schools.com/tags/tag_audio.asp)
+- [https://support.google.com/youtube/answer/171780?hl=de](https://support.google.com/youtube/answer/171780?hl=de)

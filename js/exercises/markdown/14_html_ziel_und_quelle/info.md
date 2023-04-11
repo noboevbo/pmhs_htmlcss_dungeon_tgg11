@@ -21,3 +21,7 @@ Bilder werden in HTML über das img-Element (image) eingebunden. Dieses benötig
 ```html
 <img src="https://www.pmhs.de/logo.png" alt="Das Logo der PMHS Nürtingen">.
 ```
+
+## Weiterführende Informationen
+- [https://www.w3schools.com/tags/tag_a.asp](https://www.w3schools.com/tags/tag_a.asp)
+- [https://www.w3schools.com/tags/tag_img.asp](https://www.w3schools.com/tags/tag_img.asp)

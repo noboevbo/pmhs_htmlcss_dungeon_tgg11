@@ -37,3 +37,8 @@ Relative Pfade funktionieren auch nach einem verschieben des Ordners an einen an
 
 # Weitere Infos zu Pfaden
 Wenn dir noch etwas nicht ganz klar ist, sieh dir noch die Website der Uni Köln und/oder die Videoinfo dieser Aufgabe an.
+
+## Weiterführende Informationen
+- [https://lehre.idh.uni-koeln.de/lehrveranstaltungen/wisem20/basissysteme-der-informationsverarbeitung-1-bsi-4/web-technologien/html-1/relative-vs-absolute-pfade/](https://lehre.idh.uni-koeln.de/lehrveranstaltungen/wisem20/basissysteme-der-informationsverarbeitung-1-bsi-4/web-technologien/html-1/relative-vs-absolute-pfade/)
+- [https://www.w3schools.com/html/html_filepaths.asp](https://www.w3schools.com/html/html_filepaths.asp)
+- [https://www.w3schools.com/html/html_links.asp](https://www.w3schools.com/html/html_links.asp)

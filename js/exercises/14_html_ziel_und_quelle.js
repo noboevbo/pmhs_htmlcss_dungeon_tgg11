@@ -4,19 +4,15 @@ import { elAttributeIs, elementIsCorrectTag, linkContentContains, linkTargetIsCo
 let exerciseID = "14_html_ziel_und_quelle";
 
 let instructions = {
-  content: "/js/exercises/markdown/14_html_ziel_und_quelle/aufgabe_html_ziel_und_quelle.md",
+  content: "/js/exercises/markdown/14_html_ziel_und_quelle/description.md",
   isMarkdown: true
 }
 
 let infos = [
   {
     title: "Text",
-    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/info_html_ziel_und_quelle.md",
-    contentIsMarkdown: true,
-    weblinks: [
-      "https://www.w3schools.com/tags/tag_a.asp",
-      "https://www.w3schools.com/tags/tag_img.asp",
-    ],
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/info.md",
+    contentIsMarkdown: true
   },
 ]
 
@@ -24,30 +20,20 @@ let tips = [
   {
     level: 2,
     title: "Tipp zum HTML Link",
-    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip1_html_link.md",
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip_1.md",
     contentIsMarkdown: true,
-    weblinks: [
-      "https://www.w3schools.com/html/html_links.asp",
-      "https://wiki.selfhtml.org/wiki/HTML/Tutorials/Links/Referenzieren_in_HTML"
-    ],
   },
   {
     level: 2,
     title: "Tipp zum HTML Bild",
-    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip2_html_bild.md",
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip_2.md",
     contentIsMarkdown: true,
-    weblinks: [
-      "https://www.w3schools.com/tags/tag_img.asp",
-      "https://wiki.selfhtml.org/wiki/HTML/Elemente/img"
-    ],
   },
   {
     level: 3,
     title: "Lösung anzeigen",
-    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip3_loesung.md",
+    markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip_solution.md",
     contentIsMarkdown: true,
-    weblinks: [
-    ],
   },
 ]
 

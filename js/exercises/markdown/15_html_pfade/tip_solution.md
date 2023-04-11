@@ -3,3 +3,6 @@
 <img id="bild1" src="static/Boxmodell-detail.png" alt="Das CSS-Boxmodell">
 <img id="bild2" src="../img/00_tutorial-code-screenshot.png" alt="Screenshot vom Aufgabencode">
 ```
+
+## Weiterführende Informationen
+- []()

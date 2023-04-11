@@ -4,21 +4,15 @@ import { elAttributeValueRegex, elCheckAttributeValue, elChildElAttributeIs, elC
 let exerciseID = "16_html_medien";
 
 let instructions = {
-  content: "/js/exercises/markdown/16_html_medien/aufgabe_html_medien.md",
+  content: "/js/exercises/markdown/16_html_medien/description.md",
   isMarkdown: true
 }
 
 let infos = [
   {
     title: "Text",
-    markdown: "/js/exercises/markdown/16_html_medien/info_html_medien.md",
+    markdown: "/js/exercises/markdown/16_html_medien/info.md",
     contentIsMarkdown: true,
-    weblinks: [
-      "https://wiki.selfhtml.org/wiki/MIME-Type/Übersicht",
-      "https://www.w3schools.com/tags/tag_video.asp",
-      "https://www.w3schools.com/tags/tag_audio.asp",
-      "https://support.google.com/youtube/answer/171780?hl=de"
-    ],
   },
 ]
 
@@ -26,38 +20,26 @@ let tips = [
   {
     level: 1,
     title: "Video auf 100% Breite setzen",
-    markdown: "/js/exercises/markdown/16_html_medien/tip_video_breite.md",
+    markdown: "/js/exercises/markdown/16_html_medien/tip_1.md",
     contentIsMarkdown: true,
-    weblinks: [
-      "https://www.w3schools.com/tags/att_video_width.asp",
-    ],
   },
   {
     level: 1,
     title: "Steuerelemente wie Play/Pause anzeigen",
-    markdown: "/js/exercises/markdown/16_html_medien/tip_steuerelemente.md",
+    markdown: "/js/exercises/markdown/16_html_medien/tip_2.md",
     contentIsMarkdown: true,
-    weblinks: [
-      "https://www.w3schools.com/tags/att_controls.asp",
-    ],
   },
   {
     level: 2,
     title: "Benötigte relative Pfade",
-    markdown: "/js/exercises/markdown/16_html_medien/tip_pfade.md",
+    markdown: "/js/exercises/markdown/16_html_medien/tip_3.md",
     contentIsMarkdown: true,
-    weblinks: [
-      "https://www.akademie.de/de/wissen/html-lernen-1-grundlagen/relative-pfade",
-      "https://lehre.idh.uni-koeln.de/lehrveranstaltungen/wisem20/basissysteme-der-informationsverarbeitung-1-bsi-4/web-technologien/html-1/relative-vs-absolute-pfade/",
-    ],
   },
   {
     level: 3,
     title: "Lösung anzeigen",
-    markdown: "/js/exercises/markdown/16_html_medien/tip_loesung.md",
+    markdown: "/js/exercises/markdown/16_html_medien/tip_solution.md",
     contentIsMarkdown: true,
-    weblinks: [
-    ],
   },
 ]
 
