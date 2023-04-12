@@ -1,4 +1,4 @@
-# Pfadangaben
+# Info: HTML Links & Pfade
 Einige HTML-Elemente benötigen Ziele (z.B. href im a-Element) oder Quellen (z.B. src im img-Element). Diese können entweder eine URL (z.B. https://pmhs.de) sein, wenn das Element auf irgendeinem Webserver zugänglich ist, oft sind es aber HTML-Seiten, Bilder oder sonstige Elemente, die auf dem eigenen Server bzw. im eigenen Projektordner liegen. Um diese zu verlinken benötigt man **absolute** oder **relative** Pfade.
 
 ## Absolute Pfade

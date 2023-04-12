@@ -9,7 +9,6 @@ let instructions = {
 
 let infos = [
   {
-      title: "Video: HTML Listen",
       markdown: "/js/exercises/markdown/03_html_listen/info.md",
       contentIsMarkdown: true,
   },
@@ -17,13 +16,11 @@ let infos = [
 let tips = [
   {
       level: 1,
-      title: "Listen erstellen",
       markdown: "/js/exercises/markdown/03_html_listen/tip_1.md",
       contentIsMarkdown: true,
   },
   {
       level: 3,
-      title: "Lösung anzeigen",
       markdown: "/js/exercises/markdown/03_html_listen/tip_solution.md",
       contentIsMarkdown: true,
   }

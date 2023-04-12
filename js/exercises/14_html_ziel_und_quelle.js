@@ -10,7 +10,6 @@ let instructions = {
 
 let infos = [
   {
-    title: "Text",
     markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/info.md",
     contentIsMarkdown: true
   },
@@ -19,19 +18,16 @@ let infos = [
 let tips = [
   {
     level: 2,
-    title: "Tipp zum HTML Link",
     markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip_1.md",
     contentIsMarkdown: true,
   },
   {
     level: 2,
-    title: "Tipp zum HTML Bild",
     markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip_2.md",
     contentIsMarkdown: true,
   },
   {
     level: 3,
-    title: "Lösung anzeigen",
     markdown: "/js/exercises/markdown/14_html_ziel_und_quelle/tip_solution.md",
     contentIsMarkdown: true,
   },

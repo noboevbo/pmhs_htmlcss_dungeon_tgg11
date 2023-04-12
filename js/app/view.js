@@ -18,7 +18,7 @@ async function showPlayerName() {
 
 async function showPlayerGold() {
   let playerGold = await getPlayerGold();
-  console.log(`Show gold: ${playerGold}`);
+  console.debug(`Show gold: ${playerGold}`);
   playerGoldEl.innerText = `${playerGold}`;
 }
 

@@ -26,7 +26,7 @@ async function updateExerciseState(exerciseID, exerciseData) {
 
 function setLinkState(exerciseID, solved) {
   let linkNode = document.getElementById(exerciseID + "_link");
-  // console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${solved}`)
+  // console.debug(`Try get node: ${exerciseID}_link. Experiment solved: ${solved}`)
   let iconNode = linkNode.getElementsByTagName("i")[0];
   let stateSymbol = solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
   iconNode.className = stateSymbol;
@@ -118,7 +118,7 @@ function getRewardDelegate(exerciseID) {
 
 async function getReward(exerciseID) {
   let db = getDB();
-  console.log("Get Reward");
+  console.debug("Get Reward");
   db.get(exerciseID).then((exerciseState) => {
     if (!exerciseState.solved || exerciseState.rewardCollected) {
       return Promise.reject("Exercise not finished")
@@ -134,10 +134,10 @@ async function getReward(exerciseID) {
       updatePageVariables();
     })
     .then(() => {
-      console.log("Reward collected");
+      console.debug("Reward collected");
     })
     .catch((err) => {
-      console.log(`Reward collection rejected: ${err}`)
+      console.debug(`Reward collection rejected: ${err}`)
     });
 
 

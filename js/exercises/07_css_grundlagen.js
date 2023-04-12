@@ -17,13 +17,11 @@ let infos = [
 let tips = [
 {
     level: 1,
-    title: "Benötigte Styles",
     markdown: "/js/exercises/markdown/07_css_grundlagen/tip_1.md",
     contentIsMarkdown: true,
 },
 {
     level: 3,
-    title: "Lösung anzeigen",
     markdown: "/js/exercises/markdown/07_css_grundlagen/tip_solution.md",
     contentIsMarkdown: true,
 }

@@ -4,17 +4,15 @@ import {
     elWrongStyleValueMsg, elWrongTagMsg, globalVarDoesNotExistMsg, isGlobalNotLocalMsg, isNotConstMsg, localVarDoesNotExistMsg, logCallDoesNotExist, stringIsEmptyMsg, wrongTypeMsg, wrongValueMsg
 } from "./error_messages.js";
 
-// Replace console.log with stub implementation and add.
-window.console.stdlog = console.log.bind(console);
-window.console.log = function (txt) {
-    console.stdlog(txt);
-    let logcalls = JSON.parse(localStorage.getItem("logcalls"));
-    if (!logcalls) {
-        logcalls = [];
-    }
-    logcalls.push(txt);
-    localStorage.setItem("logcalls", JSON.stringify(logcalls));
-};
+
+// window.console.stdlog = console.log.bind(console);
+// window.console.logs = [];
+// window.console.log = function(){
+//     console.logs.push(Array.from(arguments));
+//     console.stdlog.apply(console, arguments);
+// }
+
+
 
 export function getFailResultObj(errorMessage) {
     return { result: false, errorMessage };
@@ -31,7 +29,11 @@ export function globalVarExists(globalVarName) {
     return getSuccessResultObj();
 }
 
+export function localVarError(varName) {
+    return getFailResultObj(localVarDoesNotExistMsg(varName));
+}
 export function localVarExists(variable, varName) {
+    console.warn(window[varName]);
     if (typeof window[varName] !== "undefined") {
         return getFailResultObj(isGlobalNotLocalMsg(varName));
     }
@@ -58,9 +60,15 @@ export function isNonEmptyString(variable, varName) {
     return getSuccessResultObj();
 }
 
-export function scriptIncludes(requiredText) {
-    let scriptEl = document.getElementById("exerciseScript");
+export function scriptIncludes(requiredText, tip=null, scriptID="exercise-script") {
+    let scriptEl = document.getElementById(scriptID);
+    if (!scriptEl) {
+        return getFailResultObj(elDoesNotExistMsg(scriptID));
+    }
     if (!scriptEl.innerText.includes(requiredText)) {
+        if (tip) {
+            return getFailResultObj(`Dein Script enthält kein ${tip}!`);
+        }
         return getFailResultObj(`Dein Script enthält kein ${requiredText}!`);
     }
     return getSuccessResultObj();
@@ -85,6 +93,7 @@ export function isType(variable, varName, typeName) {
 }
 
 export function consoleContains(strValue) {
+    window.console.debug(console.logs);
     let lcalls = JSON.parse(localStorage.getItem("logcalls"));
     for (let c in lcalls) {
         if (c.includes(strValue)) {
@@ -124,6 +133,7 @@ export class NavListItem {
         this.innerText = innerText;
     }
 }
+
 export function navListContainsElements(el, listElId, navListItems) {
     // let el = document.getElementById(listElId);
     if (!el) {
@@ -140,7 +150,7 @@ export function navListContainsElements(el, listElId, navListItems) {
     for (let i = 0; i < navListItems.length; i++) {
         let target = navListItems[i];
         let child = children[i].children[0];
-        console.log(child);
+        console.trace(child);
         if (child == undefined || child.tagName !== "A") {
             return getFailResultObj(
                 `Das ${i}te ListItem der Liste ${listElId} enthält keinen Link.`
@@ -483,7 +493,7 @@ function getAllCSSRules() {
                     .map((rule) => rule.cssText)
                     .join("");
             } catch (e) {
-                console.log(
+                console.debug(
                     "Access to stylesheet %s is denied. Ignoring...",
                     styleSheet.href
                 );
@@ -495,7 +505,7 @@ function getAllCSSRules() {
 
 export function cssContains(requiredText) {
     let scriptEl = document.getElementById("meinStyle");
-    console.log(scriptEl);
+    console.debug(scriptEl);
     if (
         !scriptEl.innerText.toUpperCase().includes(requiredText.toUpperCase())
     ) {
@@ -518,9 +528,9 @@ export function checkMediaQueries(
     let styleSheet = styleSheets[0];
     let corrects = Array(conditionTexts.length).fill(false);
     for (let ruleNum = 0; ruleNum < styleSheet.cssRules.length; ruleNum++) {
-        console.log(styleSheet);
+        console.debug(styleSheet);
         let rule = styleSheet.cssRules[ruleNum];
-        console.log(rule.constructor.name);
+        console.debug(rule.constructor.name);
         if (rule.constructor.name === "CSSMediaRule") {
             let returnValues = checkMediaRule(
                 rule,
@@ -530,7 +540,7 @@ export function checkMediaQueries(
                 Array(conditionTexts.length).fill(false),
                 0
             );
-            console.log(returnValues);
+            console.debug(returnValues);
             for (let i = 0; i < corrects.length; i++) {
                 if (returnValues[i] && !corrects[i]) {
                     corrects[i] = true;
@@ -540,7 +550,7 @@ export function checkMediaQueries(
     }
     for (let i = 0; i < corrects.length; i++) {
         if (!corrects[i]) {
-            console.log(corrects);
+            console.debug(corrects);
             return getFailResultObj(
                 `Media Query oder Style für ${selektor} (${conditionTexts[i]}) nicht korrekt.`
             );
@@ -557,14 +567,14 @@ function checkMediaRule(
     returnValues,
     currentDepth
 ) {
-    console.log(`Current Depth: ${currentDepth}`);
+    console.debug(`Current Depth: ${currentDepth}`);
     if (rule.conditionText !== conditionTexts[currentDepth]) {
-        console.log(
+        console.debug(
             `Ist: ${rule.conditionText}; Soll: ${conditionTexts[currentDepth]};`
         );
         return returnValues;
     }
-    console.log("Check subrules");
+    console.debug("Check subrules");
     for (let ruleNum = 0; ruleNum < rule.cssRules.length; ruleNum++) {
         let childRule = rule.cssRules[ruleNum];
         if (childRule.constructor.name === "CSSMediaRule") {
@@ -609,9 +619,9 @@ function checkCSSStyleRule(rule, selector, values) {
 }
 
 export function elHasCSSClass(elName, className) {
-    console.log(elName)
+    console.debug(elName)
     let el = document.getElementById(elName);
-    console.log(el)
+    console.debug(el)
     if (!el) {
         return getFailResultObj(
             `Der HTML-Element <em>${elName}</em> existiert nicht!`
@@ -620,8 +630,8 @@ export function elHasCSSClass(elName, className) {
     if (el && el.classList.contains(className)) {
         return getSuccessResultObj();
     }
-    console.log(el);
-    console.log(el.classList);
+    console.debug(el);
+    console.debug(el.classList);
     return getFailResultObj(
         `Das Element <em>${elName}</em> nutzt nicht die CSS Klasse <em>${className}</em>!`
     );
@@ -629,13 +639,13 @@ export function elHasCSSClass(elName, className) {
 
 export function hasSelectorStyleValue(selectorName, styleName, styleValue) {
     let styleSheets = document.styleSheets;
-    console.log(styleSheets);
+    console.debug(styleSheets);
     for (let i = 0; i < styleSheets.length; i++) {
         let styleSheet = styleSheets[0];
         for (let ruleNum = 0; ruleNum < styleSheet.cssRules.length; ruleNum++) {
             let rule = styleSheet.cssRules[ruleNum];
             if (rule.selectorText.includes(selectorName)) {
-                console.log(rule);
+                console.debug(rule);
                 if (rule.style[styleName] === styleValue) {
                     return getSuccessResultObj();
                 }
@@ -667,7 +677,7 @@ export function elHasCorrectStyleValue(el, elName, styleName, styleValue, round=
     }
     let compStyles = window.getComputedStyle(el);
     let currentValue = compStyles.getPropertyValue(styleName);
-    console.log(`${styleName} Ist: ${currentValue} / Soll: ${styleValue}`);
+    console.debug(`${styleName} Ist: ${currentValue} / Soll: ${styleValue}`);
     let success = false
     if (round != null) {
         success = parseFloat(currentValue).toFixed(round) === parseFloat(styleValue).toFixed(round);
@@ -744,7 +754,7 @@ export function listHasMinElements(elName, numElements) {
 
 export function checkHorizontalDistanceBetweenElementsBetween(elName1, elName2, targetDistanceFrom, targetDistanceTo, decimals=0) {
     const distance = getHorizontalDistanceBetweenElements(elName1, elName2).toFixed(decimals);
-    console.log(`Distanz Ist: ${distance} / Soll: ${targetDistanceFrom} - ${targetDistanceTo}`);
+    console.debug(`Distanz Ist: ${distance} / Soll: ${targetDistanceFrom} - ${targetDistanceTo}`);
     if (distance >= targetDistanceFrom.toFixed(decimals) && distance <= targetDistanceTo.toFixed(decimals)) {
         return getSuccessResultObj();
     }
@@ -753,7 +763,7 @@ export function checkHorizontalDistanceBetweenElementsBetween(elName1, elName2, 
 
 export function checkHorizontalDistanceBetweenElements(elName1, elName2, targetDistance, decimals=0) {
     const distance = getHorizontalDistanceBetweenElements(elName1, elName2).toFixed(decimals);
-    console.log(`Distanz Ist: ${distance} / Soll: ${targetDistance}`);
+    console.debug(`Distanz Ist: ${distance} / Soll: ${targetDistance}`);
     if (distance === targetDistance.toFixed(decimals)) {
         return getSuccessResultObj();
     }
@@ -790,7 +800,7 @@ export function getVerticalDistanceBetweenElements(elName1, elName2) {
 
 export function checkVerticalDistanceBetweenElements(elName1, elName2, targetDistance, decimals=0) {
     const distance = getVerticalDistanceBetweenElements(elName1, elName2).toFixed(decimals);
-    console.log(`Distanz Ist: ${distance} / Soll: ${targetDistance}`);
+    console.debug(`Distanz Ist: ${distance} / Soll: ${targetDistance}`);
     if (distance === targetDistance.toFixed(decimals)) {
         return getSuccessResultObj();
     }

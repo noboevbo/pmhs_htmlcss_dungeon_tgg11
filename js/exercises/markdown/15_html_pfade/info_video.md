@@ -1,4 +1,4 @@
-# Info: Der CSS Typselektor
+# Video: HTML Links & Pfade
 <iframe title="Einführung HTML: Links &amp; Pfade" width="560" height="315" src="https://zumvideo.de/videos/embed/cf561dda-b43c-438c-9ab9-0aff60132859" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
 
 ## Weiterführende Informationen

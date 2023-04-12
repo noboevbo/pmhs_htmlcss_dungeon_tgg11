@@ -16,19 +16,16 @@ let infos = [
 let tips = [
   {
       level: 1,
-      title: "Formulare: Aufbau",
       markdown: "/js/exercises/markdown/05_html_formulare/tip_1.md",
       contentIsMarkdown: true,
   },
   {
     level: 2,
-    title: "Formulare: Art der Eingabefelder",
     markdown: "/js/exercises/markdown/05_html_formulare/tip_2.md",
     contentIsMarkdown: true,
 },
   {
       level: 3,
-      title: "Lösung anzeigen",
       markdown: "/js/exercises/markdown/05_html_formulare/tip_solution.md",
       contentIsMarkdown: true,
   }

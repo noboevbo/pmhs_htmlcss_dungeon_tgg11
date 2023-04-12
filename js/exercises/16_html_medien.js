@@ -10,7 +10,6 @@ let instructions = {
 
 let infos = [
   {
-    title: "Text",
     markdown: "/js/exercises/markdown/16_html_medien/info.md",
     contentIsMarkdown: true,
   },
@@ -19,25 +18,21 @@ let infos = [
 let tips = [
   {
     level: 1,
-    title: "Video auf 100% Breite setzen",
     markdown: "/js/exercises/markdown/16_html_medien/tip_1.md",
     contentIsMarkdown: true,
   },
   {
     level: 1,
-    title: "Steuerelemente wie Play/Pause anzeigen",
     markdown: "/js/exercises/markdown/16_html_medien/tip_2.md",
     contentIsMarkdown: true,
   },
   {
     level: 2,
-    title: "Benötigte relative Pfade",
     markdown: "/js/exercises/markdown/16_html_medien/tip_3.md",
     contentIsMarkdown: true,
   },
   {
     level: 3,
-    title: "Lösung anzeigen",
     markdown: "/js/exercises/markdown/16_html_medien/tip_solution.md",
     contentIsMarkdown: true,
   },

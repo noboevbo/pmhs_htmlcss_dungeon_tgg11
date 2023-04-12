@@ -12,12 +12,10 @@ let instructions = {
   
 let infos = [
 {
-    title: "Text: CSS Typselektor",
     markdown: "/js/exercises/markdown/08_css_typ-selektor/info.md",
     contentIsMarkdown: true,
 },
 {
-    title: "Video: CSS Typselektor",
     markdown: "/js/exercises/markdown/08_css_typ-selektor/info_video.md",
     contentIsMarkdown: true,
 },
@@ -26,13 +24,11 @@ let infos = [
 let tips = [
 {
     level: 1,
-    title: "Benötigte Selektoren & Styles",
     markdown: "/js/exercises/markdown/08_css_typ-selektor/tip_1.md",
     contentIsMarkdown: true,
 },
 {
     level: 3,
-    title: "Lösung anzeigen",
     markdown: "/js/exercises/markdown/08_css_typ-selektor/tip_solution.md",
     contentIsMarkdown: true,
 }

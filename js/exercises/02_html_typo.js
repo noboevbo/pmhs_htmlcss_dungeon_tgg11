@@ -16,19 +16,16 @@ let infos = [
 let tips = [
   {
       level: 1,
-      title: "Texte im Paragraphen markieren",
       markdown: "/js/exercises/markdown/02_html_typo/tip_1.md",
       contentIsMarkdown: true,
   },
   {
       level: 2,
-      title: "IDs einfügen",
       markdown: "/js/exercises/markdown/02_html_typo/tip_2.md",
       contentIsMarkdown: true,
   },
   {
       level: 3,
-      title: "Lösung anzeigen",
       markdown: "/js/exercises/markdown/02_html_typo/tip_solution.md",
       contentIsMarkdown: true,
   }

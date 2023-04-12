@@ -2,7 +2,7 @@ import { getEmptyExerciseStateMessage, getEmptyInitInfosMessage, getEmptyInitIns
 
 class Exercise {
   constructor(exerciseID, instructions, infos, tips, validationFuncs) {
-    console.log(`Setup exercise ${exerciseID}`);
+    console.debug(`Setup exercise ${exerciseID}`);
     this.exerciseID = exerciseID
     this.instructions = this.getInstructions(instructions);
     this.infos = infos;
@@ -12,16 +12,16 @@ class Exercise {
 
   getInstructions(instructions) {
     // If instructions are a direct string, pack them into an object
-    // console.log("Hello");
+    // console.debug("Hello");
     if (typeof (instructions) === "string") {
-      console.log("Hello");
+      console.debug("Hello");
       return { content: instructions };
     }
     return instructions;
   }
 
   init() {
-    console.log(`Initialize exercise ${this.exerciseID}`);
+    console.debug(`Initialize exercise ${this.exerciseID}`);
     window.parent.postMessage(this.getInstructionsMsg(), window.origin);
     window.parent.postMessage(this.getInfosMsg(), window.origin);
     window.parent.postMessage(this.getTipsMsg(), window.origin);
@@ -67,7 +67,7 @@ class Exercise {
         }
       } catch (e) {
         finalResult = false;
-        console.log(e);
+        console.debug(e);
         // errorMessages.push(e);
       }
     }

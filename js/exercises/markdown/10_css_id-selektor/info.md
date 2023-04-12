@@ -1,4 +1,4 @@
-# ID-Selektor
+# Info: ID-Selektor
 
 Der ID-Selektor kann verwendet werden um ein bestimmtes Element anhand seiner **id** auszuwählen.
 

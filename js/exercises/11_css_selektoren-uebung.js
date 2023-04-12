@@ -17,19 +17,16 @@ let infos = [
 let tips = [
 {
     level: 1,
-    title: "Benötigte Selektoren & Styles",
     markdown: "/js/exercises/markdown/11_css_selektoren-uebung/tip_1.md",
     contentIsMarkdown: true,
 },
 {
     level: 2,
-    title: "Mehrere Elemente auswählen",
     markdown: "/js/exercises/markdown/11_css_selektoren-uebung/tip_2.md",
     contentIsMarkdown: true,
 },
 {
     level: 3,
-    title: "Lösung anzeigen",
     markdown: "/js/exercises/markdown/11_css_selektoren-uebung/tip_solution.md",
     contentIsMarkdown: true,
 }

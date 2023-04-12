@@ -24,20 +24,17 @@ let infos = [
 let tips = [
   {
     level: 1,
-    title: "Link in neuem Tab öffnen",
     markdown: "/js/exercises/markdown/15_html_pfade/tip_1.md",
     contentIsMarkdown: true
   },
   {
     level: 2,
-    title: "Benötigte Pfade",
     markdown: "/js/exercises/markdown/15_html_pfade/tip_2.md",
     contentIsMarkdown: true,
   },
 
   {
     level: 3,
-    title: "Lösung anzeigen",
     markdown: "/js/exercises/markdown/15_html_pfade/tip_solution.md",
     contentIsMarkdown: true,
   },

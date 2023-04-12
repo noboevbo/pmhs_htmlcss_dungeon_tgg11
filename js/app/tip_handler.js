@@ -1,4 +1,5 @@
 import { closeDialogOnOutsideClick } from "../core/helper.js";
+import { getTitleAndContentFromMarkdown } from "../core/markdown_helper.js";
 import {
     dialogWrapperEl,
     exerciseTipListEl
@@ -13,14 +14,10 @@ import {
 
 var currentTips = []
 var currentTipNodes = []
-var converter = new showdown.Converter({
-    openLinksInNewWindow: true,
-    parseImgDimensions: true,
-});
 
 async function setTips(initTipMsg) {
-    console.log("setTips");
-    console.log(initTipMsg);
+    console.debug("setTips");
+    console.debug(initTipMsg);
     let db = getDB();
 
     let exerciseID = initTipMsg.exerciseID;
@@ -35,7 +32,7 @@ async function setTips(initTipMsg) {
     let exerciseState = await db.get(exerciseID);
 
     for (let i = 0; i < tips.length; i++) {
-        let tip = tips[i]
+        let tip = await getTitleAndContentFromMarkdown(tips[i])
         let isPurchased = await tipIsPurchased(exerciseID, exerciseState, i);
         let aNode = getTipButtonElement(exerciseID, i, getTipPrice(tip.level), tip.title)
         let dialog = await getTipDialogElement(exerciseID, i, tip);
@@ -88,14 +85,7 @@ async function getTipDialogElement(exerciseID, tipID, tip) {
     formEl.appendChild(titleEl);
     const contentEl = document.createElement("p");
 
-    if (tip.contentIsMarkdown) {
-        let data = await fetch(tip.markdown)
-            .then(response => response.text())
-        // console.log("Loaded markdown");
-        // console.log(data);
-        contentEl.innerHTML = converter.makeHtml(data);
-    }
-    else if (tip.contentIsHTML) {
+    if (tip.contentIsHTML) {
         contentEl.innerHTML = tip.content;
     } else {
         contentEl.innerText = tip.content;

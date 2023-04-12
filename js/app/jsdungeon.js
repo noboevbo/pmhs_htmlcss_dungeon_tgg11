@@ -15,7 +15,7 @@ const emptyExerciseState = { type: "exerciseState", solved: false, rewardCollect
 var db = getDB();
 
 async function init() {
-    console.log("Initialize Dungeon");
+    console.debug("Initialize Dungeon");
     await initializeDatabase(exercises);
     await initializeAppData();
     await updatePageVariables();
@@ -35,7 +35,7 @@ async function initializeDatabase(exercises) {
         try {
             exercise.state = await db.get(exercise.id);
         } catch {
-            console.log(`Initialize DB entry for exercise ${exercise.id}`)
+            console.debug(`Initialize DB entry for exercise ${exercise.id}`)
             let state = Object.assign({}, emptyExerciseState);
             state.exerciseNum = i;
             state.level = exercise.level;
@@ -84,19 +84,19 @@ async function updateExerciseLinks() {
 
 function setLinkState(exerciseID, exerciseState) {
     let linkNode = document.getElementById(exerciseID + "_link");
-    console.log(`Try get node: ${exerciseID}_link. Experiment solved: ${exerciseState.solved}`)
+    console.debug(`Try get node: ${exerciseID}_link. Experiment solved: ${exerciseState.solved}`)
     let iconNode = linkNode.getElementsByTagName("i")[0];
     let stateSymbol = exerciseState.solved ? "nes-icon trophy is-small" : "nes-icon close is-small";
     iconNode.className = stateSymbol;
 }
 
 async function initializeActiveExercise() {
-    console.log("Search for active exerise.")
+    console.debug("Search for active exerise.")
     let appData = await getAppData();
     let selectedExercise = appData.selectedExercise
-    console.log(appData);
+    console.debug(appData);
     if (selectedExercise !== null && exercises.length >= selectedExercise) {
-        console.log("Active exercise found.")
+        console.debug("Active exercise found.")
         await setActiveExercise(exercises[selectedExercise]);
     }
 }
@@ -122,11 +122,11 @@ function generateReport() {
         }
     })
         .then((result) => {
-            console.log("Start result generation");
-            console.log(result);
+            console.debug("Start result generation");
+            console.debug(result);
             saveReport(result.docs);
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.debug(err))
 }
 window.generateReport = generateReport;
 
@@ -147,7 +147,7 @@ async function saveReport(exerciseStates) {
 }
 
 function initiateFileDownload(fileContent, fileName) {
-    console.log(fileContent);
+    console.debug(fileContent);
     var encodedUri = encodeURI(fileContent);
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
@@ -164,7 +164,7 @@ function saveToFile() {
             let saveGame = "data:text/text;charset=utf-8," + btoa(JSON.stringify(docs.rows.map(({ doc }) => doc)))
             initiateFileDownload(saveGame, `dungeon_savegame_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}.txt`);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.debug(err));
 }
 window.saveToFile = saveToFile;
 
@@ -177,21 +177,21 @@ function loadHandler(e) {
             // If dropped items aren't files, reject them
             if (e.dataTransfer.items[i].kind === 'file') {
                 var file = e.dataTransfer.items[i].getAsFile();
-                console.log('... file[' + i + '].name = ' + file.name);
+                console.debug('... file[' + i + '].name = ' + file.name);
                 files.push(file);
             }
         }
     } else {
         // Use DataTransfer interface to access the file(s)
         for (var i = 0; i < e.dataTransfer.files.length; i++) {
-            console.log('... file[' + i + '].name = ' + e.dataTransfer.files[i].name);
+            console.debug('... file[' + i + '].name = ' + e.dataTransfer.files[i].name);
             files.push(file);
         }
     }
 
-    console.log(files);
+    console.debug(files);
     if (files.length !== 1) {
-        console.log("Expected one pmhs[...].txt file, got f{files.length}! Aborting.");
+        console.debug("Expected one pmhs[...].txt file, got f{files.length}! Aborting.");
         return;
     }
     resetDB().then((newDb) => {
@@ -204,9 +204,9 @@ function loadHandler(e) {
         .then(() => initializeAppData())
         .then(() => updatePageVariables())
         .then(() => updateExerciseLinks())
-        .then(() => console.log("Successfully loaded"))
+        .then(() => console.debug("Successfully loaded"))
         .then(() => loadModalEl.close())
-        .catch((err) => console.log(err));
+        .catch((err) => console.debug(err));
 }
 window.loadHandler = loadHandler
 
@@ -228,7 +228,7 @@ window.dragEnterHandler = dragEnterHandler;
 window.dragLeaveHandler = dragLeaveHandler;
 
 function readFile(file) {
-    console.log(file);
+    console.debug(file);
     return new Promise((resolve, reject) => {
         var reader = new FileReader();
         reader.onload = () => {

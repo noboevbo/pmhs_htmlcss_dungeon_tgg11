@@ -2,7 +2,8 @@ export const globalVarDoesNotExistMsg = (varName) => { return `Die globale Varia
 export const localVarDoesNotExistMsg = (varName) => { return `Die lokale Variable <i>${varName}</i> existiert nicht!` };
 export const isGlobalNotLocalMsg = (varName) => { return `Die Variable <i>${varName}</i> ist global, nicht lokal angelegt!` };
 export const isLocalNotGlobalMsg = (varName) => { return `Die Variable <i>${varName}</i> ist lokal, nicht global angelegt!` };
-export const wrongValueMsg = (varName, val) => { return `Der Wert von Variable <i>${varName}</i> ist nicht <i>${val}</i>!` };
+// export const wrongValueMsg = (varName, val) => { return `Der Wert von Variable <i>${varName}</i> ist nicht <i>${val}</i>!` };
+export const wrongValueMsg = (varName, val) => { return `Der Wert von Variable <i>${varName}</i> stimmt nicht!` };
 export const isNotConstMsg = (varName) => { return `Die Variable <i>${varName}</i> ist nicht als Konstante angelegt!` };
 export const wrongTypeMsg = (varName, requiredType) => { return `Die Variable <i>${varName}</i> ist nicht vom Typ <i>${requiredType}</i>!` };
 export const stringIsEmptyMsg = (varName) => { return `Die Variable <i>${varName}</i> vom Typ String hat keinen Inhalt!` };

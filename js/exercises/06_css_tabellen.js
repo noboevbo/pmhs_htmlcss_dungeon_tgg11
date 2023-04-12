@@ -12,7 +12,6 @@ let instructions = {
   
 let infos = [
 {
-    title: "Text: CSS Tabellen",
     markdown: "/js/exercises/markdown/06_css_tabellen/info.md",
     contentIsMarkdown: true,
 },
@@ -21,13 +20,11 @@ let infos = [
 let tips = [
 {
     level: 1,
-    title: "Formulare: Aufbau",
     markdown: "/js/exercises/markdown/06_css_tabellen/tip_1.md",
     contentIsMarkdown: true,
 },
 {
     level: 3,
-    title: "Lösung anzeigen",
     markdown: "/js/exercises/markdown/06_css_tabellen/tip_solution.md",
     contentIsMarkdown: true,
 }

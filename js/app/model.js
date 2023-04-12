@@ -39,8 +39,8 @@ async function getPlayerGold() {
 }
 
 async function updatePlayerGold(amount) {
-  console.log("Update appdata");
-  console.log(appData);
+  console.debug("Update appdata");
+  console.debug(appData);
   appData.playerGold += amount;
   appData = await createOrUpdate(appData);
 }
@@ -59,7 +59,7 @@ async function getOrCreate(id, defaultObject) {
   try {
     return await db.get(id);
   } catch {
-    console.log(`GetCreate: Create ${id}`);
+    console.debug(`GetCreate: Create ${id}`);
     defaultObject._id = id;
     return await createOrUpdate(defaultObject)
   }

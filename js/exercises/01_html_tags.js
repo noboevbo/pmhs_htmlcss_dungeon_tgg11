@@ -11,7 +11,6 @@ let instructions = {
 
 let infos = [
   {
-      title: "Video: HTML Elemente, Tags & Attribute",
       markdown: "/js/exercises/markdown/01_html_tags/info.md",
       contentIsMarkdown: true,
   },
@@ -20,19 +19,16 @@ let infos = [
 let tips = [
   {
       level: 1,
-      title: "Überschrift / Paragraphen erstellen",
       markdown: "/js/exercises/markdown/01_html_tags/tip_1.md",
       contentIsMarkdown: true,
   },
   {
       level: 2,
-      title: "IDs einfügen",
       markdown: "/js/exercises/markdown/01_html_tags/tip_2.md",
       contentIsMarkdown: true,
   },
   {
       level: 3,
-      title: "Lösung anzeigen",
       markdown: "/js/exercises/markdown/01_html_tags/tip_solution.md",
       contentIsMarkdown: true,
   }

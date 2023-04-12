@@ -1,4 +1,4 @@
-# Links
+# Info: HTML Links
 HTML Links werden über das a-Element (anchor) erstellt. Dieses benötigt das Attribut **href**, in dem das Ziel (z.B. eine URL oder ein Dateipfad) angegeben wird. Der Inhalt des Elements ist dann der Text, der auf der Website angezeigt werden soll. 
 
 ## Beispiel

@@ -16,25 +16,21 @@ let infos = [
 let tips = [
     {
         level: 1,
-        title: "Typselektoren",
         markdown: "/js/exercises/markdown/12_css_navbar/tip_1.md",
         contentIsMarkdown: true,
     },
     {
         level: 1,
-        title: "Selektoren kombinieren",
         markdown: "/js/exercises/markdown/12_css_navbar/tip_2.md",
         contentIsMarkdown: true,
     },
     {
         level: 2,
-        title: "Benötigte Selektoren & Styles",
         markdown: "/js/exercises/markdown/12_css_navbar/tip_3.md",
         contentIsMarkdown: true,
     },
     {
         level: 3,
-        title: "Lösung anzeigen",
         markdown: "/js/exercises/markdown/12_css_navbar/tip_solution.md",
         contentIsMarkdown: true,
     }

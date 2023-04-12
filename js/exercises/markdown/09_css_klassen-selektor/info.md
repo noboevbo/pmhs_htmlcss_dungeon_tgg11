@@ -1,4 +1,4 @@
-# Klassenselektoren
+# Info: Klassenselektoren
 
 Der Klassenselektor kann verwendet werden um bestimmte Elemente anhand ihrer Klassennamen im **class**-Attribut auszuwählen.
 

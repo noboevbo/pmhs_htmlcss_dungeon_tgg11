@@ -10,7 +10,6 @@ let instructions = {
 
 let infos = [
   {
-      title: "Video: HTML Tabellen",
       markdown: "/js/exercises/markdown/04_html_tabellen/info.md",
       contentIsMarkdown: true,
   },
@@ -18,13 +17,11 @@ let infos = [
 let tips = [
   {
       level: 1,
-      title: "Aufbau von Tabellen",
       markdown: "/js/exercises/markdown/04_html_tabellen/tip_1.md",
       contentIsMarkdown: true,
   },
   {
       level: 3,
-      title: "Lösung anzeigen",
       markdown: "/js/exercises/markdown/04_html_tabellen/tip_solution.md",
       contentIsMarkdown: true,
   }

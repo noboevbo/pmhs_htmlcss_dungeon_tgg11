@@ -1,4 +1,4 @@
-# Typselektoren
+# Info: Typselektoren
 
 Selektoren werden in CSS benötigt um bestimmte HTML-Elemente auszuwählen, die dann über CSS-Regeln gestaltet (gestylt) werden sollen.
 

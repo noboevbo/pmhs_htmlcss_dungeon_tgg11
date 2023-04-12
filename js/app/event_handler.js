@@ -15,10 +15,10 @@ var converter = new showdown.Converter({
 
 async function exerciseMessageHandler(event) {
   if (event.origin !== window.origin) {
-    console.log(`Message from origin: ${event.origin} but window is ${window.origin} - abort!`);
+    console.debug(`Message from origin: ${event.origin} but window is ${window.origin} - abort!`);
     return;
   }
-  console.log("Got message")
+  console.debug("Got message")
   let msg = event.data;
   switch (msg.subject) {
     case "initInstructions":
@@ -38,7 +38,7 @@ async function exerciseMessageHandler(event) {
       await updatePageVariables();
       break;
     default:
-      console.log(`Received msg with unknown subject: ${msg.subject}`);
+      console.debug(`Received msg with unknown subject: ${msg.subject}`);
       break;
   }
 }
@@ -47,8 +47,8 @@ async function setInstructions(instructionData) {
   if (instructionData.isMarkdown) {
     let data = await fetch(instructionData.content)
       .then(response => response.text())
-    // console.log("Loaded markdown");
-    // console.log(data);
+    // console.debug("Loaded markdown");
+    // console.debug(data);
     selectedExerciseInstructionsEl.innerHTML = converter.makeHtml(data);
     return
   }

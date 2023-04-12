@@ -1,14 +1,11 @@
 import { closeDialogOnOutsideClick } from "../core/helper.js";
+import { getMdTitle, getTitleAndContentFromMarkdown } from "../core/markdown_helper.js";
 import {
     exerciseInfoListEl, infoDialogWrapperEl
 } from "./dom_selectors.js";
 
 var currentInfos = []
 var currentInfoNodes = []
-var converter = new showdown.Converter({
-    openLinksInNewWindow: true,
-    parseImgDimensions: true,
-});
 
 async function setInfos(initInfosMsg) {
     let infos = initInfosMsg.content;
@@ -17,7 +14,7 @@ async function setInfos(initInfosMsg) {
     infoDialogWrapperEl.innerHTML = ""; // Reset dialogs
     exerciseInfoListEl.innerHTML = "";
     for (let i = 0; i < infos.length; i++) {
-        let info = infos[i];
+        let info = await getTitleAndContentFromMarkdown(infos[i]);
         let id = `info-${i}`;
         let aNode = getInfoButtonElement(id, info.title)
         let dialog = await getInfoDialogElement(id, info);
@@ -25,7 +22,7 @@ async function setInfos(initInfosMsg) {
         exerciseInfoListEl.appendChild(aNode.buttonEl);
         currentInfoNodes.push(aNode);
     }
-    console.log("Load infos");
+    console.debug("Load infos");
     await Prism.highlightAllUnder(infoDialogWrapperEl);
 }
 
@@ -36,7 +33,7 @@ function getInfoButtonElement(infoID, infoTitle) {
     buttonEl.className = "nes-btn is-primary tooltip";
     buttonEl.setAttribute("onclick", `document.getElementById('dialog-info${infoID}').showModal();`);
     const buttonTextEl = document.createElement("span");
-    buttonTextEl.innerHTML = `Info: ${infoTitle}`;
+    buttonTextEl.innerHTML = `${infoTitle}`;
     buttonEl.appendChild(buttonTextEl);
     return {
         buttonEl,
@@ -56,14 +53,7 @@ async function getInfoDialogElement(infoID, info) {
     titleEl.innerText = `Info`;
     formEl.appendChild(titleEl);
     const contentEl = document.createElement("p");
-    if (info.contentIsMarkdown) {
-        let data = await fetch(info.markdown)
-            .then(response => response.text())
-        // console.log("Loaded markdown");
-        // console.log(data);
-        contentEl.innerHTML = converter.makeHtml(data);
-    }
-    else if (info.contentIsHTML) {
+    if (info.contentIsHTML) {
         contentEl.innerHTML = info.content;
     } else {
         contentEl.innerText = info.content;

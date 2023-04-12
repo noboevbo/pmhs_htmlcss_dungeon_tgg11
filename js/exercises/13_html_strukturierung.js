@@ -11,7 +11,6 @@ let instructions = {
 
 let infos = [
     {
-        title: "Text: HTML5 Strukturelemente",
         markdown: "/js/exercises/markdown/13_html_strukturierung/info.md",
         contentIsMarkdown: true,
     },
@@ -20,13 +19,11 @@ let infos = [
     let tips = [
     {
         level: 1,
-        title: "Benötigte Elemente",
         markdown: "/js/exercises/markdown/13_html_strukturierung/tip_1.md",
         contentIsMarkdown: true,
     },
     {
         level: 3,
-        title: "Lösung anzeigen",
         markdown: "/js/exercises/markdown/13_html_strukturierung/tip_solution.md",
         contentIsMarkdown: true,
     }

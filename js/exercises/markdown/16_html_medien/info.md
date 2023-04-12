@@ -1,4 +1,6 @@
-# Videodateien einbinden
+# Info: Video- und Audiodateien einbinden
+
+## Videodateien einbinden
 Videodateien können über das **video**-Element eingebunden werden. Dieses hat dann ein oder mehrere **source**-Kindelemente. Ein Beispiel wäre:
 
 ```html
@@ -23,7 +25,7 @@ Das video-Element im Beispiel hat noch folgende Attribute:
 
 **Wichtig**: Ein video-Element kann mehrere source-Kindelemente haben, das bedeutet **nicht**, dass mehrere Videos angezeigt werden, hierbei handelt es sich um alternativen des selben Videos, z.B. in unterschiedlichen Formaten, falls ein bestimmtes Format vom Browser nicht unterstützt wird. Der Browser zeigt nur das erste unterstützte Video an!
 
-# Audiodateien einbinden
+## Audiodateien einbinden
 Audiodateien können wie Videodateien eingebunden werden, nur wird stattdessen das **audio**-Element benötigt. Beispiel:
 
 ```html
@@ -35,7 +37,7 @@ Audiodateien können wie Videodateien eingebunden werden, nur wird stattdessen d
 ```
 
 
-# Externe Inhalte (z.B. YouTube) einbinden
+## Externe Inhalte (z.B. YouTube) einbinden
 Externe Inhalte (wie z.B. von YouTube) können über iframes eingebunden werden. Anbieter wie YouTube haben dafür schon vorgefertigten Code, den man dort z.B. über das Teilen Menü erreichen kann.
 
 ![Beispiel wie man an den iframe Code für YouTube Videos kommt](/img/yt_einbetten.png)
