@@ -1,5 +1,5 @@
 # Video: HTML Links & Pfade
-<iframe title="Einführung HTML: Links &amp; Pfade" width="560" height="315" src="https://zumvideo.de/videos/embed/cf561dda-b43c-438c-9ab9-0aff60132859" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DHX4U4oKSLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Weiterführende Informationen
 - [https://lehre.idh.uni-koeln.de/lehrveranstaltungen/wisem20/basissysteme-der-informationsverarbeitung-1-bsi-4/web-technologien/html-1/relative-vs-absolute-pfade/](https://lehre.idh.uni-koeln.de/lehrveranstaltungen/wisem20/basissysteme-der-informationsverarbeitung-1-bsi-4/web-technologien/html-1/relative-vs-absolute-pfade/)

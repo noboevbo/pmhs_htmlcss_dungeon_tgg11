@@ -1,5 +1,5 @@
 # Video: Der CSS Typselektor
-<iframe title="CSS Selektoren 02: Klassenselektor (Tabellenbeispiel)" width="560" height="315" src="https://zumvideo.de/videos/embed/ca5dfee2-d7da-4bac-8d34-8104cd8f3fa7" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HLcfrGFKg2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Weiterführende Informationen
 - [https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor](https://wiki.selfhtml.org/wiki/CSS/Selektoren/Klassenselektor)
